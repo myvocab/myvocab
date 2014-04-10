@@ -206,7 +206,7 @@ if (nday==0)
 {
     
 nh=Math.floor((Date.parse(nowdate)/1000-UnixLD[id])/3600);
- if (nh<11){HL=0;};
+ if (nh<12){HL=0;};
 nmin=Math.floor(((Date.parse(nowdate)/1000-UnixLD[id])%3600)/60);
    if (nmin<10)
 {document.getElementById('passTime').value = "прошло "+ nh+"ч:0" +nmin+"мин";}

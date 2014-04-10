@@ -16,5 +16,13 @@ git push -u myvocab master
 
 git clone git://github.com/schacon/grit.git
 
+
+git reset --hard <sha1-commit-id>
+git reset --hard 798aa14e2d8e72e7cb6f57379b89fde72b62396e
+
+git push origin HEAD --force
+798aa14e2d8e72e7cb6f57379b89fde72b62396e
+
+
 gitk
 myvocab_yii
