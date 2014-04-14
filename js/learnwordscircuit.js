@@ -200,14 +200,21 @@ document.getElementById('date50').value =  dateSt[id];
 
 //document.getElementById('passTime').value =  "прошло дней - "+Math.floor((Date.parse(nowdate)/1000-UnixLD[id])/86400);
 nday=Math.floor((Date.parse(nowdate)/1000-UnixLD[id])/86400);
+nh=Math.floor((Date.parse(nowdate)/1000-UnixLD[id])/3600);
 document.getElementById('passTime').value = "прошло  - "+ nday + " дн."
 HL=1;
+if (nh<12 ){HL=0;}
+if (nh<24*2.5 || NS==3){HL=0;}
+if (nh<24*6.5 || NS==4){HL=0;}
+if (nh<24*13.5 || NS==5){HL=0;}
+if (nh<24*30.5 || NS==6){HL=0;}
+if (nh<24*30.5 || NS==7){HL=0;}
+
 if (nday==0)
 {
-    
+   
 nh=Math.floor((Date.parse(nowdate)/1000-UnixLD[id])/3600);
- if (nh<12){HL=0;};
-nmin=Math.floor(((Date.parse(nowdate)/1000-UnixLD[id])%3600)/60);
+ nmin=Math.floor(((Date.parse(nowdate)/1000-UnixLD[id])%3600)/60);
    if (nmin<10)
 {document.getElementById('passTime').value = "прошло "+ nh+"ч:0" +nmin+"мин";}
    else
