@@ -36,11 +36,13 @@ else
 {
     if ($ch==1)
     {
-    $strSQL = 'UPDATE mvdone'. $userId .' SET m='.$ch.', TimeClick="'.date("Y-m-d H:i:s").'"   WHERE (wordE="'.$wordCurr.'")';
+//$strSQL = 'UPDATE mvdone'. $userId .' SET m='.$ch.', TimeClick="'.date("Y-m-d H:i:s").'"   WHERE (wordE="'.$wordCurr.'")';
+$strSQL = 'UPDATE mvdone'. $userId .' SET m='.$ch.'  WHERE (wordE="'.$wordCurr.'")';
     }
     else
     {
-    $strSQL = 'UPDATE mvdone'. $userId .' SET m='.$ch.', TimeClick="'.date("Y-m-d H:i:s").'", NS=0  WHERE (wordE="'.$wordCurr.'")';   
+ //   $strSQL = 'UPDATE mvdone'. $userId .' SET m='.$ch.', TimeClick="'.date("Y-m-d H:i:s").'", NS=0  WHERE (wordE="'.$wordCurr.'")';   
+       $strSQL = 'UPDATE mvdone'. $userId .' SET m='.$ch.', NS=0  WHERE (wordE="'.$wordCurr.'")'; 
     }
    
 }
