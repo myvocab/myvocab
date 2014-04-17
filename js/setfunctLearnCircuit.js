@@ -4,11 +4,10 @@ function memWordSt(ch)
     keydownuse=1;
   if (document.getElementById('DisplayTr').checked){document.getElementById('trnsl').style.display='none';};   
 wordUpd =WESt[idCurr];
-HLtmp=HL;
 chtmp=ch;
 //document.getElementById('wordsPass').value = idCurr+1; 
   
- if (lastA[idCurr] != ch) {HLtmp=1};
+ 
   
   
   
@@ -22,17 +21,17 @@ else
   idCurr = idCurr+1 ;
   showWord(idCurr);
  }
- memWord(wordUpd,chtmp, HLtmp);  
+ memWord(wordUpd,chtmp);  
  //if(LastCh==ch && HL==0){exit();}
  
   
 }
 
 
-function memWord(wordCurr, chtmp, HLtmp) {
+function memWord(wordCurr, chtmp) {
 
 
-     var url = "lib/setLearnCircuit.php?wordCurr="+wordCurr+"&ch="+chtmp+"&HL="+HLtmp;
+     var url = "lib/setLearnCircuit.php?wordCurr="+wordCurr+"&ch="+chtmp;
 // alert(url);
  if (request1.readyState==0 || request1.readyState==4 )
  { request1.open("GET", url, true);request1.onreadystatechange = memWordResponse1;request1.send(null); exit();}
@@ -69,7 +68,7 @@ function memWord(wordCurr, chtmp, HLtmp) {
 
  function memWordResponse1() {
     if (request1.readyState == 4){
- //     alert("ssss  "+request1.responseText);
+ //    alert("ssss  "+request1.responseText);
 //   document.getElementById('trnsl').value = request1.responseText; exit();
 if(idCurr==NumberWords)
   {

@@ -1,3 +1,3 @@
 <?php
-echo date_default_timezone_get();
+echo date("Y.m.d")."--------".date_default_timezone_get();
 ?> 

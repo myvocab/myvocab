@@ -17,7 +17,7 @@ $woLev=htmlspecialchars(Trim($_GET["woLev"]));
 $cBook=0;
 
 
-$result = mysqli_query($link, 'UPDATE mv'. $userId .' SET date50="'.$dLev.'", pr='.$nLev.' WHERE (wordE="'.$weLev.'")');
+$result = mysqli_query($link, 'UPDATE mv'. $userId .' SET date50="'.$dLev.'",  pr='.$nLev.' WHERE (wordE="'.$weLev.'")');
 $result = mysqli_query($link, 'UPDATE mvs'. $userId .' SET date50="'.$dLev.'", pr='.$nLev.' WHERE (wordE="'.$weLev.'")');
 $result = mysqli_query($link, 'UPDATE mvr'. $userId .' SET date50="'.$dLev.'", pr='.$nLev.' WHERE (wordE="'.$weLev.'")');
 $result = mysqli_query($link, 'UPDATE mvv'. $userId .' SET date50="'.$dLev.'", pr='.$nLev.' WHERE (wordE="'.$weLev.'")');
@@ -30,7 +30,7 @@ $result = mysqli_query($link, 'UPDATE mvv'. $userId .' SET date50="'.$dLev.'", p
 
 
 if ($nLev != 0)  {
-$result = mysqli_query($link, 'UPDATE mvdone'. $userId .' SET date50="'.$dLev.'", pr='.$nLev.',  TimeClick="'.date("Y-m-d H:i:s").'", NS=0, iterationE=0, iterationO=0, m=0  WHERE (wordE="'.$weLev.'")');
+$result = mysqli_query($link, 'UPDATE mvdone'. $userId .' SET date50="'.$dLev.'", TimeClickTmp="'.date("Y-m-d H:i:s").'", pr='.$nLev.',  TimeClick="'.date("Y-m-d H:i:s").'", NS=0, iterationE=0, iterationO=0, m=0  WHERE (wordE="'.$weLev.'")');
 }
 
 

@@ -1,7 +1,7 @@
 
     var idCurr=0;
     var exemWindowsH;
-    var HL =0;
+ //   var HL =0;
     var LastCh=0;
 
 //    var bookWord=1;
@@ -191,24 +191,19 @@ document.getElementById('iterO').value =  iterO[id];
 document.getElementById('iterE').value =  iterE[id];
 
 
+
 //document.getElementById('LastClick').value =  lastDate[id].substring(0,16);
 
 document.getElementById('date50').value =  dateSt[id];
 //document.getElementById('date50').value =  Date.parse(nowdate)/1000;
 
 
-
+//alert(UnixLD[id]);
 //document.getElementById('passTime').value =  "прошло дней - "+Math.floor((Date.parse(nowdate)/1000-UnixLD[id])/86400);
 nday=Math.floor((Date.parse(nowdate)/1000-UnixLD[id])/86400);
 nh=Math.floor((Date.parse(nowdate)/1000-UnixLD[id])/3600);
 document.getElementById('passTime').value = "прошло  - "+ nday + " дн."
-HL=1;
-if (nh<12 ){HL=0;}
-if (nh<24*2.5 || NS==3){HL=0;}
-if (nh<24*6.5 || NS==4){HL=0;}
-if (nh<24*13.5 || NS==5){HL=0;}
-if (nh<24*30.5 || NS==6){HL=0;}
-if (nh<24*30.5 || NS==7){HL=0;}
+
 
 if (nday==0)
 {

@@ -21,7 +21,7 @@ echo $userId."</br>";
 
 
 //сегодня отмеченные m=0
-$strSQL = "UPDATE mvdone". $userId ." SET mvdone". $userId .".idLearn = 1 WHERE ((".$timenow."-(UNIX_TIMESTAMP(TimeClick)+".$mySqlTZ.")>1) and m=0 and pr=50 and NS=0 and NS<100) LIMIT 5";
+
 
 $strSQL = 'SELECT COUNT(*) FROM mvdone'. $userId .' WHERE (m=1 and pr=50 and NS=0 and NS<100)';
 $res = mysqli_query($link, $strSQL); $row = mysqli_fetch_array($res); $NRAll = $row[0];
@@ -45,57 +45,65 @@ echo $NRAll."&nbsp;&nbsp;&nbsp;  m=-1 and pr=50"."</br>";
 
 $strSQL = 'SELECT COUNT(*) FROM mvdone'. $userId .' WHERE (NS=1  and pr=50 and NS<100)';
 $res = mysqli_query($link, $strSQL); $row = mysqli_fetch_array($res); $NRAll = $row[0];
-$strSQL = 'SELECT COUNT(*) FROM mvdone'. $userId .' WHERE (('.$timenow.'-(UNIX_TIMESTAMP(TimeClick)+'.$mySqlTZ.')>'.(0.5*$secInDay).') and NS=1  and pr=50)';
+$strSQL = 'SELECT COUNT(*) FROM mvdone'. $userId .' WHERE (('.$timenow.'-(UNIX_TIMESTAMP(TimeClickTmp)+'.$mySqlTZ.')>'.(0.5*$secInDay).') and NS=1  and pr=50)';
 $res = mysqli_query($link, $strSQL); $row = mysqli_fetch_array($res); $NRPart = $row[0];
-
 echo $NRAll." - ".$NRPart."&nbsp;&nbsp;&nbsp; NS=1  0.5*secInDay</br>";
+
+
 
 $strSQL = 'SELECT COUNT(*) FROM mvdone'. $userId .' WHERE (NS=2  and pr=50 and NS<100)';
 $res = mysqli_query($link, $strSQL); $row = mysqli_fetch_array($res); $NRAll = $row[0];
-$strSQL = 'SELECT COUNT(*) FROM mvdone'. $userId .' WHERE (('.$timenow.'-(UNIX_TIMESTAMP(TimeClick)+'.$mySqlTZ.')>'.(0.5*$secInDay).') and NS=2  and pr=50)';
+$strSQL = 'SELECT COUNT(*) FROM mvdone'. $userId .' WHERE (('.$timenow.'-(UNIX_TIMESTAMP(TimeClickTmp)+'.$mySqlTZ.')>'.(0.5*$secInDay).') and NS=2  and pr=50)';
 $res = mysqli_query($link, $strSQL); $row = mysqli_fetch_array($res); $NRPart = $row[0];
-
 echo $NRAll." - ".$NRPart."&nbsp;&nbsp;&nbsp; NS=2  0.5*secInDay</br>";
+
+
+
+
+
 
 
 $strSQL = 'SELECT COUNT(*) FROM mvdone'. $userId .' WHERE (NS=3  and pr=50 and NS<100)';
 $res = mysqli_query($link, $strSQL); $row = mysqli_fetch_array($res); $NRAll = $row[0];
-$strSQL = 'SELECT COUNT(*) FROM mvdone'. $userId .' WHERE (('.$timenow.'-(UNIX_TIMESTAMP(TimeClick)+'.$mySqlTZ.')>'.(2.5*$secInDay).') and NS=3  and pr=50)';
+$strSQL = 'SELECT COUNT(*) FROM mvdone'. $userId .' WHERE (('.$timenow.'-(UNIX_TIMESTAMP(TimeClickTmp)+'.$mySqlTZ.')>'.(2.5*$secInDay).') and NS=3  and pr=50)';
 $res = mysqli_query($link, $strSQL); $row = mysqli_fetch_array($res); $NRPart = $row[0];
-
 echo $NRAll." - ".$NRPart."&nbsp;&nbsp;&nbsp; NS=3  2.5*secInDay</br>";
 
 
 
 $strSQL = 'SELECT COUNT(*) FROM mvdone'. $userId .' WHERE (NS=4  and pr=50 and NS<100)';
 $res = mysqli_query($link, $strSQL); $row = mysqli_fetch_array($res); $NRAll = $row[0];
-$strSQL = 'SELECT COUNT(*) FROM mvdone'. $userId .' WHERE (('.$timenow.'-(UNIX_TIMESTAMP(TimeClick)+'.$mySqlTZ.')>'.(6.5*$secInDay).') and NS=4  and pr=50)';
+$strSQL = 'SELECT COUNT(*) FROM mvdone'. $userId .' WHERE (('.$timenow.'-(UNIX_TIMESTAMP(TimeClickTmp)+'.$mySqlTZ.')>'.(6.5*$secInDay).') and NS=4  and pr=50)';
 $res = mysqli_query($link, $strSQL); $row = mysqli_fetch_array($res); $NRPart = $row[0];
-
 echo $NRAll." - ".$NRPart."&nbsp;&nbsp;&nbsp; NS=4  6.5*secInDay</br>";
+
+
+
+
 
 $strSQL = 'SELECT COUNT(*) FROM mvdone'. $userId .' WHERE (NS=5  and pr=50 and NS<100)';
 $res = mysqli_query($link, $strSQL); $row = mysqli_fetch_array($res); $NRAll = $row[0];
-$strSQL = 'SELECT COUNT(*) FROM mvdone'. $userId .' WHERE (('.$timenow.'-(UNIX_TIMESTAMP(TimeClick)+'.$mySqlTZ.')>'.(13.5*$secInDay).') and NS=5  and pr=50)';
+$strSQL = 'SELECT COUNT(*) FROM mvdone'. $userId .' WHERE (('.$timenow.'-(UNIX_TIMESTAMP(TimeClickTmp)+'.$mySqlTZ.')>'.(13.5*$secInDay).') and NS=5  and pr=50)';
 $res = mysqli_query($link, $strSQL); $row = mysqli_fetch_array($res); $NRPart = $row[0];
-
 echo $NRAll." - ".$NRPart."&nbsp;&nbsp;&nbsp; NS=5  13.5*secInDay</br>";
+
+
+
 
 
 $strSQL = 'SELECT COUNT(*) FROM mvdone'. $userId .' WHERE (NS=6  and pr=50 and NS<100)';
 $res = mysqli_query($link, $strSQL); $row = mysqli_fetch_array($res); $NRAll = $row[0];
-$strSQL = 'SELECT COUNT(*) FROM mvdone'. $userId .' WHERE (('.$timenow.'-(UNIX_TIMESTAMP(TimeClick)+'.$mySqlTZ.')>'.(30.5*$secInDay).') and NS=6  and pr=50)';
+$strSQL = 'SELECT COUNT(*) FROM mvdone'. $userId .' WHERE (('.$timenow.'-(UNIX_TIMESTAMP(TimeClickTmp)+'.$mySqlTZ.')>'.(30.5*$secInDay).') and NS=6  and pr=50)';
 $res = mysqli_query($link, $strSQL); $row = mysqli_fetch_array($res); $NRPart = $row[0];
-
 echo $NRAll." - ".$NRPart."&nbsp;&nbsp;&nbsp; NS=6  30.5*secInDay</br>";
+
+
 
 $strSQL = 'SELECT COUNT(*) FROM mvdone'. $userId .' WHERE (NS=7  and pr=50 and NS<100)';
 $res = mysqli_query($link, $strSQL); $row = mysqli_fetch_array($res); $NRAll = $row[0];
-$strSQL = 'SELECT COUNT(*) FROM mvdone'. $userId .' WHERE (('.$timenow.'-(UNIX_TIMESTAMP(TimeClick)+'.$mySqlTZ.')>'.(30.5*$secInDay).') and NS=7  and pr=50)';
+$strSQL = 'SELECT COUNT(*) FROM mvdone'. $userId .' WHERE (('.$timenow.'-(UNIX_TIMESTAMP(TimeClickTmp)+'.$mySqlTZ.')>'.(30.5*$secInDay).') and NS=7  and pr=50)';
 $res = mysqli_query($link, $strSQL); $row = mysqli_fetch_array($res); $NRPart = $row[0];
-
 echo $NRAll." - ".$NRPart."&nbsp;&nbsp;&nbsp; NS=7  30.5*secInDay</br>";
-
 
 /*===================================================
 

@@ -28,3 +28,43 @@ UPDATE mvdone3 SET mvdone3.m = 1;
 UPDATE mvdone3 SET mvdone3.iterationO = 1;
 
 
+
+ =========================== 
+ALTER TABLE `mvdone3` ADD `date50tmp` DATE NULL AFTER `date50` ;
+
+
+
+ALTER TABLE `mvdone1` CHANGE `date50tmp` `TimeClickTmp` TIMESTAMP NULL DEFAULT NULL ;
+UPDATE mvdone3 SET mvdone3.TimeClickTmp = mvdone3.TimeClick 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
