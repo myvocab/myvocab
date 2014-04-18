@@ -18,7 +18,7 @@ git clone git://github.com/schacon/grit.git
 
 
 git reset --hard <sha1-commit-id>
-git reset --hard 798aa14e2d8e72e7cb6f57379b89fde72b62396e
+git reset --hard 6359f58b395d179f123dd820ea91c10025ac98f3
 
 git push origin HEAD --force
 798aa14e2d8e72e7cb6f57379b89fde72b62396e

@@ -26,14 +26,14 @@ $strSQL =   'SELECT UNIX_TIMESTAMP(TimeClick) as tct, NS, m FROM mvdone'. $userI
 // $nh = mktime($date50tmp);
 $nh = mktime()-($TimeClickTmp + $mySqlTZ);
 
-if ($nh<$secInDay*0.5 ){$HL=0;$HHH=1;}
+if ($nh<$secInDay*0.5 ){$HL=0;}
 if ($nh<$secInDay*2.5 and $NS==3){$HL=0;}
 if ($nh<$secInDay*6.5 and $NS==4){$HL=0;}
 if ($nh<$secInDay*13.5 and $NS==5){$HL=0;}
 if ($nh<$secInDay*30.5 and $NS==6){$HL=0;}
 if ($nh<$secInDay*30.5 and $NS==7){$HL=0;}
 
-if ($m <> $ch){$HL =0;}
+if ($m <> $ch){$HL =1;}
 
 
 
@@ -79,6 +79,6 @@ $result = mysqli_query($link, $strSQL);
 
 
 
-echo $strSQL." ".$HL." ".$nh." ".$HHH ;
+echo $strSQL ;
 ?>
 

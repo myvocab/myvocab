@@ -68,7 +68,7 @@ function memWord(wordCurr, chtmp) {
 
  function memWordResponse1() {
     if (request1.readyState == 4){
- //    alert("ssss  "+request1.responseText);
+//    alert("ssss  "+request1.responseText);
 //   document.getElementById('trnsl').value = request1.responseText; exit();
 if(idCurr==NumberWords)
   {
