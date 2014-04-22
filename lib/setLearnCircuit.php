@@ -18,7 +18,7 @@ $ch=$_GET["ch"];
 //$HL=$_GET["HL"];
 $HL=1;
 
-$strSQL =   'SELECT UNIX_TIMESTAMP(TimeClick) as tct, NS, m FROM mvdone'. $userId .' WHERE wordE="'.$wordCurr.'"';
+$strSQL =   'SELECT UNIX_TIMESTAMP(TimeClickTmp) as tct, NS, m FROM mvdone'. $userId .' WHERE wordE="'.$wordCurr.'"';
  $res = mysqli_query($link, $strSQL);  
  $row = mysqli_fetch_array($res); 
  $NS = $row[NS]; $TimeClickTmp = $row[tct]; $m = $row[m];
@@ -26,7 +26,8 @@ $strSQL =   'SELECT UNIX_TIMESTAMP(TimeClick) as tct, NS, m FROM mvdone'. $userI
 // $nh = mktime($date50tmp);
 $nh = mktime()-($TimeClickTmp + $mySqlTZ);
 
-if ($nh<$secInDay*0.5 ){$HL=0;}
+if ($nh<$secInDay*0.5 and $NS==1 ){$HL=0;}
+if ($nh<$secInDay*0.5 and $NS==2 ){$HL=0;}
 if ($nh<$secInDay*2.5 and $NS==3){$HL=0;}
 if ($nh<$secInDay*6.5 and $NS==4){$HL=0;}
 if ($nh<$secInDay*13.5 and $NS==5){$HL=0;}
@@ -79,6 +80,6 @@ $result = mysqli_query($link, $strSQL);
 
 
 
-echo $strSQL ;
+echo $nh." ===== ".$secInDay*2.5." ===== ".$HL." ===== ". $strSQL ;
 ?>
 

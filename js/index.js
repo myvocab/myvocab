@@ -58,9 +58,9 @@ else
    {document.getElementById(id).style.display = "none"} 
 //alert(document.getElementById('ff').innerHTML);
    
-   if((id=="txtW" && document.getElementById('ff').innerHTML=="далее"))
-{document.getElementById('ff').innerHTML="<<<<<"}
-else
-{document.getElementById('ff').innerHTML="далее"}
+//   if((id=="txtW" && document.getElementById('ff').innerHTML=="далее"))
+//{document.getElementById('ff').innerHTML="<<<<<"}
+//else
+//{document.getElementById('ff').innerHTML="далее"}
 
  } 
