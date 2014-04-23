@@ -9,8 +9,8 @@ touch README.md
 git init
 git add README.md
 git add --all
-git commit -m "first commit"
-git remote add origin https://github.com/myvocab/myvocab.git
+git commit -m "20140422_1"
+
 git push -u myvocab master
 
 
