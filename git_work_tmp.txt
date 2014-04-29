@@ -8,9 +8,9 @@ Create a new repository on the command line
 touch README.md
 git init
 git add README.md
-git add --all
-git commit -m "20140422_1"
 
+git add --all
+git commit -m "20140423_1"
 git push -u myvocab master
 
 

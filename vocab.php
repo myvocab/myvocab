@@ -110,24 +110,23 @@ style="left:0px;top:0px;">
 <input class="bt" type="submit" id="bt100" onclick="deActBt();setLevel(100);" name="" value="Выученное" style="left:5px;top:115px;">
 <input class="bt" type="submit" id="bt0" onclick="setLevel(0);" name="" value="Не изучаемое" style="left:5px;top:153px;">
 
-<input class="bt" type="submit" id="btDel" onclick="delRestore(-1);" name="" value="Удалить" style="left:5px;top:215px;">
+<input class="bt" type="submit" id="btDel" onclick="delRestore(-1);" name="" value="Удалить" style="left:5px;top:200px;">
 
  
 
 
-<input class="bt" type="submit" id="PrevWord" onclick="if(chKey==0){chKey=1;showWord(rIndex);}" name="" value="<--" style="left:4px;top:280px;width:62px;">
-<input class="bt" type="submit" id="NextWord" onclick="if(chKey==0){chKey=1;showWord(rIndex+2);}" name="" value="-->" style="left:67px;top:280px; width:62px;">
+<input class="bt" type="submit" id="PrevWord" onclick="if(chKey==0){chKey=1;showWord(rIndex);}" name="" value="<--" style="left:4px;top:235px;width:62px;">
+<input class="bt" type="submit" id="NextWord" onclick="if(chKey==0){chKey=1;showWord(rIndex+2);}" name="" value="-->" style="left:67px;top:235px; width:62px;">
  
  
 
 <input class="bt" type="submit" id="cWH" onclick="<?php if ($br !="Presto") {echo 'clExemWindowsH();';} ?>
-wordHistory();" name="" value="К СЛОВУ В ТЕКСТЕ" style="left:5px;top:313px;">
+wordHistory();" name="" value="К СЛОВУ В ТЕКСТЕ" style="left:5px;top:270px;">
 
 <input  type="text" id="oriWord" style="position:absolute;left:7px;top:337px;width:115px;height:13px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:13px;text-align:center;font-weight: bold;z-index:0;display: none;" name="oriWord" value="" disabled="">
 
-
-
-
+<input class="bt" type="submit" id="BSetBookmark" onclick="setBookmark();" name="" value="Установить закладку1" style="left:5px; top:315px;">
+<input class="bt" type="submit" id="toBookmark" onclick="fillTable('bookmark');" name="" value="Перейти к закладке1" style="left:5px; top:345px;">
 
     
 
@@ -148,25 +147,11 @@ wordHistory();" name="" value="К СЛОВУ В ТЕКСТЕ" style="left:5px;to
 <input type="checkbox" onclick="fillTable('d100',this.checked);" id="Done100" name="" value="on" style="position:absolute;left:550px;top:78px;z-index:0">
 </div>
 
-<div  style="position:absolute;left:445px;top:-50px; display:block;">
-<table class="frame_table" style="left:2px; top:215px; width:145px; height:65px;"><tr><td></td></tr></table>
-
-<input class="bt_l" type="submit" id="sW" onclick="document.getElementById('oriWord').value = document.getElementById('sWord').value; fillTable('findword');" name="" value="НАЙТИ СЛОВО" style="left:5px;top:220px;">
-<input type="text" id="sWord"  onfocus="keydownuse=2;" onblur="keydownuse=1;" style="position:absolute;left:7px;top:255px;width:130px;height:13px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:13px;text-align:left;font-weight: bold;z-index:0" name="sWordn" value="" >
-
-
-<input class="bt_l" type="submit" id="BSetBookmark" onclick="setBookmark();" name="" value="Установить закладку1" style="left:5px; top:330px;">
-<input class="bt_l" type="submit" id="toBookmark" onclick="fillTable('bookmark');" name="" value="Перейти к закладке1" style="left:5px; top:360px;">
 
 
 
 
-
-</div>
-
-
-
-<div  style="position:absolute;left:0px;top:340px; display:none;">
+<div  style="position:absolute;left:20px;top:30px; display:block;">
 <table class="frame_table" style="left:427px; top:100px; width:145px; height:148px;"><tr><td></td></tr></table>
 <input class="bt_l" type="submit" id="btStudy" onclick="compLearnVocab();<?php if ($br !="Presto") {echo 'clExemWindowsL();';} ?>wordsLearn('v');" name="" value="Повторение слов" style="left:432px;top:105px; ">
 <div  class="capt" style="left:430px;top:131px;width:10px;font-size:13px;">с</div>
@@ -195,7 +180,21 @@ wordHistory();" name="" value="К СЛОВУ В ТЕКСТЕ" style="left:5px;to
 <input class="bt_l" type="submit" id="btStudy" onclick="<?php if ($br !="Presto") {echo 'clExemWindowsL();';} ?>wordsLearn('v');" name="" value="Продолжить повторение" style="left:432px;top:220px; ">
 </div>
 
-<div  style="position:absolute;left:0px;top:105px;display:<?php if ($_SESSION['userId']==3){echo  'block';} else {echo  'none';}?>;">
+
+
+<div  style="position:absolute;left:445px;top:90px; display:block;">
+<table class="frame_table" style="left:2px; top:215px; width:145px; height:65px;"><tr><td></td></tr></table>
+
+<input class="bt_l" type="submit" id="sW" onclick="document.getElementById('oriWord').value = document.getElementById('sWord').value; fillTable('findword');" name="" value="НАЙТИ СЛОВО" style="left:5px;top:220px;">
+<input type="text" id="sWord"  onfocus="keydownuse=2;" onblur="keydownuse=1;" style="position:absolute;left:7px;top:255px;width:130px;height:13px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:13px;text-align:left;font-weight: bold;z-index:0" name="sWordn" value="" >
+
+
+</div>
+
+
+
+
+<div  style="position:absolute;left:15px;top:150px;display:<?php if ($_SESSION['userId']==3){echo  'none';} else {echo  'none';}?>;">
 <table class="frame_table" style="left:427px; top:257px; width:145px; height:80px;"><tr><td></td></tr></table>
 <input class="bt_l" type="submit" id="btStudy" onclick="compLearn(); <?php if ($br !="Presto") {echo 'clExemWindowsL();';} ?>wordsLearn('s');" name="" value="Повторение по схеме" style="left:432px;top:262px; ">
 <div  class="capt" style="left:430px;top:286px;width:60px;font-size:13px;">на дату</div>
