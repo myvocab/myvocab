@@ -52,8 +52,10 @@ function ChTx(ch) {
 <body>
 
 <div align="center"><BR>
-&nbsp;
-<a  href="textadapt.php" >
+&nbsp;<a  href="mytexts.php" >
+Мои тексты
+</a><BR><BR>
+&nbsp;<a  href="textadapt.php" >
 Художественная литература (адаптированные тексты)
 </a><BR><BR>
 

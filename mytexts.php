@@ -1,10 +1,19 @@
 <?php
 
 session_start();
+if ($_SESSION['userName'] == NULL) {
+            $_SESSION['mess'] ='<font style="position:absolute; left:50px;  font-size:13px" color="#FF0000" face="Arial">
+               Для использования этой формы необходимо зарегистрироваться.</font><br>';
+              header("Location:index.php");
+              exit();
+}
+$userId=$_SESSION['userId'];
+
+
 
 include("lib/connect_db.php");
 $ip = $_SERVER['REMOTE_ADDR'];
-$strSQL="INSERT INTO  stlog (ip, page ,dt) VALUES ('".$ip."',  'textAdpt', CURRENT_TIMESTAMP)"; 
+$strSQL="INSERT INTO  stlog (ip, page ,dt) VALUES ('".$ip."',  mytexts', CURRENT_TIMESTAMP)"; 
 $result = mysqli_query($link, $strSQL);
 
  
@@ -36,12 +45,26 @@ include('lib/menu.inc');
 
 <body>
 
+<form method=post enctype="multipart/form-data" action=?done><table><tr><td>Файл</td><td><input type=file name=FILE size=45></td><td><input type=submit value=Загрузить  size=45></td></tr></table></form>
 
 
-<table style="position:relative;left:5px;top:10px;background-color:#FFFFFF;width:780px;height:0px;z-index:0;border:1px BLACK solid;" cellpadding="0" cellspacing="0" id="tbn">
-<tbody>    
+
+
+    
 
 <?php
+
+if (isset($_REQUEST['done']))
+        {
+ include "lib/inc.addtext.php";           
+
+        }
+
+?>
+<table style="position:relative;left:5px;top:70px;background-color:#FFFFFF;width:780px;height:0px;z-index:0;border:1px BLACK solid;" cellpadding="0" cellspacing="0" id="tbn">
+<tbody>
+<?php
+
 
 $strSQL =   "SELECT books.* FROM books WHERE (((books.pr)=1)) ORDER BY books.pr, books.pr2, books.nameAuth, books.nameBook";
 $res = mysqli_query($link, $strSQL); 
