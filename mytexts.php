@@ -2,9 +2,9 @@
 
 session_start();
 if ($_SESSION['userName'] == NULL) {
-            $_SESSION['mess'] ='<font style="position:absolute; left:50px;  font-size:13px" color="#FF0000" face="Arial">
+            $_SESSION['mess'] ='<font style="font-size:13px" color="#FF0000" face="Arial">
                Для использования этой формы необходимо зарегистрироваться.</font><br>';
-              header("Location:index.php");
+              header("Location:textchoice.php");
               exit();
 }
 $userId=$_SESSION['userId'];
@@ -45,28 +45,48 @@ include('lib/menu.inc');
 
 <body>
 
-<form method=post enctype="multipart/form-data" action=?done><table><tr><td>Файл</td><td><input type=file name=FILE size=45></td><td><input type=submit value=Загрузить  size=45></td></tr></table></form>
+<div align="center"><font color="BLUE" ><b>ФАЙЛ ДОЛЖЕН БЫТЬ В ТЕКСТОВОМ ФОРМАТЕ</b><BR></div>
+<div align="center"><font color="BLUE" >переконвертировать в формат TXT можно например 
+<a href="http://convertfileonline.com/ru/ " target="_blank" id="c1" >ЗДЕСЬ</a><BR></div>
 
 
+<div align="center"><font color="BLACK">
+<form method=post enctype="multipart/form-data" action=?done>
+<table>
+<tr>
+<td>Наименование</td><td ><input type="text" name="NameText" value="Текст 1" size=60></td>
+</tr>
+<tr>
+<td>Автор</td><td><input type="text" name="Auth" value="Без автора" size=60></td>
+</tr>
 
+<tr><td>  Файл   </td><td><input type=file name=FILE size=45></td><tr></table>
+<br>
 
-    
+<input type=submit value="Добавить текст"   style="position:relative;left:0px;width:200px">
+</form>
 
 <?php
 
+if($_SESSION['mess2'] != "") {
+    echo '<div align="center"> ';
+    echo $_SESSION['mess2']; $_SESSION['mess2'] == "" ; 
+    echo '</div>';
+    $_SESSION['mess2']="";}
+
 if (isset($_REQUEST['done']))
-        {
+       {
  include "lib/inc.addtext.php";           
-
-        }
-
+       }
 ?>
-<table style="position:relative;left:5px;top:70px;background-color:#FFFFFF;width:780px;height:0px;z-index:0;border:1px BLACK solid;" cellpadding="0" cellspacing="0" id="tbn">
+
+
+<table style="position:relative;left:5px;top:50px;background-color:#FFFFFF;width:780px;height:0px;z-index:0;border:1px BLACK solid;" cellpadding="0" cellspacing="0" id="tbn">
 <tbody>
 <?php
 
 
-$strSQL =   "SELECT books.* FROM books WHERE (((books.pr)=1)) ORDER BY books.pr, books.pr2, books.nameAuth, books.nameBook";
+$strSQL =   "SELECT books_u.* FROM books_u WHERE (((books_u.pr)=1) and ((books_u.user)=1)) ORDER BY books_u.pr, books_u.pr2, books_u.nameAuth, books_u.nameBook";
 $res = mysqli_query($link, $strSQL); 
 while ($row = mysqli_fetch_array($res))
 { 

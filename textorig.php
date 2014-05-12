@@ -51,201 +51,64 @@ function ChTx(ch) {
 
 <body>
 
-<div align="left"><font color="BLUE" >В файле для скачивания находится анг. текст,  русский текст и билингва.</font></div>   
 
 <table style="position:relative;left:5px;top:10px;background-color:#FFFFFF;width:780px;height:0px;z-index:0;border:1px BLACK solid;" cellpadding="0" cellspacing="0" id="tbn">
 <tbody>    
 
+<?php
 
-<tr>
-<td style="border:2px solid grey;background:white;width:600px;font-family:Arial;font-size:14px;">
-John Steinbeck - The Pearl <BR>Джон Эрнст Стейнбек - Жемчужина<BR>
-</td>
-<td style="border:1px solid grey;background:white;width:5px;">
-<input type="submit" id="ChTx10" onclick= "document.location.href ='lib/compTextChoice.php?ch=12';" name="" value="Слова " >
-</td>
+$strSQL =   "SELECT books.* FROM books WHERE (((books.pr)=0)) ORDER BY books.pr, books.pr2, books.nameAuth, books.nameBook";
+$res = mysqli_query($link, $strSQL); 
+while ($row = mysqli_fetch_array($res))
+{ 
+$nameFile  =$row['nameFile'];
+ 
+//$nameAuth =   Trim($row['nameAuth']);
+//$nameAuth = str_replace(',', '', $nameAuth);
+//$nameBook =   Trim($row['nameBook']);
+//$nameFile  =  str_replace(' ', '_', $nameAuth)."-".str_replace(' ', '_', $nameBook).".rar";
 
-<td style="border:1px solid grey;background:white;width:5px;">
-<input type="submit" id="ChTx10" onclick= "window.open('text.php?page=0&cBook=12&ch=1' , '_blank');" name="" value="Читать анг." >
-</td>
 
-<td style="border:1px solid grey;background:white;width:5px;">
-<input type="submit" id="ChTx10" onclick= "window.open('text.php?page=0&cBook=13&ch=1' , '_blank');" name="" value="Читать рус." >
-</td>
-<td>
-<font style="font-size:13px"  face="Arial"><a href="df.php?fd=myvocab.org/thePerl_John Steinbeck.rar" > <font style="font-size:13px" face="Arial">&nbsp;скачать&nbsp; </font></a>
-</td>
-</tr>
+echo '<td style="border:1px solid grey;background:white;width:500px;font-family:Arial;font-size:14px;">';
+echo   $row['nameAuth']." - ".$row['nameBook']."<BR>".$row['nameAuth2']." - ".$row['nameBook2'];
+echo "</td>";
 
-<!--
-<tr>
-<td style="border:2px solid grey;background:white;width:600px;font-family:Arial;font-size:14px;">
-Truman Capote - In Cold Blood <BR>Труман Капоте - Хладнокровное убийство<BR>
-</td>
-<td style="border:1px solid grey;background:white;width:5px;">
-<input type="submit" id="ChTx10" onclick= "document.location.href ='lib/compTextChoice.php?ch=16';" name="" value="Слова " >
-</td>
 
-<td style="border:1px solid grey;background:white;width:5px;">
-<input type="submit" id="ChTx10" onclick= "window.open('text.php?page=0&cBook=16&ch=1' , '_blank');" name="" value="Читать анг." >
-</td>
+echo '<td style="border:1px solid grey;background:white;width:5px;">';
+echo   '<input type="submit" id="ChTx101" onclick= "document.location.href =\'lib/compTextChoice.php?ch='.$row['idBook'].'\';" name="" value="Слова " >';
+echo "</td>";
+echo '<td style="border:1px solid grey;background:white;width:5px;">';
+echo   '<input type="submit" id="ChTx101" onclick= "window.open(\'text.php?page=0&cBook='.$row['idBook'].'&ch=1\' , \'_blank\');" name="" value="Читать анг." >';
+echo "</td>";
+echo '<td style="border:1px solid grey;background:white;width:5px;">';
+echo   '<input type="submit" id="ChTx101" onclick= "window.open(\'text.php?page=0&cBook='.$row['idBook2'].'&ch=1\' , \'_blank\');" name="" value="Читать рус." >';
+echo "</td>";
 
-<td style="border:1px solid grey;background:white;width:5px;">
-<input type="submit" id="ChTx10" onclick= "window.open('text.php?page=0&cBook=17&ch=1' , '_blank');" name="" value="Читать рус." >
-</td>
-</tr>
+echo "</td>";
+echo '<td style="border:1px solid grey;background:white;width:5px;">';
+echo   '<font style="font-size:13px"  face="Arial"><a href="df.php?fd=myvocab.org/'.$nameFile.'" > <font style="font-size:13px" face="Arial">&nbsp;скачать&nbsp; </font></a>';
+echo "</td>";
 
 
 
-<tr>
-<td style="border:2px solid grey; background:white;width:600px;font-family:Arial;font-size:14px;">
-James - Fifty Shades Darker<BR>Джеймс  - Пятьдесят оттенков серого<BR> 
-</td>
-<td style="border:1px solid grey;background:white;width:5px;">
-<input type="submit" id="ChTx10"    onclick= "document.location.href ='lib/compTextChoice.php?ch=29';" name="" value="Слова " >
-</td>
-<td style="border:1px solid grey;background:white;width:5px;">
-<input type="submit" id="ChTx10" onclick= "window.open('text.php?page=0&cBook=29&ch=1' , '_blank');" name="" value="Читать анг." >
-</td>
-</td>
-<td style="border:1px solid grey;background:white;width:5px;">
-<input type="submit" id="ChTx10" onclick= "window.open('text.php?page=0&cBook=30&ch=1' , '_blank');" name="" value="Читать рус." >
-</td>
-</tr>
--->
-
-<tr>
-<td style="border:3px solid grey;background:white;width:600px;font-family:Arial;font-size:14px;">
-Vonnegut Kurt - Slaughterhouse-Five, or The Children's Crusade<BR>Воннегут Курт  - Бойня номер пять, или Крестовый поход детей <BR> 
-</td>
-<td style="border:1px solid grey;background:white;width:5px;">
-<input type="submit" id="ChTx10" onclick= "document.location.href ='lib/compTextChoice.php?ch=33';" name="" value="Слова " >
-</td>
-<td style="border:1px solid grey;background:white;width:5px;">
-<input type="submit" id="ChTx10" onclick= "window.open('text.php?page=0&cBook=33&ch=1' , '_blank');" name="" value="Читать анг." >
-</td>
-<td style="border:1px solid grey;background:white;width:5px;">
-<input type="submit" id="ChTx10" onclick= "window.open('text.php?page=0&cBook=34&ch=1' , '_blank');" name="" value="Читать рус." >
-</td>
-<td>
-<font style="font-size:13px"  face="Arial"><a href="df.php?fd=myvocab.org/Vonnegut_Slaughterhouse-Five.rar" > <font style="font-size:13px" face="Arial">&nbsp;скачать&nbsp; </font></a>
-</td>
-</tr>
-
-<tr>
-<td style="border:3px solid grey;background:white;width:600px;font-family:Arial;font-size:14px;">
-Ernest Hemingway - The Old Man And The See<BR>Эрнест Хемингуэй   - Старик и море <BR> 
-</td>
-<td style="border:1px solid grey;background:white;width:5px;">
-<input type="submit" id="ChTx10" onclick= "document.location.href ='lib/compTextChoice.php?ch=41';" name="" value="Слова " >
-</td>
-<td style="border:1px solid grey;background:white;width:5px;">
-<input type="submit" id="ChTx10" onclick= "window.open('text.php?page=0&cBook=41&ch=1' , '_blank');" name="" value="Читать анг." >
-</td>
-<td style="border:1px solid grey;background:white;width:5px;">
-<input type="submit" id="ChTx10" onclick= "window.open('text.php?page=0&cBook=42&ch=1' , '_blank');" name="" value="Читать рус." >
-</td>
-<td>
-<font style="font-size:13px"  face="Arial"><a href="df.php?fd=myvocab.org/hemingway_ernest_the_old_man_and_the_sea.rar" > <font style="font-size:13px" face="Arial">&nbsp;скачать&nbsp; </font></a>
-</td>
-</tr>
-
-<tr>
-<td style="border:3px solid grey;background:white;width:600px;font-family:Arial;font-size:14px;">
-J. D. Salinger - The catcher in the rye<BR>Джером Д.Сэлинджер   - Над пропастью во ржи <BR> 
-</td>
-<td style="border:1px solid grey;background:white;width:5px;">
-<input type="submit" id="ChTx10" onclick= "document.location.href ='lib/compTextChoice.php?ch=43';" name="" value="Слова " >
-</td>
-<td style="border:1px solid grey;background:white;width:5px;">
-<input type="submit" id="ChTx10" onclick= "window.open('text.php?page=0&cBook=43&ch=1' , '_blank');" name="" value="Читать анг." >
-</td>
-<td style="border:1px solid grey;background:white;width:5px;">
-<input type="submit" id="ChTx10" onclick= "window.open('text.php?page=0&cBook=44&ch=1' , '_blank');" name="" value="Читать рус." >
-</td>
-<td>
-<font style="font-size:13px"  face="Arial"><a href="df.php?fd=myvocab.org/The-Catcher-in-the-Rye.rar" > <font style="font-size:13px" face="Arial">&nbsp;скачать&nbsp; </font></a>
-</td>
-</tr>
+echo "</tr>";
 
 
-<tr>
-<td style="border:3px solid grey;background:white;width:600px;font-family:Arial;font-size:14px;">
-F. Scott Fitzgerald - The Great Gatsby<BR>Фрэнсис Скотт Фицджеральд   - Великий Гэтсби <BR> 
-</td>
-<td style="border:1px solid grey;background:white;width:5px;">
-<input type="submit" id="ChTx10" onclick= "document.location.href ='lib/compTextChoice.php?ch=45';" name="" value="Слова " >
-</td>
-<td style="border:1px solid grey;background:white;width:5px;">
-<input type="submit" id="ChTx10" onclick= "window.open('text.php?page=0&cBook=45&ch=1' , '_blank');" name="" value="Читать анг." >
-</td>
-<td style="border:1px solid grey;background:white;width:5px;">
-<input type="submit" id="ChTx10" onclick= "window.open('text.php?page=0&cBook=46&ch=1' , '_blank');" name="" value="Читать рус." >
-</td>
-<td>
-<font style="font-size:13px"  face="Arial"><a href="df.php?fd=myvocab.org/Ficdzherald_Velikiy-Getsbi.rar" > <font style="font-size:13px" face="Arial">&nbsp;скачать&nbsp; </font></a>
-</td>
-</tr>
+}
 
 
-<tr>
-<td style="border:3px solid grey;background:white;width:600px;font-family:Arial;font-size:14px;">
-Dashiell Hammett - Red Harvest<BR>Дэшил Хэммет   - Кровавая жатва <BR> 
-</td>
-<td style="border:1px solid grey;background:white;width:5px;">
-<input type="submit" id="ChTx10" onclick= "document.location.href ='lib/compTextChoice.php?ch=47';" name="" value="Слова " >
-</td>
-<td style="border:1px solid grey;background:white;width:5px;">
-<input type="submit" id="ChTx10" onclick= "window.open('text.php?page=0&cBook=47&ch=1' , '_blank');" name="" value="Читать анг." >
-</td>
-<td style="border:1px solid grey;background:white;width:5px;">
-<input type="submit" id="ChTx10" onclick= "window.open('text.php?page=0&cBook=48&ch=1' , '_blank');" name="" value="Читать рус." >
-</td>
-<td>
-<font style="font-size:13px"  face="Arial"><a href="df.php?fd=myvocab.org/Hemmet_The-Continental-Op_1_Red-Harvest.rar" > <font style="font-size:13px" face="Arial">&nbsp;скачать&nbsp; </font></a>
-</td>
-</tr>
 
-<tr>
-<td style="border:3px solid grey;background:white;width:600px;font-family:Arial;font-size:14px;">
-M. Connelly - City of Bones<BR>Майкл Коннелли   - Город костей <BR> 
-</td>
-<td style="border:1px solid grey;background:white;width:5px;">
-<input type="submit" id="ChTx10" onclick= "document.location.href ='lib/compTextChoice.php?ch=49';" name="" value="Слова " >
-</td>
-<td style="border:1px solid grey;background:white;width:5px;">
-<input type="submit" id="ChTx10" onclick= "window.open('text.php?page=0&cBook=49&ch=1' , '_blank');" name="" value="Читать анг." >
-</td>
-<td style="border:1px solid grey;background:white;width:5px;">
-<input type="submit" id="ChTx10" onclick= "window.open('text.php?page=0&cBook=50&ch=1' , '_blank');" name="" value="Читать рус." >
-</td>
-<td>
-<font style="font-size:13px"  face="Arial"><a href="df.php?fd=myvocab.org/Konnelli_Harry-Bosch_8_City-Of-Bones.rar" > <font style="font-size:13px" face="Arial">&nbsp;скачать&nbsp; </font></a>
-</td>
-</tr>
 
-<tr>
-<td style="border:3px solid grey;background:white;width:600px;font-family:Arial;font-size:14px;">
-Winston Groom - Forrest Gump<BR>Уинстон Грум   - Форрест Гамп <BR> 
-</td>
-<td style="border:1px solid grey;background:white;width:5px;">
-<input type="submit" id="ChTx10" onclick= "document.location.href ='lib/compTextChoice.php?ch=51';" name="" value="Слова " >
-</td>
-<td style="border:1px solid grey;background:white;width:5px;">
-<input type="submit" id="ChTx10" onclick= "window.open('text.php?page=0&cBook=51&ch=1' , '_blank');" name="" value="Читать анг." >
-</td>
-<td style="border:1px solid grey;background:white;width:5px;">
-<input type="submit" id="ChTx10" onclick= "window.open('text.php?page=0&cBook=52&ch=1' , '_blank');" name="" value="Читать рус." >
-</td>
-<td>
-<font style="font-size:13px"  face="Arial"><a href="df.php?fd=myvocab.org/Grum_Forrest-Gump.rar" > <font style="font-size:13px" face="Arial">&nbsp;скачать&nbsp; </font></a>
-</td>
-</tr>
+
+?>
 
 
 
 </tbody>
-</table>    
+</table>  
+
+
+
     </body>
 
  

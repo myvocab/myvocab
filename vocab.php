@@ -4,7 +4,7 @@ session_start();
   
  
 if ($_SESSION['userName'] == NULL) {
- 	       $_SESSION['mess'] = '<font style="position:absolute; left:50px;  font-size:13px" color="#FF0000" face="Arial">
+ 	       $_SESSION['mess'] = '<font style="size:13px" color="#FF0000" face="Arial">
                Для использования этой формы необходимо зарегистрироваться.</font><br>';
               header("Location:index.php");
               exit();

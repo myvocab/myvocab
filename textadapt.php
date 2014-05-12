@@ -47,12 +47,13 @@ $strSQL =   "SELECT books.* FROM books WHERE (((books.pr)=1)) ORDER BY books.pr,
 $res = mysqli_query($link, $strSQL); 
 while ($row = mysqli_fetch_array($res))
 { 
-$nameAuth =   Trim($row['nameAuth']);
-$nameAuth = str_replace(',', '', $nameAuth);
-$nameBook =   Trim($row['nameBook']);
- $nameFile  =  str_replace(' ', '_', $nameAuth)."-".str_replace(' ', '_', $nameBook).".rar";
-// $nameFile = $nameAuth." - ".$nameBook.".rar";
-//echo    $row['SortName']."</BR>";
+$nameFile  =$row['nameFile'];
+ 
+//$nameAuth =   Trim($row['nameAuth']);
+//$nameAuth = str_replace(',', '', $nameAuth);
+//$nameBook =   Trim($row['nameBook']);
+//$nameFile  =  str_replace(' ', '_', $nameAuth)."-".str_replace(' ', '_', $nameBook).".rar";
+
 echo "<tr>";
 echo '<td style="border:1px solid grey;background:white;width:110px;font-family:Arial;font-size:12px;">';
 echo    $row['pr2Name'];
