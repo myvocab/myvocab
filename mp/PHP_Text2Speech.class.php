@@ -48,130 +48,135 @@ $t2s = new PHP_Text2Speech;
 ******************************************************************/
 
 class PHP_Text2Speech {
-	
-	/** Max text characters
-	 * @var	Integer 
-	 */
-	var $maxStrLen = 100;
-	
-	/** Text len
-	 * @var	Integer 
-	 */
-	var $textLen = 0;
-	
-	/** No of words
-	 * @var	Integer 
-	 */
-	var $wordCount = 0;
-	
-	/** Language of text (ISO 639-1)
-	 * @var	String 
-	 * @link https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
-	 */
-	var $lang = 'en';
-	
-	/** Text to speak
-	 * @var	String 
-	 */
-	var $text = NULL;
-	
-	/** File name format
-	 * @var	String 
-	 */
-	var $mp3File = "%s.mp3";
-	
-	/** Directory to store audio file
-	 * @var	String 
-	 */
-	var $audioDir = "audio/";
-	
-	/** Contents
-	* @var	String
-	*/
-	var $contents = NULL;
-	
-	/** Function make request to Google translate, download file and returns audio file path
-	 * @param 	String 	$text		- Text to speak
-	 * @param 	String 	$lang 		- Language of text (ISO 639-1)
-	 * @return 	String 	- mp3 file path
-	 * @link https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
-	 */
-	function speak($text, $lang = NULL) {
-		
-		if ($lang !== NULL) {
-			$this->lang = $lang;
-		}
-		
-		// Create dir if not exists
-		if (!is_dir($this->audioDir)) {
-			mkdir($this->audioDir, 0755) or die('Could not create audio dir: ' . $this->audioDir);
-		}
-		
-		// Try to set writing permissions for audio dir.
-		if (!is_writable($this->audioDir)) { 
-			chmod($this->audioDir, 0755) or die('Could not set appropriate permissions for audio dir: ' . $this->audioDir);
-		}
-		
-		// Can not handle more than 100 characters so split text
-		if (strlen($text) > $this->maxStrLen) {
-			$this->text = $text;
-			
-			// Generate unique mp3 file name
-			$file = sprintf($this->mp3File, $this->audioDir . md5($this->text));
-			if (!file_exists($file)) {
-				$texts = array();
-				$words = explode(' ', $this->text);
-				$i = 0;
-				$texts[$i] = NULL;
-				foreach ($words as $w) {
-					$w = trim($w);
-					if (strlen($texts[$i] . ' ' . $w) < $this->maxStrLen) {
-						$texts[$i] = $texts[$i] . ' ' . $w; 
-					} else {
-						$texts[++$i] = $w;
-					}
-				}
-				
-				// Get get separated files contents and marge them into one
-				foreach ($texts as $txt) {
-					$pFile = $this->speak($txt, $this->lang);
-					$this->contents .= $this->stripTags(file_get_contents($pFile));
-					unlink($pFile);
-				}
-				unset($words, $texts);
-				
-				// Save file
-				file_put_contents($file, $this->contents);
-				$this->contents = NULL;
-			}
-		} else {
-			
-			// Generate unique mp3 file name
-			$file = sprintf($this->mp3File, $this->audioDir . md5($text));
-			
-			if (!file_exists($file)) {
-				// Text lenght
-				$this->textLen = strlen($text);
-				
-				// Words count
-				$this->wordCount = str_word_count($text);
-				
-				// Encode string
-				$text = urlencode($text);
+    
+    /** Max text characters
+     * @var    Integer 
+     */
+    var $maxStrLen = 100;
+    
+    /** Text len
+     * @var    Integer 
+     */
+    var $textLen = 0;
+    
+    /** No of words
+     * @var    Integer 
+     */
+    var $wordCount = 0;
+    
+    /** Language of text (ISO 639-1)
+     * @var    String 
+     * @link https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+     */
+    var $lang = 'en';
+    
+    /** Text to speak
+     * @var    String 
+     */
+    var $text = NULL;
+    
+    /** File name format
+     * @var    String 
+     */
+    var $mp3File = "%s.mp3";
+    
+    /** Directory to store audio file
+     * @var    String 
+     */
+    var $audioDir = "audio/";
+    
+    /** Contents
+    * @var    String
+    */
+    var $contents = NULL;
+    
+    /** Function make request to Google translate, download file and returns audio file path
+     * @param     String     $text        - Text to speak
+     * @param     String     $lang         - Language of text (ISO 639-1)
+     * @return     String     - mp3 file path
+     * @link https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+     */
+    function speak($text, $lang = NULL) {
+        
+        if ($lang !== NULL) {
+            $this->lang = $lang;
+        }
+        
+        // Create dir if not exists
+        if (!is_dir($this->audioDir)) {
+            mkdir($this->audioDir, 0755) or die('Could not create audio dir: ' . $this->audioDir);
+        }
+        
+        // Try to set writing permissions for audio dir.
+        if (!is_writable($this->audioDir)) { 
+            chmod($this->audioDir, 0755) or die('Could not set appropriate permissions for audio dir: ' . $this->audioDir);
+        }
+        
+        // Can not handle more than 100 characters so split text
+        if (strlen($text) > $this->maxStrLen) {
+            $this->text = $text;
+            
+            // Generate unique mp3 file name
+          
+           $file = sprintf($this->mp3File, $this->audioDir . md5($this->text));
+           
+            if (!file_exists($file)) {
+                $texts = array();
+                $words = explode(' ', $this->text);
+                $i = 0;
+                $texts[$i] = NULL;
+                foreach ($words as $w) {
+                    $w = trim($w);
+                    if (strlen($texts[$i] . ' ' . $w) < $this->maxStrLen) {
+                        $texts[$i] = $texts[$i] . ' ' . $w; 
+                    } else {
+                        $texts[++$i] = $w;
+                    }
+                }
+                
+                // Get get separated files contents and marge them into one
+                foreach ($texts as $txt) {
+                    $pFile = $this->speak($txt, $this->lang);
+                    $this->contents .= $this->stripTags(file_get_contents($pFile));
+                    unlink($pFile);
+                }
+                unset($words, $texts);
+                
+                // Save file
+                file_put_contents($file, $this->contents);
+                $this->contents = NULL;
+            }
+        } else {
+            
+            // Generate unique mp3 file name
+           $file = sprintf($this->mp3File, $this->audioDir . md5($this->text));
+         
 
-				// Download new file
-				$this->download("http://translate.google.com/translate_tts?ie=UTF-8&q={$text}&tl={$this->lang}&total={$this->wordCount}&idx=0&textlen={$this->textLen}", $file);
-			}
-		}
-		
-		// Returns mp3 file path
-		return $file;
-	}
-	
-	/** Function to find the beginning of the mp3 file
-	 * @param 	String 	$contents		- File contents
-	 * @return 	Integer
-	 */ 
+            
+            
+            if (!file_exists($file)) {
+                // Text lenght
+                $this->textLen = strlen($text);
+                
+                // Words count
+                $this->wordCount = str_word_count($text);
+                
+                // Encode string
+                $text = urlencode($text);
+
+                // Download new file
+                $this->download("http://translate.google.com/translate_tts?ie=UTF-8&q={$text}&tl={$this->lang}&total={$this->wordCount}&idx=0&textlen={$this->textLen}", $file);
+            }
+        }
+        
+        // Returns mp3 file path
+        return $file;
+    }
+    
+    /** Function to find the beginning of the mp3 file
+     * @param     String     $contents        - File contents
+     * @return     Integer
+     */ 
     function getStart($contents) {
         for($i=0; $i < strlen($contents); $i++){
             if(ord(substr($contents, $i, 1)) == 255){
@@ -179,11 +184,11 @@ class PHP_Text2Speech {
             }
         }
     }
-	
-	/** Function to find the end of the mp3 file
-	 * @param 	String 	$contents		- File contents
-	 * @return 	Integer
-	 */ 
+    
+    /** Function to find the end of the mp3 file
+     * @param     String     $contents        - File contents
+     * @return     Integer
+     */ 
     function getEnd($contents) {
         $c = substr($contents, (strlen($contents) - 128));
         if(strtoupper(substr($c, 0, 3)) == 'TAG'){
@@ -193,10 +198,10 @@ class PHP_Text2Speech {
         }
     }
 
-	/** Function to remove the ID3 tags from mp3 files
-	 * @param 	String 	$contents		- File contents
-	 * @return 	String
-	 */ 
+    /** Function to remove the ID3 tags from mp3 files
+     * @param     String     $contents        - File contents
+     * @return     String
+     */ 
     function stripTags($contents) {
         // Remove start
         $start = $this->getStart($contents);
@@ -210,11 +215,11 @@ class PHP_Text2Speech {
             return substr($contents, 0, (strlen($contents) - 129));
         }
     }
-	
-	/** Function to download and save file
-	 * @param 	String 	$url		- URL
-	 * @param 	String 	$path 		- Local path
-	 */ 
+    
+    /** Function to download and save file
+     * @param     String     $url        - URL
+     * @param     String     $path         - Local path
+     */ 
     function download($url, $path) { 
         // Is curl installed?
         if (!function_exists('curl_init')){ // use file get contents 
@@ -230,7 +235,7 @@ class PHP_Text2Speech {
             $output = curl_exec($ch); 
             curl_close($ch); 
         }
-		// Save file
-		file_put_contents($path, $output);
+        // Save file
+        file_put_contents($path, $output);
     }
 }

@@ -8,8 +8,10 @@ include 'PHP_Text2Speech.class.php';
 <audio controls="controls" autoplay="autoplay"> 
  <source src="<?php echo $t2s->speak('fff');?>" type="audio/mp3" /> 
 </audio>
+
+
 <?php
-echo$t2s->speak('fff');
+echo $t2s->speak('fff');
 ?>
 
 
