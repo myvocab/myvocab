@@ -564,15 +564,3 @@ function fillStResponse(data) {
 }
 
 
-
-
-
-
-
-
-function randWords(){
-    
-    
-    
-}
-

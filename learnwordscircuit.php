@@ -46,8 +46,18 @@ include('lib/menu.inc');
 <div  style="position:absolute;left:0px;top:0px; display:block">
 <div  id="changeForAll"style="position:absolute;left:0px;top:394px; display:<?php if ($_SESSION['userId']==3){echo  'block';} else {echo  'none';}?>;">  
 <input class="bt" type="submit" id="SaveEditA" onclick="saveEdit('all');" name="" value="Сохранить для всех" 
-style="left:140px;top:0px;">
-<input class="bt" type="submit" id="btDelA" onclick="delRestore(-1,'all');" name="" value="Удалить для всех" style="left:280px;top:0px;">
+style="left:40px;top:0px;">
+<input class="bt" type="submit" id="btDelA" onclick="delRestore(-1,'all');" name="" value="Удалить для всех" style="left:180px;top:0px;">
+
+<input type="text" id="WordTrs"  style="position:absolute;text-align:left;left:330px;top:0px;width:200px;height:19px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:15px;font-weight:bold;background-color:BLACK;z-index:2" name="WEdit" value="">
+
+<input class="bt" type="submit" id="SaveEditA" onclick="mp3_f('-sp-ru');" name="" value="en-sp-ru" 
+style="left:550px;top:0px;width:60px;">
+<input class="bt" type="submit" id="SaveEditA" onclick="" name="" value="en" 
+style="left:630px;top:0px;width:60px;">
+<input class="bt" type="submit" id="SaveEditA" onclick="test_f('-sp-ru');" name="" value="en-ru" 
+style="left:700px;top:0px;width:60px;">
+
 </div>
 </div>
 

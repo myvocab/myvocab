@@ -128,7 +128,7 @@ $strSQL ='UPDATE mvdone'. $userId .' SET idLearn='.rand(1000, 2000).' WHERE idLe
 $result = mysqli_query($link, $strSQL);
 }
 
-$strSQL = 'SELECT wordE, transl, transc, iterationE, iterationO, NS, date50, m, TimeClick, (UNIX_TIMESTAMP(TimeClick)+'.$mySqlTZ.') as  StTC FROM mvdone'. $userId .' WHERE (idLearn<>0) ORDER BY idLearn';
+$strSQL = 'SELECT wordE, transl, transc, iterationE, iterationO, NS, date50, m, TimeClick, (UNIX_TIMESTAMP(TimeClick)+'.$mySqlTZ.') as  StTC, wordTr FROM mvdone'. $userId .' WHERE (idLearn<>0) ORDER BY idLearn';
 $res = mysqli_query($link, $strSQL);
 $mvEW =$ch;
 $mvlastDate=$timenow;
@@ -147,11 +147,12 @@ while ($row = mysqli_fetch_array($res))
     $mvlastDate = $mvlastDate."{{~".$row['TimeClick'];
 
     $mvUnixLD = $mvUnixLD."{{~".$row['StTC'];
+    $mvWtr = $mvWtr."{{~".$row['wordTr'];
 
 }
 
 //echo $mvidSort."@(@".$mvW."@(@".$mvTrnsl."@(@".$mvTrnsc."@(@".$mvDate."@(@".$mvPr."@(@".$mvOW."@(@".$mvNP."@(@".$mvIterationE;
-echo $mvEW."@(@".$mvTrnsl."@(@".$mvTrnsc."@(@".$mviterE."@(@".$mviterO."@(@".$mviterOrow."@(@".$mvdateSt."@(@".$mvlastA."@(@".$mvlastDate."@(@".$mvUnixLD;
+echo $mvEW."@(@".$mvTrnsl."@(@".$mvTrnsc."@(@".$mviterE."@(@".$mviterO."@(@".$mviterOrow."@(@".$mvdateSt."@(@".$mvlastA."@(@".$mvlastDate."@(@".$mvUnixLD."@(@".$mvWtr;
 
 //echo $strSQL1;
 ?>

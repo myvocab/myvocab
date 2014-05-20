@@ -111,7 +111,7 @@ $mvTrnsl = "11";
 //}
 
  
-$strSQL =   'SELECT id, wordO, wordE, transl, idSort, pr, flag, date50, transc, iterationE, NP, iterationO, NS FROM mvdone'. $userId . 
+$strSQL =   'SELECT id, wordO, wordE, transl, idSort, pr, flag, date50, transc, iterationE, NP, iterationO, NS, wordTr FROM mvdone'. $userId . 
 $strWHERECur1.' ORDER BY id LIMIT 0,'.$StW.'';
 
 
@@ -141,11 +141,12 @@ while ($row = mysqli_fetch_array($res))
     $mvIterationE = $mvIterationE."{{~".$row['iterationE'];
     $mvIterationO = $mvIterationO."{{~".$row['iterationO'];
     $mvNS = $mvNS."{{~".$row['NS'];
+    $mvWtr = $mvWtr."{{~".$row['wordTr'];
 }
 
 
    
-echo $mvidSort."@(@".$mvW."@(@".$mvTrnsl."@(@".$mvTrnsc."@(@".$mvDate."@(@".$mvPr."@(@".$mvOW."@(@".$mvNP."@(@".$mvIterationE."@(@".$mvIterationO."@(@".$mvNS;
+echo $mvidSort."@(@".$mvW."@(@".$mvTrnsl."@(@".$mvTrnsc."@(@".$mvDate."@(@".$mvPr."@(@".$mvOW."@(@".$mvNP."@(@".$mvIterationE."@(@".$mvIterationO."@(@".$mvNS."@(@".$mvWtr;
  
 ?>
 

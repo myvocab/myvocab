@@ -118,6 +118,7 @@ $result = mysqli_query($link, $strSQL);
 
  $strSQL= "CREATE TABLE mvdone".$idUser." (wordE varchar( 255 ) DEFAULT NULL ,
 wordO varchar( 255 ) NOT NULL ,
+wordTr varchar( 255 ) DEFAULT '',
 transc varchar( 50 ) DEFAULT NULL ,
 transl longtext,
 flag int( 11 ) DEFAULT 0,

@@ -21,6 +21,7 @@
     var lastA = new Array(NumberStore);
     var lastDate = new Array(NumberStore);
     var UnixLD = new Array(NumberStore);
+    var WtrSt = new Array(NumberStore);
     
 //    var beacSt = 1; // 0 - all ??, 1- download all, 2- download 2-th half, 3 - end
 //    var beacNSr = 0;   
@@ -149,8 +150,10 @@ function updatePageTo() {
     lastA=tagList[7].split("{{~");
     lastDate=tagList[8].split("{{~");
     UnixLD=tagList[9].split("{{~");
+    WtrSt=tagList[10].split("{{~");
+    
 // alert (lastA[0]+" "+lastDate[0]);  
-// alert(UnixLD);
+ //alert(WtrSt);
 
   if(WESt.length == 1){alert('у вас нет отмеченных слов, как "ИЗУЧАЕМОЕ"');exit();};
  if(WESt[0]=='start') {showWord(idCurr);calcLearn();};
@@ -179,6 +182,7 @@ if(WESt.length < id+1){fillLearn('start');calcLearn();return;};
 document.getElementById('WordEdit').value = WESt[id];
 document.getElementById('trnsc').value = TrnscSt[id];
 document.getElementById('trnsl').value =  TrnslSt[id];
+document.getElementById('WordTrs').value =  WtrSt[id];
 
 
 //document.getElementById('trnsl').value = lastA[0];
@@ -327,6 +331,38 @@ function dateNow(){
 } 
   
 
+function mp3_f(ch){
+//    alert(document.getElementById('WordEdit').value);
+//alert (WESt[idCurr]);
+ch2=0;
+if (WtrSt[idCurr]!= document.getElementById('WordTrs').value)
+{
+    ch2=1;
+    WtrSt[idCurr] = document.getElementById('WordTrs').value;
+}
+pth="mpf/mp3f.php";
+$.get(
+  pth,
+  { 
+    ch: ch,
+    ch2: ch2,
+    wordEA: document.getElementById('WordEdit').value,
+    wordRA: document.getElementById('WordTrs').value
+  },
+  mp3_fResponse
+);  
+}
+
+function mp3_fResponse(data){
+alert(data); 
+
+//document.getElementById('oriWord').value =data;  
+//document.getElementById('WordEdit').value = data;  
+  
+}  
+  
+  
+  
   
   
 function fillTmp1(){document.getElementById("tmp1").value=WOSt;} 

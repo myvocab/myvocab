@@ -19,7 +19,8 @@
     var TrnslArray = new Array(NumberWords);
     var TrnscArray = new Array(NumberWords);
     var WOArray = new Array(NumberWords);
-    
+    var WtrArray = new Array(NumberWords);
+     
     var idSSt = new Array(NumberStore);
     var TrnslSt = new Array(NumberStore);
     var TrnscSt = new Array(NumberStore);
@@ -31,6 +32,7 @@
     var NSSt = new Array(NumberStore);
     var IterationSt =  new Array(NumberStore);
     var IterationOSt =  new Array(NumberStore);
+    var WtrSt = new Array(NumberStore);
   
     var beacSt = 1; // 0 - all Ок, 1- download all, 2- download 2-th half, 3 - end
     var beacNSr = 0;
@@ -170,8 +172,9 @@ if (request.readyState == 4){
     var mvIteration=tagList[8].split("{{~");
     var mvIterationO=tagList[9].split("{{~");
     var mvNS=tagList[10].split("{{~");
+    var mvWtr=tagList[11].split("{{~");
 //document.getElementById('tmp1').value=   mvTrnsl[0];
-//alert (WOTmp); 
+//alert (mvWtr); 
 //alert (WOTmp);  
  if (WOTmp[countTmp2]!=""){setLevelInBases(countTmp2);}
         
@@ -221,6 +224,7 @@ else
         TrnslArray[k]=" ";    
         TrnscArray[k]=" ";    
         WOArray[k] = " ";
+        WtrArray[k] = " ";
           }
 
 countT = Math.min(NumberWords, mvID.length-1);
@@ -253,7 +257,9 @@ countT = Math.min(NumberWords, mvID.length-1);
     
     TrnslArray[k]= mvTrnsl[k+1];    
     TrnscArray[k]= mvTrnsc[k+1];    
-    WOArray[k] = mvWO[k+1];                                 
+    WOArray[k] = mvWO[k+1];
+    WtrArray[k] = mvWtr[k+1]                                
+   
        }
 if (FlagChangePage=='fcp'){ showWord(bookWord);} 
 
@@ -277,6 +283,7 @@ if (FlagChangePage=='np'){ showWord(1);FlagChangePage='fcp';}
     NPSt[aa] = mvNP[k+1];
     PrSt[aa] = mvPr[k+1];
     IterationSt[aa] =  mvIteration[k+1];
+    WtrSt[aa] = mvWtr[k+1];
  //   alert(WOSt[aa]);
  } 
 //document.getElementById('tmp1').value = WOSt; 
@@ -357,6 +364,7 @@ window.document.WordForm.TextAreaTranslate.value=TrnslArray[(id-1)];
 //document.getElementById('WordEdit').value = document.getElementById('tc'+id).innerHTML.replace("Р�","'");
 document.getElementById('WordEdit').value = document.getElementById('tc'+id).innerHTML;
 window.document.WordForm.trnsc.value=TrnscArray[(id-1)];
+document.getElementById('WordTrs').value =WtrArray[(id-1)];
 
 document.getElementById("tbn").rows[(rIndex)].cells[2].style.background="white";
 document.getElementById("tbn").rows[(rIndex)].cells[4].style.background="white";
@@ -365,6 +373,7 @@ document.getElementById("tbn").rows[(id-1)].cells[2].style.background="silver";
 document.getElementById("tbn").rows[(id-1)].cells[4].style.background="silver";
 document.getElementById("dateS").value=document.getElementById("tbn").rows[(id-1)].cells[1].innerHTML;
 document.getElementById("dateE").value=document.getElementById("tbn").rows[(id-1)].cells[1].innerHTML;
+
 //document.getElementById("tbn").rows[(th.rowIndex)].cells[3].style.background="silver";
 rIndex=id-1;
 chKey=0;
@@ -494,4 +503,32 @@ function wordsLearnCircle(){
  str = "learnwordscircuit.php?ch=" + ch;
  exemWindowsC=window.open(str , '_blank');  
     
+}
+
+function mp3_f(ch){
+//    alert(WtrArray[rIndex]+"--"+document.getElementById('WordTrs').value);
+ch2=0;
+if (WtrArray[rIndex]!= document.getElementById('WordTrs').value)
+{ch2=1;
+WtrArray[rIndex] = document.getElementById('WordTrs').value;
+} 
+pth="mpf/mp3f.php";
+$.get(
+  pth,
+  { 
+    ch: ch,
+    ch2: ch2,
+    wordEA: document.getElementById('WordEdit').value,
+    wordRA: document.getElementById('WordTrs').value
+  },
+  mp3_fResponse
+);  
+}
+
+function mp3_fResponse(data){
+alert(data); 
+
+//document.getElementById('oriWord').value =data;  
+//document.getElementById('WordEdit').value = data;  
+  
 }
