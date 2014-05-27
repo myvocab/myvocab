@@ -3,7 +3,7 @@
     var exemWindowsH;
  //   var HL =0;
     var LastCh=0;
-
+  
 //    var bookWord=1;
 //    var bookWordLevel=1;
 
@@ -158,6 +158,8 @@ function updatePageTo() {
   if(WESt.length == 1){alert('у вас нет отмеченных слов, как "ИЗУЧАЕМОЕ"');exit();};
  if(WESt[0]=='start') {showWord(idCurr);calcLearn();};
 
+ //WESt
+ 
  //  alert(WESt);
  
        
@@ -178,8 +180,13 @@ var nowdate = new Date();
 var d = new Date();
 //document.getElementById('trnsl').value = lastA[0];
 
-if(WESt.length < id+1){fillLearn('start');calcLearn();return;};
+
+
+if(WESt.length < id+1){fillLearn('start');
+calcLearn();
+return;};
 document.getElementById('WordEdit').value = WESt[id];
+if (document.getElementById('SWord').checked){madesound();}
 document.getElementById('trnsc').value = TrnscSt[id];
 document.getElementById('trnsl').value =  TrnslSt[id];
 document.getElementById('WordTrs').value =  WtrSt[id];
@@ -354,14 +361,34 @@ $.get(
 }
 
 function mp3_fResponse(data){
-alert(data); 
+   alert(data); 
+ }  
+ 
+  
+  
+ 
+function madesound(){
+//alert (document.getElementById('WordEdit').value);
+pth="mpf/msound.php";
+$.get(
+  pth,
+  { 
+//     ch: 0, 
+     wordEA: document.getElementById('WordEdit').value
+   },
+  madesoundResponse
+);  
+}
 
-//document.getElementById('oriWord').value =data;  
-//document.getElementById('WordEdit').value = data;  
-  
+function madesoundResponse(data){
+ //   alert("ff");
+ //   alert(data+"ddd");
+document.getElementById('mySoundClip').src='mpf/audio/eng/'+data+'.mp3';
+var audio = document.getElementById("mySoundClip");
+audio.play();  
 }  
-  
-  
+
+
   
   
   

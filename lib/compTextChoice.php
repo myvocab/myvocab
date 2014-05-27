@@ -56,13 +56,13 @@ $result = mysqli_query($link, $strSQL);
 
 
 
-$strSQL = "UPDATE mv".$userId." LEFT JOIN mt ON mv".$userId.".wordE = mt.wordO SET mv".$userId.".transl = mt.transl, mv".$userId.".transc = mt.transc 
+$strSQL = "UPDATE mv".$userId." LEFT JOIN mt ON mv".$userId.".wordE = mt.wordO SET mv".$userId.".transl = mt.transl, mv".$userId.".transc = mt.transc, mv".$userId.".wordTr = mt.wordTr  
 WHERE ((Not (mt.wordO) Is Null) AND ((mv".$userId.".transl) is Null))";
 $result = mysqli_query($link, $strSQL);
 
 
 
-$strSQL = "UPDATE mv".$userId." LEFT JOIN mvdone".$userId." ON mv".$userId.".wordE = mvdone".$userId.".wordE SET mv".$userId.".date50 = mvdone".$userId.".date50, mv".$userId.".pr = mvdone".$userId.".pr 
+$strSQL = "UPDATE mv".$userId." LEFT JOIN mvdone".$userId." ON mv".$userId.".wordE = mvdone".$userId.".wordE SET mv".$userId.".date50 = mvdone".$userId.".date50, mv".$userId.".pr = mvdone".$userId.".pr, mv".$userId.".wordTr = mt.wordTr  
 WHERE (Not (mvdone".$userId.".pr) Is Null)";
 $result = mysqli_query($link, $strSQL);
 

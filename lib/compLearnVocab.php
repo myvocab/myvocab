@@ -25,6 +25,7 @@ $strSQL = "CREATE TABLE IF NOT EXISTS mvv". $userId ." (
   id int(11) NOT NULL AUTO_INCREMENT,
   wordE varchar(255) DEFAULT NULL,
   wordO varchar(255) DEFAULT NULL,
+  wordTr varchar( 255 ) DEFAULT '',
   transc varchar(50) DEFAULT NULL,
   transl longtext,
   pr int(2) DEFAULT '0',
@@ -43,18 +44,18 @@ if ($_GET["d100"]=="true") {$strWHERE = $strWHERE."((mvdone".$userId.".pr)=100) 
 if ($_GET['flagdel']=="true") {$strWHERE = $strWHERE."((mvdone".$userId.".pr)=-1) or ";} 
 
 if ($flr == "true") {$strWHERE = $strWHERE." 1=0) and (mvdone".$userId.".flag=0))";
-$strSQL1 =   'SELECT  wordE, wordO, pr, date50, transl, transc FROM mvdone'. $userId . 
+$strSQL1 =   'SELECT  wordE, wordO, wordTr, pr, date50, transl, transc FROM mvdone'. $userId . 
 $strWHERE.' ORDER BY id LIMIT '.($nSt-1).','.($nFn - $nSt+1).'';
 }
 else
 {$strWHERE = $strWHERE." 1=0) and (mvdone".$userId.".flag=0) and (mvdone".$userId.".date50>='".$dateS."') and (mvdone".$userId.".date50<='".$dateE."'))";
-$strSQL1 =   'SELECT  wordE, wordO, pr, date50, transl, transc FROM mvdone'. $userId . 
+$strSQL1 =   'SELECT  wordE, wordO, wordTr, pr, date50, transl, transc FROM mvdone'. $userId . 
 $strWHERE.' ORDER BY id';
 }
 
 
 
-$strSQL="INSERT INTO mvv". $userId ."  (wordE, wordO, pr, date50, transl, transc) ".$strSQL1;
+$strSQL="INSERT INTO mvv". $userId ."  (wordE, wordO, wordTr, pr, date50, transl, transc) ".$strSQL1;
 $result = mysqli_query($link, $strSQL);
 
 $strSQL="UPDATE mvv". $userId ." SET mvv". $userId .".flag = mvv". $userId .".id";

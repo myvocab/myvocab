@@ -26,6 +26,7 @@ $strSQL = "CREATE TABLE IF NOT EXISTS mvr". $userId ." (
   id int(11) NOT NULL AUTO_INCREMENT,
   wordE varchar(255) DEFAULT NULL,
   wordO varchar(255) DEFAULT NULL,
+  wordTr varchar( 255 ) DEFAULT '',
   transc varchar(50) DEFAULT NULL,
   transl longtext,
   pr int(2) DEFAULT '0',

@@ -226,13 +226,15 @@ function check_exit(){
  eWord = window.document.WordForm.WordEdit.value;
  oWord = document.getElementById('oriWord').value;
  tc = window.document.WordForm.trnsc.value;
+ trw= document.getElementById('WordTrs').value;
+ prvw = document.getElementById("tc"+bookWord).innerHTML;
  pth="lib/saveEdit.php";
  if (cha =="all"){pth="lib/saveEditA.php";}
  
  $.ajax({
    type: "POST",
   url: pth,
-    data: "tr="+tr+"&eWord="+eWord+"&oWord="+oWord+"&tc="+tc,
+    data: "tr="+tr+"&eWord="+eWord+"&oWord="+oWord+"&tc="+tc+"&trWord="+trw+"&prevWord="+prvw,
       async:false,
   success:  saveEditResponse, 
  });
@@ -243,44 +245,8 @@ function check_exit(){
  
  
  function saveEditResponse(data) {
-//  alert(data);
- var tagList = data.split("@(@");
-
-    var flag=tagList[0];
-    var dtp=tagList[1];
-    var pr=tagList[2];
- /*  
-   if (flag==0){
-        
-        document.getElementById("tc"+(bookWord)).style.color="black";
-        document.getElementById("idS"+(bookWord)).style.background="white";
- 
-  TrnslArray[bookWord-1] = window.document.WordForm.TextAreaTranslate.value;
-  TrnscArray[bookWord-1] = window.document.WordForm.trnsc.value;
-  document.getElementById("tc"+bookWord).innerHTML = window.document.WordForm.WordEdit.value;
-  document.getElementById("date"+bookWord).innerHTML=dtp;
-    if(pr==50){  document.getElementById("tc"+(bookWord)).style.color="blue"; }
-    if(pr==-1){
-    document.getElementById("idS"+(bookWord)).style.background="black";
-    document.getElementById("tc"+(bookWord)).style.color="black";
-       }
-     if(pr==100){document.getElementById("tc"+(bookWord)).style.color="red";}
- 
-    
-   for (var k = 0; k < (NumberWords-bookWord); k++) {
-//     alert("aaa");  
-   f=parseInt(bookWord,10)+parseInt(k,10); fn=parseInt(bookWord,10)+parseInt(k,10)+1; 
- 
-   if(document.getElementById("tc"+fn).innerHTML==document.getElementById("tc"+bookWord).innerHTML)
-    { moveUp(fn);exit(); }   
-   
-   }
-   
-   }
- 
- 
- if (flag==2){moveUp(bookWord);}
- */
+  document.getElementById('oriWord').value=window.document.WordForm.WordEdit.value;
+ fillTable('findword');
  alert("Done!");
  calcLevVocab();
  }

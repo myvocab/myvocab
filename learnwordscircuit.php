@@ -40,7 +40,7 @@ include('lib/menu.inc');
 	</head>
 <body id="body_words" onLoad="fillLearn('start', '<?php echo $_GET["ch"]; ?>'); dateNow();">
 
-
+<audio id='mySoundClip'><source src=""></source></audio>
  
   
 <div  style="position:absolute;left:0px;top:0px; display:block">
@@ -55,7 +55,7 @@ style="left:40px;top:0px;">
 style="left:550px;top:0px;width:60px;">
 <input class="bt" type="submit" id="SaveEditA" onclick="" name="" value="en" 
 style="left:630px;top:0px;width:60px;">
-<input class="bt" type="submit" id="SaveEditA" onclick="test_f('-sp-ru');" name="" value="en-ru" 
+<input class="bt" type="submit" id="SaveEditA" onclick="madesound();" name="" value="en-ru" 
 style="left:700px;top:0px;width:60px;">
 
 </div>
@@ -89,10 +89,12 @@ style="left:700px;top:0px;width:60px;">
 
 
 
-<table class="frame_table" style="left:2px; top:165px; width:130px; height:45px;"><tr><td></td></tr></table>
-<div class="capt" style="left:0px; top:175px; width:135px;font-size:10px">ПРИ СМЕНЕ СЛОВА:</div>
-<div class="capt" style="left:10px; top:193px; width:100px;font-size:10px">скрывать перевод</div>
-<input type="checkbox" id="DisplayTr" name="" value="on" checked style="position:absolute;left:105px;top:190px;z-index:0">
+<table class="frame_table" style="left:2px; top:155px; width:130px; height:55px;"><tr><td></td></tr></table>
+<div class="capt" style="left:0px; top:160px; width:135px;font-size:10px">ПРИ СМЕНЕ СЛОВА:</div>
+<div class="capt" style="left:10px; top:175px; width:100px;font-size:10px">скрывать перевод</div>
+<input type="checkbox" id="DisplayTr" name="" value="on" checked style="position:absolute;left:105px;top:172px;z-index:0">
+<div class="capt" style="left:10px; top:190px; width:100px;font-size:10px">произносить слово</div>
+<input type="checkbox" id="SWord" name="" value="off" onchange="if (document.getElementById('SWord').checked){madesound();}" style="position:absolute;left:105px;top:187px;z-index:0">
 
 
 
@@ -116,10 +118,10 @@ wordHistory();" name="" value="К СЛОВУ В ТЕКСТЕ" style="left:4px;to
 
 
 <!--End  right block button -->
-
+<input class="bt" type="image" src="/img/sound.png" id="bt50" onclick="madesound();" name="" value="Звук" style="left:424px;top:10px;width:22px;height:22px;">
 <div id="InfoWord" style="position:absolute; left:143px; top:10px;">
 <form method="post" name="WordForm" action="">
-<input type="text" id="WordEdit" onfocus="keydownuse=0;" onblur="keydownuse=1;" onchange="seekTrans(this.value)" style="position:absolute;text-align:center;left:0px;top:0px;width:300px;height:19px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:15px;font-weight:bold;z-index:2" name="WEdit" value="">
+<input type="text" id="WordEdit" onfocus="keydownuse=0;" onblur="keydownuse=1;" onchange="seekTrans(this.value)" style="position:absolute;text-align:center;left:0px;top:0px;width:277px;height:19px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:15px;font-weight:bold;z-index:2" name="WEdit" value="">
 
 <input type="text" id="trnsc" onfocus="keydownuse=0;" onblur="keydownuse=1;" style="position:absolute;text-align:left;left:0px;top:22px;width:300px;height:19px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:13px;z-index:2" name="trnsc" value="">
 <textarea  id="trnsl" onfocus="keydownuse=0;" onblur="keydownuse=1;" style="position:absolute;left:0px;top:43px;width:300px;height:300px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:13px;z-index:0;display:none" rows="35" cols="56" ></textarea>

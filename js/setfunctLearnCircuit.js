@@ -302,6 +302,7 @@ function seekTrans(eWord) {
  
  oWord = WESt[idCurr];
  tc = window.document.WordForm.trnsc.value;
+ trw=1;
  //alert (oWord+tr+eWord+tc);
  pth="lib/saveEdit.php";
  if (cha =="all"){pth="lib/saveEditA.php";} 
@@ -309,7 +310,7 @@ function seekTrans(eWord) {
  $.ajax({
    type: "POST",
   url: pth,
-    data: "tr="+tr+"&eWord="+eWord+"&oWord="+oWord+"&tc="+tc,
+    data: "tr="+tr+"&eWord="+eWord+"&oWord="+oWord+"&tc="+tc+"&trw="+trw,
       async:false,
   success:  saveEditResponse, 
  });

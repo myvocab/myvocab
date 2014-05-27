@@ -39,7 +39,7 @@ if ($_SESSION['userName'] == NULL) {
 	</head>
 <body id="body_words" onLoad="fillLearn('start', '<?php echo $_GET["ch"]; ?>'); dateNow();">
 
-
+<audio id='mySoundClip'><source src=""></source></audio>
  
 <input  id="PrevPage"  style="display:none;">
 <input  id="NextPage"  style="display:none;">   
@@ -95,10 +95,13 @@ style="left:140px;top:0px;">
 <input class="bt" type="submit" id="randWords" onclick="document.location.href = 'lib/randLearn.php?chval=<?php echo $_GET["ch"]; ?>';" name="" value="Поменять порядок сл" style="left:4px; top:273px;">
 
 
-<table class="frame_table" style="left:2px; top:305px; width:130px; height:35px;"><tr><td></td></tr></table>
+<table class="frame_table" style="left:2px; top:305px; width:130px; height:50px;"><tr><td></td></tr></table>
 <div class="capt" style="left:0px; top:310px; width:135px;font-size:10px">ПРИ СМЕНЕ СЛОВА:</div>
 <div class="capt" style="left:10px; top:323px; width:100px;font-size:10px">скрывать перевод</div>
 <input type="checkbox" id="DisplayTr" name="" value="on" checked style="position:absolute;left:105px;top:319px;z-index:0">
+
+<div class="capt" style="left:10px; top:338px; width:100px;font-size:10px">произносить слово</div>
+<input type="checkbox" id="SWord" name="" value="off" onchange="if (document.getElementById('SWord').checked){madesound();}" style="position:absolute;left:105px;top:335px;z-index:0">
 
 
 <input class="bt" type="submit" id="cWH" onclick="<?php if ($br !="Presto") {echo 'clExemWindowsH();';} ?>
@@ -117,10 +120,11 @@ wordHistory();" name="" value="К СЛОВУ В ТЕКСТЕ" style="left:4px;to
 
 
 <!--End  right block button -->
-
+<input class="bt" type="image" src="/img/sound.png" id="bt50" onclick="madesound();" name="" value="Звук" style="left:420px;top:10px;width:22px;height:22px;">
 <div id="InfoWord" style="position:absolute; left:140px; top:10px;">
 <form method="post" name="WordForm" action="">
-<input type="text" id="WordEdit" onfocus="keydownuse=0;" onblur="keydownuse=1;" onchange="seekTrans(this.value)" style="position:absolute;text-align:center;left:0px;top:0px;width:300px;height:19px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:15px;font-weight:bold;z-index:2" name="WEdit" value="">
+<input type="text" id="WordEdit" onfocus="keydownuse=0;" onblur="keydownuse=1;" onchange="seekTrans(this.value)" style="position:absolute;text-align:center;left:0px;top:0px;width:277px;height:19px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:15px;font-weight:bold;z-index:2" name="WEdit" value="">
+
 
 <input type="text" id="trnsc" onfocus="keydownuse=0;" onblur="keydownuse=1;" style="position:absolute;text-align:left;left:0px;top:22px;width:300px;height:19px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:13px;z-index:2" name="trnsc" value="">
 <textarea name="TextAreaTranslate" id="TextAreaTranslate" onfocus="keydownuse=0;" onblur="keydownuse=1;" style="position:absolute;left:0px;top:43px;width:300px;height:300px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:13px;z-index:0" rows="35" cols="56" ></textarea>

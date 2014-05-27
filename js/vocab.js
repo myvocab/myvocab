@@ -532,3 +532,24 @@ alert(data);
 //document.getElementById('WordEdit').value = data;  
   
 }
+
+function madesound(){
+//alert (document.getElementById('WordEdit').value);
+pth="mpf/msound.php";
+$.get(
+  pth,
+  { 
+//     ch: 0, 
+     wordEA: document.getElementById('WordEdit').value
+   },
+  madesoundResponse
+);  
+}
+
+function madesoundResponse(data){
+ //   alert("ff");
+ //   alert(data+"ddd");
+document.getElementById('mySoundClip').src='mpf/audio/eng/'+data+'.mp3';
+var audio = document.getElementById("mySoundClip");
+audio.play();  
+}  

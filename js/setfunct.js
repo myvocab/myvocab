@@ -228,13 +228,16 @@ function check_exit(){
  eWord = window.document.WordForm.WordEdit.value;
  oWord = document.getElementById('oriWord').value;
  tc = window.document.WordForm.trnsc.value;
+ trw= document.getElementById('WordTrs').value;
+ prvw = document.getElementById("tc"+bookWord).innerHTML;
+ 
  pth="lib/saveEdit.php";
  if (cha =="all"){pth="lib/saveEditA.php";}
  
  $.ajax({
    type: "POST",
   url: pth,
-    data: "tr="+tr+"&eWord="+eWord+"&oWord="+oWord+"&tc="+tc,
+    data: "tr="+tr+"&eWord="+eWord+"&oWord="+oWord+"&tc="+tc+"&trWord="+trw+"&prevWord="+prvw,
       async:false,
   success:  saveEditResponse, 
  });

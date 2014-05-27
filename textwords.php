@@ -56,7 +56,8 @@ include('lib/menu.inc');
   
 <body id="body_words" onLoad="fillTable('start'); dateNow();" >
 <div style="margin:0;padding:0;position:absolute;left:0px;top:0px;">   
-
+<audio id='mySoundClip'><source src=""></source></audio>
+ 
 <!-- service info and button-->
 
 <div style="position:absolute;left:0px; top:520px; display: none;">
@@ -198,10 +199,14 @@ wordHistory();" name="" value="К СЛОВУ В ТЕКСТЕ" style="left:4px;to
 
 
 <!-- Info current word -->
+<input class="bt" type="image" src="/img/sound.png" id="bt50" onclick="madesound();" name="" value="Звук" style="left:416px;top:25px;width:22px;height:22px;">
+
 <form method="post" name="WordForm" action="" style="position:absolute;left:-440px;top:5px;">
-<input type="text" id="WordEdit" onfocus="keydownuse=3;" onblur="keydownuse=1;" onchange="seekTrans(this.value)" style="position:absolute;text-align:center;left:575px;top:22px;width:300px;height:19px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:15px;font-weight:bold;z-index:2" name="WEdit" value="">
+<input type="text" id="WordEdit" onfocus="keydownuse=3;" onblur="keydownuse=1;" onchange="seekTrans(this.value)" style="position:absolute;text-align:center;left:575px;top:20px;width:277px;height:19px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:15px;font-weight:bold;z-index:2" name="WEdit" value="">
 <input type="text" id="trnsc" onfocus="keydownuse=4;" onblur="keydownuse=1;" style="position:absolute;text-align:left;left:575px;top:42px;width:300px;height:19px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:13px;z-index:2" name="trnsc" value="">
-<textarea name="TextAreaTranslate" id="TextAreaTranslate" onfocus="keydownuse=0;" onblur="keydownuse=1;" style="position:absolute;left:575px;top:65px;width:300px;height:300px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:13px;z-index:1" rows="35" cols="56" ></textarea>
+<input type="text" id="WordTrs"  style="position:absolute;text-align:left;left:575px;top:64px;width:300px;height:20px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:15px;font-weight:bold;z-index:2" name="WEdit" value="">
+
+<textarea name="TextAreaTranslate" id="TextAreaTranslate" onfocus="keydownuse=0;" onblur="keydownuse=1;" style="position:absolute;left:575px;top:85px;width:300px;height:300px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:13px;z-index:1" rows="35" cols="56" ></textarea>
 
 
 

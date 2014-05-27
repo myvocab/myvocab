@@ -20,7 +20,7 @@
     var dateSt = new Array(NumberStore);
     var PrSt = new Array(NumberStore);
     var idSSt = new Array(NumberStore);
-    var beacSt = 1; // 0 - all Îê, 1- download all, 2- download 2-th half, 3 - end
+    var beacSt = 1; // 0 - all ??, 1- download all, 2- download 2-th half, 3 - end
     var beacNSr = 0;   
     var chKey=0;
     var keydownuse=1;    
@@ -329,6 +329,7 @@ window.document.WordForm.TextAreaTranslate.value=TrnslArray[(id-1)].replace(/&gt
 
 
 document.getElementById('WordEdit').value=document.getElementById('tc'+id).innerHTML.replace("Ð ï¿½","'");
+if (document.getElementById('SWord').checked){madesound();}
 window.document.WordForm.trnsc.value=TrnscArray[(id-1)];
 
 document.getElementById("tbn").rows[(rIndex)].cells[1].style.background="white";
@@ -382,6 +383,28 @@ function dateNow(){
  // alert (String(myDate.getDate()).length);
   document.getElementById("dLevel").value = myDate.getFullYear()+"." + mm + "." + dd;
 } 
+  
+function madesound(){
+//alert (document.getElementById('WordEdit').value);
+pth="mpf/msound.php";
+$.get(
+  pth,
+  { 
+//     ch: 0, 
+     wordEA: document.getElementById('WordEdit').value
+   },
+  madesoundResponse
+);  
+}
+
+function madesoundResponse(data){
+ //   alert("ff");
+ //   alert(data+"ddd");
+document.getElementById('mySoundClip').src='mpf/audio/eng/'+data+'.mp3';
+var audio = document.getElementById("mySoundClip");
+audio.play();  
+}    
+  
   
   
 function fillTmp1(){document.getElementById("tmp1").value=WOSt;} 

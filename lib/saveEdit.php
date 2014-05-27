@@ -11,12 +11,16 @@ include("connect_db.php");
 
 $we=trim($_POST["eWord"]);
 $wo=trim($_POST["oWord"]);
+$wtr=trim($_POST["trWord"]);
+$wprv=trim($_POST["prevWord"]);
 $tr=trim($_POST["tr"]);
 $tc=trim($_POST["tc"]);
 
 
 $we = mysqli_real_escape_string($link,$we);
 $wo = mysqli_real_escape_string($link,$wo);
+$wtr = mysqli_real_escape_string($link,$wtr);
+$wprv = mysqli_real_escape_string($link,$wprv);
 $tr = mysqli_real_escape_string($link,$tr);
 $tc = mysqli_real_escape_string($link,$tc);
 
@@ -29,7 +33,7 @@ $result = mysqli_query($link, $strSQL);
 $strSQL = 'Delete mveditl'.$userId.'.* FROM mveditl'.$userId.' WHERE (((mveditl'.$userId.'.wordO)="'.$wo.'"))' ;
 $result = mysqli_query($link, $strSQL);                                
 
-$strSQL = 'INSERT INTO mvedit'.$userId.' (wordE, transl, transc ) VALUES ("'.$we.'" , "'.$tr.'", "'.$tc.'")' ;
+$strSQL = 'INSERT INTO mvedit'.$userId.' (wordE, transl, transc, wordTr ) VALUES ("'.$we.'" , "'.$tr.'", "'.$tc.'", "'.$wtr.'")' ;
 $result = mysqli_query($link, $strSQL);
 
 $strSQL = 'INSERT INTO mveditl'.$userId.' (wordO, wordE ) VALUES ("'.$wo.'", "'.$we.'")' ;
@@ -37,17 +41,44 @@ $result = mysqli_query($link, $strSQL);
 
 //update this word in mv
 
-$strSQL = 'UPDATE mvdone'.$userId.' SET wordE="'.$we.'", transl="'.$tr.'", transc="'.$tc.'"
-WHERE (wordE="'.$we.'")';
-$result = mysqli_query($link, $strSQL);
+
+//$strSQL = 'Delete mvdone'.$userId.'.* FROM mvdone'.$userId.' WHERE (((mveditl'.$userId.'.wordO)="'.$wo.'"))' ;
+//$result = mysqli_query($link, $strSQL); 
+if ($we==$wprv){
+    $strSQL = 'UPDATE mvdone'.$userId.' SET wordE="'.$we.'", transl="'.$tr.'", transc="'.$tc.'", wordTr="'.$wtr.'"
+    WHERE (wordE="'.$we.'")';
+    $result = mysqli_query($link, $strSQL);
+}
+else
+{
+   $strSQL = 'SELECT COUNT(*) FROM mvdone'. $userId .' WHERE wordE="'.$we.'"';
+   $res = mysqli_query($link, $strSQL);
+   $row = mysqli_fetch_array($res); 
+   if($row[0]==1)
+   {
+    $strSQL = 'Delete mvdone'.$userId.'.* FROM mvdone'.$userId.' WHERE (((mvdone'.$userId.'.wordE)="'.$we.'"))' ;
+    $result = mysqli_query($link, $strSQL); 
+    
+    $strSQL = 'UPDATE mvdone'.$userId.' SET wordE="'.$we.'", transl="'.$tr.'", transc="'.$tc.'", wordTr="'.$wtr.'"
+    WHERE (wordE="'.$wprv.'")';
+    $result = mysqli_query($link, $strSQL);
+    
+   }
+   else
+   {
+    $strSQL = 'UPDATE mvdone'.$userId.' SET wordE="'.$we.'", transl="'.$tr.'", transc="'.$tc.'", wordTr="'.$wtr.'"
+    WHERE (wordE="'.$wprv.'")';
+    $result = mysqli_query($link, $strSQL);
+   }
+}
 
 
-$strSQL = 'UPDATE mv'.$userId.' SET wordE="'.$we.'", transl="'.$tr.'", transc="'.$tc.'"
+$strSQL = 'UPDATE mv'.$userId.' SET wordE="'.$we.'", transl="'.$tr.'", transc="'.$tc.'", wordTr="'.$wtr.'"
 WHERE (wordO="'.$wo.'")';
 $result = mysqli_query($link, $strSQL);
 
 //update all word in mv
-$strSQL = 'UPDATE mv'.$userId.' SET wordE="'.$we.'", transl="'.$tr.'", transc="'.$tc.'"
+$strSQL = 'UPDATE mv'.$userId.' SET wordE="'.$we.'", transl="'.$tr.'", transc="'.$tc.'", wordTr="'.$wtr.'"
 WHERE (wordE="'.$we.'")';
 $result = mysqli_query($link, $strSQL);
 
@@ -69,15 +100,15 @@ WHERE (((mvdone'.$userId.'.wordE)="'.$we.'"))';
 $result = mysqli_query($link, $strSQL);
 
 
-$strSQL = 'UPDATE mvv'.$userId.' SET wordE="'.$we.'", transl="'.$tr.'", transc="'.$tc.'"
+$strSQL = 'UPDATE mvv'.$userId.' SET wordE="'.$we.'", transl="'.$tr.'", transc="'.$tc.'", wordTr="'.$wtr.'"
 WHERE (wordE="'.$we.'")';
 $result = mysqli_query($link, $strSQL);
 
-$strSQL = 'UPDATE mvs'.$userId.' SET wordE="'.$we.'", transl="'.$tr.'", transc="'.$tc.'"
+$strSQL = 'UPDATE mvs'.$userId.' SET wordE="'.$we.'", transl="'.$tr.'", transc="'.$tc.'", wordTr="'.$wtr.'"
 WHERE (wordE="'.$we.'")';
 $result = mysqli_query($link, $strSQL);
 
-$strSQL = 'UPDATE mvr'.$userId.' SET wordE="'.$we.'", transl="'.$tr.'", transc="'.$tc.'"
+$strSQL = 'UPDATE mvr'.$userId.' SET wordE="'.$we.'", transl="'.$tr.'", transc="'.$tc.'", wordTr="'.$wtr.'"
 WHERE (wordE="'.$we.'")';
 $result = mysqli_query($link, $strSQL);
 

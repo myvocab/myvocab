@@ -1,15 +1,37 @@
-<?php
-include 'PHP_Text2Speech.class.php'; 
-    $t2s = new PHP_Text2Speech; 
-//    echo "dd".$t2s; 
- $p = "  , , ,. ,    . , .   . ,    ., .   ./  /  ,  ., . /. , /. , / , / ,/ ., / , / , / ,/ , / ,/ , / , , ; , ; , ; , ; ;::::::::;;;;;;;;;;;:::::::::::::;;;;;;, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ";
- $a='A'.$p.'BC'    
-?> 
-<audio controls="controls" autoplay="autoplay"> 
- <source src="<?php echo $t2s->speak($a);?>" type="audio/mp3" /> 
+<html>
+<head>
+    <title>Sound</title>
+ 
+<script language='JavaScript'>
+function sound1() {
+var audio = document.getElementsByTagName("audio")[0];
+audio.play();
+var audio = document.getElementById("mySoundClip");
+audio.play();
+
+}
+function sound() {
+
+var audio = document.getElementById("mySoundClip");
+audio.play();
+audio.start();
+
+}
+</script>
+ 
+</head>
+ 
+<body>
+
+
+
+ <audio id='mySoundClip'>
+        <source src="mpf/audio/eng/MAST.mp3"></source>
+        <source src="demo.ogg"></source>
+        Your browser isn't invited for super fun audio time.
 </audio>
-
-
-
-
-
+<a href='#' onClick='sound()'> Listen </a>
+<input type='button' value='Button'  onClick='sound1()'>
+ 
+</body>
+</html>
