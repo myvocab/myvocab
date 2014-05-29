@@ -17,7 +17,7 @@ $strWHERE = " WHERE ((";
 $idCurr=1;
 $NimInTable=1;
 $oWordCurr="";
-// Инициализация служебной инфо в первом члене масива 
+// ????????????? ????????? ???? ? ?????? ????? ?????? 
     $pp = 1;   //end prev indication
     $np = 1;   //end next indication
     $mvTrnsl = $pp.$np; //end prev or start  
@@ -28,7 +28,7 @@ $oWordCurr="";
     $mvPr = "1111"; //flag learn or del
     $mvFlag = -1; 
     $prsword = -2;
- // End Инициализация служебной инфо в первом члене масива 
+ // End ????????????? ????????? ???? ? ?????? ????? ?????? 
  
 
  
@@ -50,13 +50,13 @@ $oWordCurr="";
  
  
  
-// Получение данных их таблицы InfoTmp
+// ????????? ?????? ?? ??????? InfoTmp
 $res = mysqli_query($link, 'SELECT infotmp'. $userId .'.* FROM infotmp'. $userId );
 while ($row = mysqli_fetch_array($res))
 {
     $InfoTmp[$row['FieldName']] = $row['FieldValue'];
 }
-// End Получение данных их таблицы InfoTmp
+// End ????????? ?????? ?? ??????? InfoTmp
  $CBook = $InfoTmp['CBook'];
 // $idStart = $InfoTmp['s'.$CBook];
 
@@ -88,13 +88,13 @@ $strWHERECur3 = $strWHERE." 1=0) and (mv".$userId.".flag=0) and (mv".$userId.".i
 
  
  $strWHERE = $strWHERE." 1=0) and (mv".$userId.".flag=0) and (mv".$userId.".id>=".$idStart.") )";
- //Подсчет колл. записей при установленном idStart
+ //??????? ????. ??????? ??? ????????????? idStart
 $strSQL = 'SELECT COUNT(*) FROM mv'. $userId ." ".$strWHERE.' ORDER BY id';
 $res = mysqli_query($link, $strSQL);
 $row = mysqli_fetch_array($res); 
 $NRUp = $row[0]; 
  
-// end Подсчет колл. записей  при установленном idStart
+// end ??????? ????. ???????  ??? ????????????? idStart
 
 
 
@@ -111,7 +111,7 @@ $mvTrnsl = "11";
 //}
 
  
-$strSQL =   'SELECT id, wordO, wordE, transl, idSort, pr, flag, date50, transc, iterationE, NP FROM mv'. $userId . 
+$strSQL =   'SELECT id, wordO, wordE, transl, idSort, pr, flag, date50, transc, iterationE, NP, wordTr FROM mv'. $userId . 
 $strWHERECur1.' ORDER BY id LIMIT 0,'.$StW.'';
 
 
@@ -139,11 +139,12 @@ while ($row = mysqli_fetch_array($res))
 	$mvPr = $mvPr."{{~".$row['pr'];
     $mvOW = $mvOW."{{~".$row['wordO'];
     $mvIterationE = $mvIterationE."{{~".$row['iterationE'];
+    $mvWtr = $mvWtr."{{~".$row['wordTr'];
 }
 
 
    
-echo $mvidSort."@(@".$mvW."@(@".$mvTrnsl."@(@".$mvTrnsc."@(@".$mvDate."@(@".$mvPr."@(@".$mvOW."@(@".$mvNP."@(@".$mvIterationE;
+echo $mvidSort."@(@".$mvW."@(@".$mvTrnsl."@(@".$mvTrnsc."@(@".$mvDate."@(@".$mvPr."@(@".$mvOW."@(@".$mvNP."@(@".$mvIterationE."@(@".$mvWtr;
  
 ?>
 

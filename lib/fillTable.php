@@ -310,7 +310,7 @@ $mvTrnsl = $pp.$np;
 //}
 
  
-$strSQL =   'SELECT id, wordO, wordE, transl, idSort, pr, flag, date50, transc, iterationE, NP FROM mv'. $userId . 
+$strSQL =   'SELECT id, wordO, wordE, transl, idSort, pr, flag, date50, transc, iterationE, NP, wordTr FROM mv'. $userId . 
 $strWHERE.' ORDER BY id LIMIT 0,'.($NW+$NSt).'';
 
 
@@ -341,6 +341,7 @@ while ($row = mysqli_fetch_array($res))
     $mvPr = $mvPr."{{~".$row['pr'];
     $mvOW = $mvOW."{{~".$row['wordO'];
     $mvIterationE = $mvIterationE."{{~".$row['iterationE'];
+    $mvWtr = $mvWtr."{{~".$row['wordTr'];
 }
 
 
@@ -348,7 +349,7 @@ while ($row = mysqli_fetch_array($res))
 $res = mysqli_query($link, 'UPDATE infotmp'. $userId .' SET FieldValue='.$idStart.' WHERE (FieldName="idStartPage'.$CBook.'")');
 mysqli_close($link);
 
-echo $mvidSort."@(@".$mvW."@(@".$mvTrnsl."@(@".$mvTrnsc."@(@".$mvDate."@(@".$mvPr."@(@".$mvOW."@(@".$mvNP."@(@".$mvIterationE;
+echo $mvidSort."@(@".$mvW."@(@".$mvTrnsl."@(@".$mvTrnsc."@(@".$mvDate."@(@".$mvPr."@(@".$mvOW."@(@".$mvNP."@(@".$mvIterationE."@(@".$mvWtr;
  
 ?>
 

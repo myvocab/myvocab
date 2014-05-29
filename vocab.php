@@ -92,12 +92,7 @@ style="left:0px;top:0px;">
 
 
 
-<input class="bt" type="submit" id="SaveEditA" onclick="" name="" value="en" 
-style="left:650px;top:0px;width:60px;">
-<input class="bt" type="submit" id="SaveEditA" onclick="test_f('-sp-ru');" name="" value="en-ru" 
-style="left:730px;top:0px;width:60px;">
-<input class="bt" type="submit" id="SaveEditA" onclick="mp3_f('-sp-ru');" name="" value="en-sp-ru" 
-style="left:800px;top:0px;width:60px;">
+
 </div>
 </div>
 
@@ -142,13 +137,28 @@ wordHistory();" name="" value="К СЛОВУ В ТЕКСТЕ" style="left:5px;to
 
 
 <!-- right block button -->
-<div  style="position:absolute;left:20px;top:-2px; display:block;">
+
+<input class="bt" type="submit" id="SaveEditA" onclick="" name="" value="MP3-en" 
+style="left:443px;top:25px;width:40px;">
+<input class="bt" type="submit" id="SaveEditA" onclick="test_f('-sp-ru');" name="" value="en-ru" 
+style="left:483px;top:25px;width:40px;">
+<input class="bt" type="submit" id="SaveEditA" onclick="mp3_f('-sp-ru');" name="" value="en-sp-ru" 
+style="left:523px;top:25px;width:42px;">
+<input class="bt" type="submit" id="SaveEditA" onclick="mp3_f('-sp-ru');" name="" value="All" 
+style="left:565px;top:25px;width:32px;">
+
+
+
+
+
+<div  style="position:absolute;left:20px;top:25px; display:block;">
 <table class="frame_table" style="left:427px; top:30px; width:145px; height:80px;"><tr><td></td></tr></table>
 <div  class="capt" style="left:450px;top:30px;width:200px;font-size:12px;font-family:Tahoma;text-align:left;">Колл-во слов</div>
 <div  class="capt" style="left:520px;top:30px;width:50px;font-size:12px;font-family:Tahoma;text-align:right;">пок-ть</div>
 
 <div  class="capt" style="left:430px;top:53px;width:50px;text-align:left;">Изучаем.</div>
 <div  class="capt" style="left:430px;top:80px;width:50px;text-align:left;">Выучен.</div>
+
 
 <input type="text" id="NR50" style="position:absolute;left:480px;top:53px;width:50px;height:15px;text-align:right;border:1px #C0C0C0 solid;font-family:Courier New;font-size:13px;z-index:7" name="NR50" value="" readonly="readonly">
 <input type="text" id="NR100" style="position:absolute;left:480px;top:78px;width:50px;height:15px;text-align:right;border:1px #C0C0C0 solid;font-family:Courier New;font-size:13px;z-index:8" name="Editbox3" value="" readonly="readonly">
@@ -161,7 +171,7 @@ wordHistory();" name="" value="К СЛОВУ В ТЕКСТЕ" style="left:5px;to
 
 
 
-<div  style="position:absolute;left:20px;top:30px; display:block;">
+<div  style="position:absolute;left:20px;top:45px; display:block;">
 <table class="frame_table" style="left:427px; top:100px; width:145px; height:148px;"><tr><td></td></tr></table>
 <input class="bt_l" type="submit" id="btStudy" onclick="compLearnVocab();<?php if ($br !="Presto") {echo 'clExemWindowsL();';} ?>wordsLearn('v');" name="" value="Повторение слов" style="left:432px;top:105px; ">
 <div  class="capt" style="left:430px;top:131px;width:10px;font-size:13px;">с</div>
@@ -197,9 +207,10 @@ wordHistory();" name="" value="К СЛОВУ В ТЕКСТЕ" style="left:5px;to
 
 <input class="bt_l" type="submit" id="sW" onclick="document.getElementById('oriWord').value = document.getElementById('sWord').value; fillTable('findword');" name="" value="НАЙТИ СЛОВО" style="left:5px;top:220px;">
 <input type="text" id="sWord"  onfocus="keydownuse=2;" onblur="keydownuse=1;" style="position:absolute;left:7px;top:255px;width:130px;height:13px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:13px;text-align:left;font-weight: bold;z-index:0" name="sWordn" value="" >
-
-
 </div>
+
+
+
 
 
 

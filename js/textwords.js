@@ -25,6 +25,7 @@
     var TrnscSt = new Array(NumberStore);
     var WOSt = new Array(NumberStore);
     var WESt = new Array(NumberStore);
+    var WtrSt = new Array(NumberStore);
     var dateSt = new Array(NumberStore);
     var NPSt = new Array(NumberStore);
     var PrSt = new Array(NumberStore);
@@ -36,6 +37,7 @@
     var countTmp2 = 0;
     var WOTmp = new Array(NumberTmp);
     var WETmp = new Array(NumberTmp);
+    var WtrTmp = new Array(NumberTmp);
     var dateTmp = new Array(NumberTmp);
     var PrTmp = new Array(NumberTmp);
     
@@ -173,8 +175,9 @@ if (request.readyState == 4){
     var mvWO=tagList[6].split("{{~");
     var mvNP=tagList[7].split("{{~");
     var mvIteration=tagList[8].split("{{~");
+    var mvWtr=tagList[9].split("{{~");
 //document.getElementById('tmp1').value=   mvTrnsl[0];
-//alert (WOTmp+" "+countTmp2 +" "+ WOTmp[countTmp2]);   
+//alert (mvWtr);   
  if (WOTmp[countTmp2]!=""){setLevelInBases(countTmp2);}
         
 //  document.getElementById("dStudy").value = mvDate[0];
@@ -254,7 +257,8 @@ countT = Math.min(NumberWords, mvID.length-1);
     
     TrnslArray[k]= mvTrnsl[k+1];    
     TrnscArray[k]= mvTrnsc[k+1];    
-    WOArray[k] = mvWO[k+1];                                 
+    WOArray[k] = mvWO[k+1];  
+    WtrArray[k] = mvWtr[k+1];                               
        }
 if (FlagChangePage=='fcp'){ showWord(bookWord);} 
 
@@ -278,6 +282,7 @@ if (FlagChangePage=='np'){ showWord(1);FlagChangePage='fcp';}
     NPSt[aa] = mvNP[k+1];
     PrSt[aa] = mvPr[k+1];
     IterationSt[aa] =  mvIteration[k+1];
+    WtrSt[aa] = mvWtr[k+1];
  //   alert(WOSt[aa]);
  } 
 //document.getElementById('tmp1').value = WOSt; 
@@ -360,6 +365,7 @@ if (typeof(WOArray[(id-1)]) == 'undefined' ){chKey=0;exit();}
 document.getElementById('numberInTable').value = id;
 document.getElementById("CurrRow").innerHTML = parseInt(document.getElementById("FCurrN").value, 10) + parseInt(id,10) - 1;
 document.getElementById('oriWord').value = WOArray[(id-1)] ;
+document.getElementById('WordTrs').value = WtrArray[(id-1)] ;
 
 //window.document.WordForm.TextAreaTranslate.value=TrnslArray[(id-1)].replace(/&gt;/gi,">");
 window.document.WordForm.TextAreaTranslate.value=TrnslArray[(id-1)];

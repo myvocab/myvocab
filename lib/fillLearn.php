@@ -16,7 +16,7 @@ $strWHERE = " WHERE (flag>0)";
 $idCurr=1;
 $NimInTable=1;
 
-// Инициализация служебной инфо в первом члене масива 
+// ????????????? ????????? ???? ? ?????? ????? ?????? 
     $pp = 1;   //end prev indication
     $np = 1;   //end next indication
     $mvTrnsl = $pp.$np; //end prev or start  
@@ -26,7 +26,7 @@ $NimInTable=1;
     $mvDate = -1; //Date study words
     $mvPr = "1111"; //flag learn or del
     $mvFlag = -1; 
- // End Инициализация служебной инфо в первом члене масива 
+ // End ????????????? ????????? ???? ? ?????? ????? ?????? 
  
 //seek id for wordOcurr 
 if ($_GET["chval"] =="s"){$wl = "mvs". $userId; $wln = "mvs";}
@@ -44,14 +44,14 @@ $idCurr = $row[id];
  
  
  
-// Получение данных их таблицы InfoTmp
+// ????????? ?????? ?? ??????? InfoTmp
 $res = mysqli_query($link, 'SELECT infotmp'. $userId .'.* FROM infotmp'. $userId );
 while ($row = mysqli_fetch_array($res)){$InfoTmp[$row['FieldName']] = $row['FieldValue'];}
 if ($_GET["chval"] =="s"){$idStart = $InfoTmp["mvs"];}
 if ($_GET["chval"] =="r"){$idStart = $InfoTmp["mvr"];}
 if ($_GET["chval"] =="v"){$idStart = $InfoTmp["mvv"];}
 
-// End Получение данных их таблицы InfoTmp
+// End ????????? ?????? ?? ??????? InfoTmp
 
 //Calc number row
 $strSQL = 'SELECT COUNT(*) FROM '. $wl .' WHERE (flag>0) ORDER BY flag';
@@ -100,7 +100,7 @@ if (($_GET["ch"]=="start") and ($NRDown<=($NW))){$pp=0;}
 
 
 
-$strSQL =   'SELECT id, wordE, wordO, transl, pr, flag, date50, transc FROM '. $wl .
+$strSQL =   'SELECT id, wordE, wordO, transl, pr, flag, date50, transc, wordTr FROM '. $wl .
 ' WHERE (flag>='.$idStart.') ORDER BY flag LIMIT 0,'.($NW+$NSt);
 //$strWHERE.' ORDER BY id LIMIT 0,'.($NW+$NSt).'';
 
@@ -135,6 +135,7 @@ while ($row = mysqli_fetch_array($res))
     $mvDate = $mvDate."{{~".substr($row['date50'],0,4).".".substr($row['date50'],5,2).".".substr($row['date50'],8,2); 
 	$mvPr = $mvPr."{{~".$row['pr'];
     $mvOW = $mvOW."{{~".$row['wordO'];
+    $mvWtr = $mvWtr."{{~".$row['wordTr'];
 }   
 
 //$idStart =31;
@@ -146,7 +147,7 @@ $res = mysqli_query($link, 'UPDATE infotmp'. $userId .' SET FieldValue='.$idStar
 */
 $res = mysqli_query($link, 'UPDATE infotmp'. $userId .' SET FieldValue='.$idStart.' WHERE (FieldName="'.$wln.'")');
 mysqli_close($link);
-echo $mvidSort."@(@".$mvW."@(@".$mvTrnsl."@(@".$mvTrnsc."@(@".$mvDate."@(@".$mvPr."@(@".$mvOW;
+echo $mvidSort."@(@".$mvW."@(@".$mvTrnsl."@(@".$mvTrnsc."@(@".$mvDate."@(@".$mvPr."@(@".$mvOW."@(@".$mvWtr;
 
 ?>
 

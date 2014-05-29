@@ -17,9 +17,11 @@
     var TrnscSt = new Array(NumberStore);
     var WOSt = new Array(NumberStore);
     var WESt = new Array(NumberStore);
+    var WtrSt = new Array(NumberStore);
     var dateSt = new Array(NumberStore);
     var PrSt = new Array(NumberStore);
     var idSSt = new Array(NumberStore);
+    
     var beacSt = 1; // 0 - all ??, 1- download all, 2- download 2-th half, 3 - end
     var beacNSr = 0;   
     var chKey=0;
@@ -30,6 +32,7 @@
     var TrnslArray = new Array(NumberWords);
     var TrnscArray = new Array(NumberWords);
     var WOArray = new Array(NumberWords);
+    var WtrArray = new Array(NumberWords);
     var beacon = 0;
     
     
@@ -120,7 +123,7 @@ if ((events.keyCode == 40 || events.keyCode ==  98 ) && chKey==0) {chKey=1; docu
  
  
   function fillLearn(ch,chval) {
- //alert(ch);
+// alert(ch);
 
 if (ch!="start") {bookWord = document.getElementById('numberInTable').value;}
 woCurr=document.getElementById('oriWord').value;
@@ -149,8 +152,9 @@ if (request.readyState == 4){
     var mvDate=tagList[4].split("{{~");
     var mvPr=tagList[5].split("{{~");
     var mvWO=tagList[6].split("{{~");
+    var mvWTR=tagList[7].split("{{~");
 
-    
+    alert(mvWTR);
  // document.getElementById("dStudy").value = mvDate[0];
   if (parseInt(mvTrnsl[0].charAt(0), 10) == 0){ document.getElementById('PrevPage').disabled = true;
   document.getElementById('PrevIcon').style.display='none';
@@ -201,6 +205,7 @@ if (request.readyState == 4){
         TrnslArray[k]=" ";    
         TrnscArray[k]=" ";    
         WOArray[k] = " ";
+        WtrArray[k] = " "; 
           }
 
    //    for (var k = 0; k < mvID.length-1; k++)
@@ -240,6 +245,7 @@ if (request.readyState == 4){
     TrnslArray[k]= mvTrnsl[k+1];    
     TrnscArray[k]= mvTrnsc[k+1];    
     WOArray[k] = mvWO[k+1];
+    WtrArray[k] = mvWTR[k+1];
        }
 //document.getElementById('tmp1').value = "FillLearn - "+WOArray;
 if (FlagChangePage=='fcp'){ showWord(bookWord);} 
@@ -254,6 +260,7 @@ for (var k = NumberWords; k < NumberWords+NumberStore; k++) {
     TrnscSt[aa]= mvTrnsc[k+1];    
     WOSt[aa] = mvWO[k+1];
     WESt[aa] = mvWE[k+1];
+    mvWTR[aa] = mvWTR[k+1];
     dateSt[aa] =  mvDate[k+1];
     PrSt[aa] = mvPr[k+1];
     idSSt[aa] =  mvID[k+1];
@@ -325,6 +332,7 @@ document.getElementById('numberInTable').value=id;
 
 document.getElementById("CurrRow").innerHTML = parseInt(document.getElementById("FCurrN").value, 10) + parseInt(id,10) - 1;
 document.getElementById('oriWord').value = WOArray[(id-1)] ;
+document.getElementById('WordTrs').value = WtrArray[(id-1)] ;
 window.document.WordForm.TextAreaTranslate.value=TrnslArray[(id-1)].replace(/&gt;/gi,">");
 
 
@@ -351,9 +359,13 @@ chKey=0;
  {
    
    if ((document.getElementById('TextAreaTranslate').style.display == 'none') )
-     {document.getElementById('TextAreaTranslate').style.display = 'block'}
+     {document.getElementById('TextAreaTranslate').style.display = 'block';
+     document.getElementById('WordTrs').style.display = 'block';
+     }
      else
-     {document.getElementById('TextAreaTranslate').style.display = 'none'};
+     {document.getElementById('TextAreaTranslate').style.display = 'none';
+     document.getElementById('WordTrs').style.display = 'none';
+     };
  }      
       
  

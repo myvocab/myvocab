@@ -11,6 +11,7 @@ if ($_SESSION['userName'] == NULL) {
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml">
 <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script src="js/shared.js" type="text/javascript"></script>
 <script src="js/learnwords.js" type="text/javascript"></script>
 <script src="js/setfunctLearn.js" type="text/javascript"></script>
 
@@ -127,7 +128,10 @@ wordHistory();" name="" value="К СЛОВУ В ТЕКСТЕ" style="left:4px;to
 
 
 <input type="text" id="trnsc" onfocus="keydownuse=0;" onblur="keydownuse=1;" style="position:absolute;text-align:left;left:0px;top:22px;width:300px;height:19px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:13px;z-index:2" name="trnsc" value="">
-<textarea name="TextAreaTranslate" id="TextAreaTranslate" onfocus="keydownuse=0;" onblur="keydownuse=1;" style="position:absolute;left:0px;top:43px;width:300px;height:300px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:13px;z-index:0" rows="35" cols="56" ></textarea>
+
+<input type="text" id="WordTrs"  style="position:absolute;text-align:left;left:0px;top:43px;width:300px;height:20px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:15px;font-weight:bold;z-index:2" name="WEdit" value="">
+
+<textarea name="TextAreaTranslate" id="TextAreaTranslate" onfocus="keydownuse=0;" onblur="keydownuse=1;" style="position:absolute;left:0px;top:63px;width:300px;height:280px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:13px;z-index:0" rows="35" cols="56" ></textarea>
 </form>
 <input class="bt" type="submit" id="SaveEdit" onclick="saveEdit();" name="" value="Сохранить изменения" style="left:0px;top:348px;width:302px;">
 

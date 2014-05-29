@@ -231,14 +231,15 @@ function seekTrans(eWord) {
  oWord = WOArray[bookWord-1];
  tc = window.document.WordForm.trnsc.value;
  trw=document.getElementById('WordTrs').value;
- //alert (oWord+tr+eWord+tc);
+ prvw = document.getElementById("tc"+bookWord).innerHTML;
+ alert (prvw);
  pth="lib/saveEdit.php";
  if (cha =="all"){pth="lib/saveEditA.php";} 
-//alert("tr="+tr+"&eWord="+eWord+"&oWord="+oWord+"&tc="+tc);
+//alert("tr="+tr+"&eWord="+eWord+"&oWord="+oWord+"&tc="+tc+"&trWord="+trw+"&prevWord="+prvw);
  $.ajax({
    type: "POST",
   url: pth,
-   data: "tr="+tr+"&eWord="+eWord+"&oWord="+oWord+"&tc="+tc+"&trw="+trw,
+   data: "tr="+tr+"&eWord="+eWord+"&oWord="+oWord+"&tc="+tc+"&trWord="+trw+"&prevWord="+prvw,
       async:false,
   success:  saveEditResponse, 
  });
@@ -256,6 +257,7 @@ function seekTrans(eWord) {
   
   TrnslArray[bookWord-1] = window.document.WordForm.TextAreaTranslate.value;
   TrnscArray[bookWord-1] = window.document.WordForm.trnsc.value;
+  WtrArray[bookWord-1] =document.getElementById('WordTrs').value;
   document.getElementById("tc"+bookWord).innerHTML = window.document.WordForm.WordEdit.value;     
   
   
