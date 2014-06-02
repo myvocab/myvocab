@@ -8,11 +8,7 @@ if (parseInt(document.getElementById("NumberRow").innerHTML,10) < parseInt(docum
 exit();
 }
 
-   
-    
-
  
-
 // document.getElementById('tmp2').value = parseInt(document.getElementById("NumberRow").innerHTML,10) + " " + parseInt(document.getElementById("NCurrRow").innerHTML,10);
 document.getElementById('tmp2').value = parseInt(document.getElementById("CurrRow").innerHTML,10);
    bookWordL = document.getElementById('numberInTable').value ; 
@@ -23,6 +19,7 @@ document.getElementById('tmp2').value = parseInt(document.getElementById("CurrRo
   dateTmp[countTmp1] = document.getElementById("dLevel").value;
   WETmp[countTmp1] = document.getElementById("WordEdit").value;
   WOTmp[countTmp1] = document.getElementById("oriWord").value;
+   WtrTmp[countTmp1] = document.getElementById("WordTrs").value;
   PrTmp[countTmp1] = nLev;
   dLev = document.getElementById("dLevel").value;
   
@@ -332,11 +329,13 @@ function check_exit(){
    TrnslArray[f-1] = TrnslArray[fn-1];
    TrnscArray[f-1] = TrnscArray[fn-1];
    WOArray[f-1] = WOArray[fn-1];
+   WtrArray[f-1] = WtrArray[fn-1];
   }
 
    TrnslArray[NumberWords-1]= TrnslSt[beacNSr];    
     TrnscArray[NumberWords-1]= TrnscSt[beacNSr];    
     WOArray[NumberWords-1] = WOSt[beacNSr];
+    WtrArray[NumberWords-1] = WtrSt[beacNSr];
     
   
        document.getElementById("tc"+NumberWords).innerHTML =" ";
@@ -396,6 +395,7 @@ if  (beacNSr==(NumberStore/2 )){
     NPSt[k] = NPSt[k+(NumberStore/2 )];
     PrSt[k] = PrSt[k+(NumberStore/2 )];
     IterationSt[k] = IterationSt[k+(NumberStore/2)];
+    WtrSt[k] = WtrSt[k+(NumberStore/2 )];
  }
 // alert (WOSt);
 beacSt = 2;
@@ -434,6 +434,7 @@ function fillStResponse(data) {
     var mvWO=tagList[6].split("{{~");
     var mvNP=tagList[7].split("{{~");
     var mvIteration=tagList[8].split("{{~");
+    var mvWtr=tagList[9].split("{{~");
                                        
  
  for (var k = NumberStore/2 ; k < NumberStore; k++) {
@@ -446,6 +447,7 @@ function fillStResponse(data) {
     NPSt[k] = mvNP[k+1 -NumberStore/2];
     PrSt[k] = mvPr[k+1 -NumberStore/2];
     IterationSt[k] =  mvIteration[k+1 -NumberStore/2];
+    WtrSt[k] = mvWtr[k+1 -NumberStore/2];
  // document.getElementById('tmp2').value = WOSt; 
  } 
  //alert("result " + WOSt);  

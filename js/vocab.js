@@ -43,6 +43,7 @@
     var WETmp = new Array(NumberTmp);
     var dateTmp = new Array(NumberTmp);
     var PrTmp = new Array(NumberTmp);
+    var WtrTmp = new Array(NumberTmp);
     
     
     
@@ -505,51 +506,4 @@ function wordsLearnCircle(){
     
 }
 
-function mp3_f(ch){
-//    alert(WtrArray[rIndex]+"--"+document.getElementById('WordTrs').value);
-ch2=0;
-if (WtrArray[rIndex]!= document.getElementById('WordTrs').value)
-{ch2=1;
-WtrArray[rIndex] = document.getElementById('WordTrs').value;
-} 
-pth="mpf/mp3f.php";
-$.get(
-  pth,
-  { 
-    ch: ch,
-    ch2: ch2,
-    wordEA: document.getElementById('WordEdit').value,
-    wordRA: document.getElementById('WordTrs').value
-  },
-  mp3_fResponse
-);  
-}
 
-function mp3_fResponse(data){
-alert(data); 
-
-//document.getElementById('oriWord').value =data;  
-//document.getElementById('WordEdit').value = data;  
-  
-}
-
-function madesound(){
-//alert (document.getElementById('WordEdit').value);
-pth="mpf/msound.php";
-$.get(
-  pth,
-  { 
-//     ch: 0, 
-     wordEA: document.getElementById('WordEdit').value
-   },
-  madesoundResponse
-);  
-}
-
-function madesoundResponse(data){
- //   alert("ff");
- //   alert(data+"ddd");
-document.getElementById('mySoundClip').src='mpf/audio/eng/'+data+'.mp3';
-var audio = document.getElementById("mySoundClip");
-audio.play();  
-}  

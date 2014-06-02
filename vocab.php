@@ -32,6 +32,7 @@ $nameBook= "MyVocab";
 <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 <script src="js/vocab.js" type="text/javascript"></script>
 <script src="js/setvocab.js" type="text/javascript"></script>
+<script src="js/shared.js" type="text/javascript"></script>
 <title>Мои слова<?php echo "-".$nameBook; ?></title>
 <?php
 
@@ -138,13 +139,13 @@ wordHistory();" name="" value="К СЛОВУ В ТЕКСТЕ" style="left:5px;to
 
 <!-- right block button -->
 
-<input class="bt" type="submit" id="SaveEditA" onclick="" name="" value="MP3-en" 
+<input class="bt" type="submit" id="SaveEditA" onclick="mp3_f('en')" name="" value="MP3-en" 
 style="left:443px;top:25px;width:40px;">
-<input class="bt" type="submit" id="SaveEditA" onclick="test_f('-sp-ru');" name="" value="en-ru" 
+<input class="bt" type="submit" id="SaveEditA" onclick="mp3_f('en-ru');" name="" value="en-ru" 
 style="left:483px;top:25px;width:40px;">
-<input class="bt" type="submit" id="SaveEditA" onclick="mp3_f('-sp-ru');" name="" value="en-sp-ru" 
+<input class="bt" type="submit" id="SaveEditA" onclick="mp3_f('en-sp-ru');" name="" value="en-sp-ru" 
 style="left:523px;top:25px;width:42px;">
-<input class="bt" type="submit" id="SaveEditA" onclick="mp3_f('-sp-ru');" name="" value="All" 
+<input class="bt" type="submit" id="SaveEditA" onclick="mp3_f('All');" name="" value="All" 
 style="left:565px;top:25px;width:32px;">
 
 

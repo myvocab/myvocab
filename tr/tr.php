@@ -3,7 +3,7 @@
 include('../lib/connect_db.php');
 //$userId=$_SESSION['userId'];
 
-for ($i = 0; $i <= 5000; $i++) {
+for ($i = 0; $i <= 3000; $i++) {
 
 $strSQL =   'SELECT  wordO FROM mt  WHERE wordTr="" ORDER BY wordO LIMIT '.$i.',1';
 //echo $strSQL."</BR>";

@@ -103,16 +103,16 @@ if (!file_exists ('audio/'.$wordEtr.'.mp3'))
  }
  
 
-$fileFinish=$wordE.$ch.'.mp3';
+$fileFinish=$wordE.'-sp-ru.mp3';
 
-if ($ch=="-sp-ru")
-{
+///////if ($ch=="-sp-ru")
+////{
 
 file_put_contents('audio/'.$fileFinish,file_get_contents('audio/'.$wordEtr.'.mp3').file_get_contents('audio/'.$wordE[0].".mp3"));
 for ($i = 1; $i <= strlen($wordE); $i++) {
     
 file_put_contents('audio/'.$fileFinish,file_get_contents('audio/'.$fileFinish).file_get_contents('audio/'.$wordE[$i].'.mp3'));
-}
+///////}
 
 
 file_put_contents('audio/'.$fileFinish,file_get_contents('audio/'.$fileFinish).file_get_contents('audio/p1.mp3'));
@@ -147,5 +147,8 @@ $res = mysqli_query($link, $strSQL);
 }
 //file_put_contents('audio/'.$wordE.'-'.iconv("UTF-8", "CP1251" , $wordR).'.mp3',file_get_contents('audio/'.$wordE.'.mp3').file_get_contents('audio/'.iconv("UTF-8", "CP1251" , $wordR).".mp3"));
 
-echo $_GET["wordRA"];
+//echo $_GET["wordRA"];
+//header("Location:audio/df.php?fd=FURL-ru.mp3");
+echo $_GET["ch"];
+
 ?>
