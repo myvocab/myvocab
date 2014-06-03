@@ -225,13 +225,14 @@ function check_exit(){
  tc = window.document.WordForm.trnsc.value;
  trw= document.getElementById('WordTrs').value;
  prvw = document.getElementById("tc"+bookWord).innerHTML;
+ 
  pth="lib/saveEdit.php";
  if (cha =="all"){pth="lib/saveEditA.php";}
  
  $.ajax({
    type: "POST",
   url: pth,
-    data: "tr="+tr+"&eWord="+eWord+"&oWord="+oWord+"&tc="+tc+"&trWord="+trw+"&prevWord="+prvw,
+    data: "tr="+tr+"&eWord="+eWord+"&oWord="+oWord+"&tc="+tc+"&trWord="+trw+"&prevWord="+prvw+"&cha="+cha,
       async:false,
   success:  saveEditResponse, 
  });
@@ -242,9 +243,13 @@ function check_exit(){
  
  
  function saveEditResponse(data) {
+var tagList = data.split("@(@");
+
+    var cha=tagList[3].trim();
+
   document.getElementById('oriWord').value=window.document.WordForm.WordEdit.value;
  fillTable('findword');
- alert("Done!");
+ if(cha!="mute"){alert("Done!")};
  calcLevVocab();
  }
  

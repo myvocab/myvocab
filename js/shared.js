@@ -1,8 +1,8 @@
    function mp3_f(ch){
 //    alert(WtrArray[rIndex]+"--"+document.getElementById('WordTrs').value);
-ch2=0;
+ch2="a";
 if (WtrArray[rIndex]!= document.getElementById('WordTrs').value)
-{ch2=1;
+{ch2="z";
 WtrArray[rIndex] = document.getElementById('WordTrs').value;
 } 
 pth="mpf/mp3f.php";
@@ -19,10 +19,14 @@ $.get(
 }
 
 function mp3_fResponse(data){
-alert(data);
-switch (data.trim()){
+chfull = data.trim();
+var ch = chfull.split(":");
+if(ch[0]=="z"){saveEdit("mute");}
+
+alert(ch[0]+"ddd"+ch[1]);
+switch (ch[1]){
   case 'all':  
-location.href="/mpf/audio/df.php?fd="+document.getElementById('WordEdit').value+".rar"
+location.href="/mpf/audio/df.php?fd="+document.getElementById('WordEdit').value+".zip"
 break
   case 'en-sp-ru':  
 location.href="/mpf/audio/df.php?fd="+document.getElementById('WordEdit').value+"-sp-ru.mp3"
@@ -36,6 +40,10 @@ break
 default:
 alert("1")
 break
+
+
+
+
 }
 
 

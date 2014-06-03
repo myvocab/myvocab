@@ -121,7 +121,7 @@ $strSQL =   'SELECT flag, pr, date50 FROM mv'.$userId.' WHERE wordO="'.$wo.'" OR
 $res = mysqli_query($link, $strSQL);
 while ($row = mysqli_fetch_array($res)){$flag = $row['flag']; $dt = $row['date50']; $pr = $row['pr'];}
 $dt=substr($dt,0,4).".".substr($dt,5,2).".".substr($dt,8,2);
-echo $flag.'@(@'.$dt.'@(@'.$pr;
+echo $flag.'@(@'.$dt.'@(@'.$pr.'@(@'.$_POST["cha"];
 
 
 

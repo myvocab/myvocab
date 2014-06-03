@@ -145,7 +145,7 @@ style="left:443px;top:25px;width:40px;">
 style="left:483px;top:25px;width:40px;">
 <input class="bt" type="submit" id="SaveEditA" onclick="mp3_f('en-sp-ru');" name="" value="en-sp-ru" 
 style="left:523px;top:25px;width:42px;">
-<input class="bt" type="submit" id="SaveEditA" onclick="mp3_f('All');" name="" value="All" 
+<input class="bt" type="submit" id="SaveEditA" onclick="mp3_f('all');" name="" value="All" 
 style="left:565px;top:25px;width:32px;">
 
 
@@ -239,7 +239,7 @@ style="left:565px;top:25px;width:32px;">
 <form method="post" name="WordForm" action="" style="position:absolute;left:-440px;top:5px;">
 <input type="text" id="WordEdit" onfocus="keydownuse=3;" onblur="keydownuse=1;" onchange="seekTrans(this.value)" style="position:absolute;text-align:center;left:575px;top:20px;width:277px;height:22px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:15px;font-weight:bold;z-index:2" name="WEdit" value="">
 <input type="text" id="trnsc" onfocus="keydownuse=4;" onblur="keydownuse=1;" style="position:absolute;text-align:left;left:575px;top:42px;width:300px;height:19px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:13px;z-index:2" name="trnsc" value="">
-<input type="text" id="WordTrs"  style="position:absolute;text-align:left;left:575px;top:64px;width:300px;height:20px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:15px;font-weight:bold;z-index:2" name="WEdit" value="">
+<input type="text" id="WordTrs"  style="position:absolute;text-align:left;left:575px;top:64px;width:300px;height:20px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:14px;font-weight:bold;z-index:2" name="WEdit" value="">
 
 <textarea name="TextAreaTranslate" id="TextAreaTranslate" onfocus="keydownuse=0;" onblur="keydownuse=1;" style="position:absolute;left:575px;top:85px;width:300px;height:280px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:13px;z-index:1" rows="35" cols="56" ></textarea>
 

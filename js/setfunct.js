@@ -245,6 +245,8 @@ function check_exit(){
 
 }
  
+
+ 
  
  
  function saveEditResponse(data) {
@@ -254,7 +256,8 @@ function check_exit(){
     var flag=tagList[0];
     var dtp=tagList[1];
     var pr=tagList[2];
-   
+    var cha=tagList[3];
+    
     if (flag==0){
         
         document.getElementById("tc"+(bookWord)).style.color="black";
@@ -295,7 +298,7 @@ function check_exit(){
  
  
  if (flag==2){moveUp(bookWord);}
- alert("Done!");
+ if(cha!="mute"){alert("Done!")};
  calcLev();
  }
  

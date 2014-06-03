@@ -4,6 +4,9 @@ setlocale(LC_ALL, 'ru_RU.CP1251');
 session_start();
 include('../lib/connect_db.php');
 $userId=$_SESSION['userId'];
+
+
+
 include 'PHP_Text2Speech.class.php'; 
  
  
@@ -61,9 +64,19 @@ function _strtoupper($string)
 $wordEtmp = $_GET["wordEA"];
 $wordRA = $_GET["wordRA"];
 $ch = $_GET["ch"];
+$ch2 = $_GET["ch2"];
 $wordE=strtoupper($wordEtmp);  
 $wordEtr='eng/'.strtoupper($wordEtmp);  
+
+if ($_GET["ch"]=='en')
+ {
+     if(file_exists ('audio/'.$wordEtr.'.mp3')){echo $_GET["ch"];exit();}
+ 
+ }
+
+
   if ($wordRA==""){
+   $ch2="z";   
  $url = 'https://translate.yandex.net/api/v1.5/tr.json/translate?' .
         'key=trnsl.1.1.20140511T060153Z.21a5cb00a6cbec4e.f4e419fa60359a8adce56328118561d1c89fc136&' .
         'text='.$wordEtmp.'&' .
@@ -142,13 +155,30 @@ file_put_contents('audio/'.$wordE.'-ru.mp3',file_get_contents('audio/'.$wordEtr.
 
 if ($_GET["ch2"]==1){
 $strSQL = 'UPDATE mvdone'. $userId .' SET mvdone'. $userId.'.wordTr="'.$_GET["wordRA"].'" WHERE (((mvdone'. $userId.'.wordE))="'.$wordEtmp.'")';
-
 $res = mysqli_query($link, $strSQL);
+
+
+
+
+
 }
+
+if ($_GET["ch"]=='all')
+{
+ chdir('../mpf/audio');
+
+  $zip = new ZipArchive(); //Создаём объект для работы с ZIP-архивами
+  $zip->open($_GET["wordEA"].'.zip', ZIPARCHIVE::CREATE); //Открываем (создаём) архив archive.zip
+  $zip->addFile($wordE."-sp-ru.mp3"); //Добавляем в архив файл index.php
+  $zip->addFile($wordE."-ru.mp3"); //Добавляем в архив файл styles/style.css
+  chdir('eng');
+  $zip->addFile($wordE.".mp3");
+}
+
 //file_put_contents('audio/'.$wordE.'-'.iconv("UTF-8", "CP1251" , $wordR).'.mp3',file_get_contents('audio/'.$wordE.'.mp3').file_get_contents('audio/'.iconv("UTF-8", "CP1251" , $wordR).".mp3"));
 
 //echo $_GET["wordRA"];
 //header("Location:audio/df.php?fd=FURL-ru.mp3");
-echo $_GET["ch"];
-
+//echo $_GET["ch"];
+echo $ch2.':'.$_GET["ch"];
 ?>
