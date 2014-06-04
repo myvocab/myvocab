@@ -237,7 +237,7 @@ function check_exit(){
  $.ajax({
    type: "POST",
   url: pth,
-    data: "tr="+tr+"&eWord="+eWord+"&oWord="+oWord+"&tc="+tc+"&trWord="+trw+"&prevWord="+prvw,
+   data: "tr="+tr+"&eWord="+eWord+"&oWord="+oWord+"&tc="+tc+"&trWord="+trw+"&prevWord="+prvw+"&cha="+cha,
       async:false,
   success:  saveEditResponse, 
  });
@@ -256,8 +256,7 @@ function check_exit(){
     var flag=tagList[0];
     var dtp=tagList[1];
     var pr=tagList[2];
-    var cha=tagList[3];
-    
+    var cha=tagList[3].trim();
     if (flag==0){
         
         document.getElementById("tc"+(bookWord)).style.color="black";

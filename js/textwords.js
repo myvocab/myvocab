@@ -30,6 +30,7 @@
     var NPSt = new Array(NumberStore);
     var PrSt = new Array(NumberStore);
     var IterationSt =  new Array(NumberStore);
+  
     var beacSt = 1; // 0 - all Ок, 1- download all, 2- download 2-th half, 3 - end
     var beacNSr = 0;
     

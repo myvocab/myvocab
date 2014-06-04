@@ -82,15 +82,15 @@ include('lib/menu.inc');
 
 
 
-<div  style="position:absolute;left:0px;top:390px; display:block;">
+<div  style="position:absolute;left:0px;top:380px; display:block;">
 <div  id="changeForAll"style="position:absolute;left:0px;top:20px; display:<?php if ($_SESSION['userId']==3){echo  'block';} else {echo  'none';}?>;">  
-<input class="bt" type="submit" id="ttt"  name="" value="nnn" style="left:145px;top:0px;">
-<input class="bt" type="submit" id="btDelA" onclick="delRestore(-1,'all');" name="" value="Удалить для всех" style="left:145px;top:0px;">
-<input class="bt" type="submit" id="btRestoreA" onclick="delRestore(1,'all');" name="" value="Востановить для всех" 
-style="left:290px;top:0px;">
-<input class="bt" type="submit" id="SaveEditA" onclick="saveEdit('all');" name="" value="Сохранить для всех" 
-style="left:0px;top:0px;">
 
+
+<input class="bt" type="submit" id="SaveEditA" onclick="saveEdit('all');" name="" value="Save_all" 
+style="left:140px;top:0px;width:75px;">
+<input class="bt" type="submit" id="btDelA" onclick="delRestore(-1,'all');" name="" value="del_all" style="left:250px;top:0px;width:75px;">
+<input class="bt" type="submit" id="btRestoreA" onclick="delRestore(1,'all');" name="" value="restore_all" 
+style="left:360px;top:0px;width:75px;">
 
 
 
@@ -140,13 +140,13 @@ wordHistory();" name="" value="К СЛОВУ В ТЕКСТЕ" style="left:5px;to
 <!-- right block button -->
 
 <input class="bt" type="submit" id="SaveEditA" onclick="mp3_f('en')" name="" value="MP3-en" 
-style="left:443px;top:25px;width:40px;">
+style="left:442px;top:25px;width:40px;">
 <input class="bt" type="submit" id="SaveEditA" onclick="mp3_f('en-ru');" name="" value="en-ru" 
 style="left:483px;top:25px;width:40px;">
 <input class="bt" type="submit" id="SaveEditA" onclick="mp3_f('en-sp-ru');" name="" value="en-sp-ru" 
-style="left:523px;top:25px;width:42px;">
+style="left:523px;top:25px;width:43px;">
 <input class="bt" type="submit" id="SaveEditA" onclick="mp3_f('all');" name="" value="All" 
-style="left:565px;top:25px;width:32px;">
+style="left:566px;top:25px;width:32px;">
 
 
 

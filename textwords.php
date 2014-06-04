@@ -36,6 +36,7 @@ while ($row = mysqli_fetch_array($res)){$nameBook = $row['nameBook'];}
 <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 <script src="js/textwords.js" type="text/javascript"></script>
 <script src="js/setfunct.js" type="text/javascript"></script>
+<script src="js/shared.js" type="text/javascript"></script>
 <title>Слова<?php echo "-".$nameBook; ?></title>
 <?php
 
@@ -70,12 +71,14 @@ include('lib/menu.inc');
 
 <div  style="position:absolute;left:0px;top:0px; display:block;">
 <div  id="changeForAll"style="position:absolute;left:0px;top:405px; display:<?php if ($_SESSION['userId']==3){echo  'block';} else {echo  'none';}?>;">  
-<input class="bt" type="submit" id="ttt" onclick="" name="" value="nnn" style="left:145px;top:0px;">
-<input class="bt" type="submit" id="btDelA" onclick="delRestore(-1,'all');" name="" value="Удалить для всех" style="left:145px;top:0px;">
-<input class="bt" type="submit" id="btRestoreA" onclick="delRestore(1,'all');" name="" value="Востановить для всех" 
-style="left:290px;top:0px;">
-<input class="bt" type="submit" id="SaveEditA" onclick="saveEdit('all');" name="" value="Сохранить для всех" 
-style="left:0px;top:0px;">
+
+
+
+<input class="bt" type="submit" id="SaveEditA" onclick="saveEdit('all');" name="" value="Save_all" 
+style="left:140px;top:0px;width:75px;">
+<input class="bt" type="submit" id="btDelA" onclick="delRestore(-1,'all');" name="" value="del_all" style="left:259px;top:0px;width:75px;">
+<input class="bt" type="submit" id="btRestoreA" onclick="delRestore(1,'all');" name="" value="restore_all" 
+style="left:360px;top:0px;width:75px;">
 </div>
 </div>
 <div  id="forDrbug" style="position:absolute;left:0px;top:0px; display:none;">  
@@ -110,10 +113,17 @@ style="left:0px;top:0px;">
 wordHistory();" name="" value="К СЛОВУ В ТЕКСТЕ" style="left:4px;top:325px;">
 <input type="text" id="oriWord" style="position:absolute;left:4px;top:375px;width:120px;height:13px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:13px;text-align:center;font-weight: bold;z-index:0; display: none;" name="oriWord" value="" disabled="">
 
-
+<input class="bt" type="submit" id="SaveEditA" onclick="mp3_f('en')" name="" value="MP3-en" 
+style="left:442px;top:25px;width:40px;">
+<input class="bt" type="submit" id="SaveEditA" onclick="mp3_f('en-ru');" name="" value="en-ru" 
+style="left:483px;top:25px;width:40px;">
+<input class="bt" type="submit" id="SaveEditA" onclick="mp3_f('en-sp-ru');" name="" value="en-sp-ru" 
+style="left:523px;top:25px;width:43px;">
+<input class="bt" type="submit" id="SaveEditA" onclick="mp3_f('all');" name="" value="All" 
+style="left:566px;top:25px;width:32px;">
 
 <!-- right block button -->
-<div  style="position:absolute;left:20px;top:8px; display:block;">
+<div  style="position:absolute;left:20px;top:35px; display:block;">
 <table class="frame_table" style="left:427px; top:20px; width:145px; height:130px;"><tr><td></td></tr></table>
 <table class="frame_table" style="left:427px; top:20px; width:145px; height:100px;"><tr><td></td></tr></table>
 <div  class="capt" style="left:450px;top:20px;width:200px;font-size:12px;font-family:Tahoma;text-align:left;">Колл-во слов</div>

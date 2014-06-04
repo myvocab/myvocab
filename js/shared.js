@@ -23,22 +23,22 @@ chfull = data.trim();
 var ch = chfull.split(":");
 if(ch[0]=="z"){saveEdit("mute");}
 
-alert(ch[0]+"ddd"+ch[1]);
+//alert(ch[0]+"ddd"+ch[1]);
 switch (ch[1]){
   case 'all':  
 location.href="/mpf/audio/df.php?fd="+document.getElementById('WordEdit').value+".zip"
 break
   case 'en-sp-ru':  
-location.href="/mpf/audio/df.php?fd="+document.getElementById('WordEdit').value+"-sp-ru.mp3"
+location.href="/mpf/audio/df.php?fd="+document.getElementById('WordEdit').value.toUpperCase()+"-sp-ru.mp3"
 break 
   case 'en-ru':  
-location.href="/mpf/audio/df.php?fd="+document.getElementById('WordEdit').value+"-ru.mp3"
+location.href="/mpf/audio/df.php?fd="+document.getElementById('WordEdit').value.toUpperCase()+"-ru.mp3"
 break
   case 'en':  
-location.href="/mpf/audio/eng/df.php?fd="+document.getElementById('WordEdit').value+".mp3"
+location.href="/mpf/audio/eng/df.php?fd="+document.getElementById('WordEdit').value.toUpperCase()+".mp3"
 break
 default:
-alert("1")
+//alert("1")
 break
 
 
