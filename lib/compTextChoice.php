@@ -46,12 +46,9 @@ $result = mysqli_query($link, $strSQL);
 
 
 
-$strSQL = "UPDATE mv".$userId." LEFT JOIN mvedit ON mv".$userId.".wordE = mvedit.wordE SET mv".$userId.".transl = mvedit.transl, mv".$userId.".transc = mvedit.transc, mv".$userId.".wordTr = mvedit".$userId.".wordTr 
+$strSQL = "UPDATE mv".$userId." LEFT JOIN mvedit ON mv".$userId.".wordE = mvedit.wordE SET mv".$userId.".transl = mvedit.transl, mv".$userId.".transc = mvedit.transc, mv".$userId.".wordTr = mvedit.wordTr 
 WHERE ((Not (mvedit.wordE) Is Null) and ((mv".$userId.".transl) is Null))";
 $result = mysqli_query($link, $strSQL);
-
-
-
 
 
 $strSQL = "UPDATE mv".$userId." LEFT JOIN mt ON mv".$userId.".wordE = mt.wordO SET mv".$userId.".transl = mt.transl, mv".$userId.".transc = mt.transc, mv".$userId.".wordTr = mt.wordTr  
@@ -73,7 +70,6 @@ $result = mysqli_query($link, $strSQL);
 
 $strSQL = "UPDATE mv".$userId." INNER JOIN mvdel ON mv".$userId.".wordE = mvdel.wordE SET mv".$userId.".pr = -1";
 $result = mysqli_query($link, $strSQL);
-
 
 
 

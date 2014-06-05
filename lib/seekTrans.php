@@ -29,7 +29,7 @@ $res = mysqli_query($link, $strSQL);
 $row = mysqli_fetch_array($res);    
 } 
 
-$iWord = $row[transc]."@(@".$row[transl];
+$iWord = $row[transc]."@(@".$row[transl]."@(@".$row[wordTr];
 
 
 

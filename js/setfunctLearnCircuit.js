@@ -3,23 +3,23 @@ function memWordSt(ch)
 {
     keydownuse=1;
   if (document.getElementById('DisplayTr').checked){document.getElementById('trnsl').style.display='none';};   
-wordUpd =WESt[idCurr];
+wordUpd =WESt[rIndex];
 chtmp=ch;
-//document.getElementById('wordsPass').value = idCurr+1; 
+//document.getElementById('wordsPass').value = rIndex+1; 
   
  
   
   
   
-if(idCurr==NumberWords-1)
+if(rIndex==NumberWords-1)
   {
-//alert(idCurr);
-  idCurr = idCurr+1 ;
+//alert(rIndex);
+  rIndex = rIndex+1 ;
    }
 else
 {
-  idCurr = idCurr+1 ;
-  showWord(idCurr);
+  rIndex = rIndex+1 ;
+  showWord(rIndex);
  }
  memWord(wordUpd,chtmp);  
  //if(LastCh==ch && HL==0){exit();}
@@ -70,7 +70,7 @@ function memWord(wordCurr, chtmp) {
     if (request1.readyState == 4){
  //   alert("ssss  "+request1.responseText);
 //   document.getElementById('trnsl').value = request1.responseText; exit();
-if(idCurr==NumberWords)
+if(rIndex==NumberWords)
   {
   fillLearn('start');
    }
@@ -81,7 +81,7 @@ calcLearn();
  function memWordResponse2() {
     if (request2.readyState == 4){
    
-  if(idCurr==NumberWords)
+  if(rIndex==NumberWords)
   {
   fillLearn('start');
    }
@@ -92,7 +92,7 @@ calcLearn();
  function memWordResponse3() {
     if (request3.readyState == 4){
   
-if(idCurr==NumberWords)
+if(rIndex==NumberWords)
   {
   fillLearn('start');
    }
@@ -105,7 +105,7 @@ if(idCurr==NumberWords)
  function memWordResponse4() {
     if (request4.readyState == 4){
 
-if(idCurr==NumberWords)
+if(rIndex==NumberWords)
   {
   fillLearn('start');
    }
@@ -115,7 +115,7 @@ if(idCurr==NumberWords)
  } 
  function memWordResponse5() {
     if (request5.readyState == 4){
-if(idCurr==NumberWords)
+if(rIndex==NumberWords)
   {
   fillLearn('start');
    }
@@ -127,7 +127,7 @@ if(idCurr==NumberWords)
  } 
  function memWordResponse6() {
     if (request6.readyState == 4){
- if(idCurr==NumberWords)
+ if(rIndex==NumberWords)
   {
   fillLearn('start');
    }
@@ -137,7 +137,7 @@ if(idCurr==NumberWords)
  } 
  function memWordResponse7() {
     if (request7.readyState == 4){
-  if(idCurr==NumberWords)
+  if(rIndex==NumberWords)
   {
   fillLearn('start');
    }
@@ -146,7 +146,7 @@ if(idCurr==NumberWords)
  } 
  function memWordResponse8() {
     if (request8.readyState == 4){
- if(idCurr==NumberWords)
+ if(rIndex==NumberWords)
   {
   fillLearn('start');
    }
@@ -155,7 +155,7 @@ if(idCurr==NumberWords)
  } 
  function memWordResponse9() {
     if (request9.readyState == 4){
-  if(idCurr==NumberWords)
+  if(rIndex==NumberWords)
   {
   fillLearn('start');
    }
@@ -164,7 +164,7 @@ if(idCurr==NumberWords)
  } 
  function memWordResponse10() {
     if (request10.readyState == 4){
-  if(idCurr==NumberWords)
+  if(rIndex==NumberWords)
   {
   fillLearn('start');
    }
@@ -174,7 +174,7 @@ if(idCurr==NumberWords)
  } 
  function memWordResponse11() {
     if (request11.readyState == 4){
- if(idCurr==NumberWords)
+ if(rIndex==NumberWords)
   {
   fillLearn('start');
    }
@@ -184,7 +184,7 @@ if(idCurr==NumberWords)
  } 
  function memWordResponse12() {
     if (request12.readyState == 4){
-  if(idCurr==NumberWords)
+  if(rIndex==NumberWords)
   {
   fillLearn('start');
    }
@@ -193,7 +193,7 @@ if(idCurr==NumberWords)
  } 
  function memWordResponse13() {
     if (request13.readyState == 4){
- if(idCurr==NumberWords)
+ if(rIndex==NumberWords)
   {
   fillLearn('start');
    }
@@ -202,7 +202,7 @@ if(idCurr==NumberWords)
  } 
  function memWordResponse14() {
     if (request14.readyState == 4){
- if(idCurr==NumberWords)
+ if(rIndex==NumberWords)
   {
   fillLearn('start');
    }
@@ -211,7 +211,7 @@ if(idCurr==NumberWords)
  } 
  function memWordResponse15() {
     if (request15.readyState == 4){
- if(idCurr==NumberWords)
+ if(rIndex==NumberWords)
   {
   fillLearn('start');
    }
@@ -276,22 +276,7 @@ if (nLev==50){showWord(rIndex+2); calcLev(); document.getElementById('tc').focus
  }
  }
  
-function seekTrans(eWord) {
-     var url = "lib/seekTrans.php?eWord="+eWord;
-      request.open("GET", url, true);
-      request.onreadystatechange = seekTransResponse;
-      request.send(null);   
-}
 
-
- function seekTransResponse() {
-
-    if (request.readyState == 4){
-  var tagList = request.responseText.split("@(@");
-  window.document.WordForm.trnsl.value=tagList[1];
-  window.document.WordForm.trnsc.value=tagList[0];
-    }
-  } 
  //End Поиск уже сущест. перевода или в словаре----------------------------------------
 
  function saveEdit(cha) {
@@ -300,7 +285,7 @@ function seekTrans(eWord) {
  tr = window.document.WordForm.trnsl.value;
  eWord = window.document.WordForm.WordEdit.value;
  
- oWord = WESt[idCurr];
+ oWord = WESt[rIndex];
  tc = window.document.WordForm.trnsc.value;
  trw=1;
  //alert (oWord+tr+eWord+tc);
@@ -310,7 +295,7 @@ function seekTrans(eWord) {
  $.ajax({
    type: "POST",
   url: pth,
-    data: "tr="+tr+"&eWord="+eWord+"&oWord="+oWord+"&tc="+tc+"&trw="+trw,
+    data: "tr="+tr+"&eWord="+eWord+"&oWord="+oWord+"&tc="+tc+"&trWord="+trw+"&prevWord="+prvw+"&cha="+cha,
       async:false,
   success:  saveEditResponse, 
  });
@@ -319,16 +304,16 @@ function seekTrans(eWord) {
  
  
  function saveEditResponse(data) {
- // alert(data);
+  ;
  var tagList = data.split("@(@");
-
+var cha=tagList[3].trim();
     var flag=tagList[0];
     var dtp=tagList[1];
     var pr=tagList[2];
-  
-  TrnslSt[idCurr] = window.document.WordForm.trnsl.value;
- TrnscSt[idCurr] = window.document.WordForm.trnsc.value;
- WESt[idCurr] = window.document.WordForm.WordEdit.value;     
+ alert(cha) ;
+  TrnslSt[rIndex] = window.document.WordForm.trnsl.value;
+ TrnscSt[rIndex] = window.document.WordForm.trnsc.value;
+ WESt[rIndex] = window.document.WordForm.WordEdit.value;     
   
   
  /* 
@@ -362,7 +347,7 @@ function seekTrans(eWord) {
  
  if (flag==2){moveUp(bookWord);}
  */
-   alert("Done!");
+  if(cha!="mute"){alert("Done!")};
  }
  
  

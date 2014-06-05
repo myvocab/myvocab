@@ -1,10 +1,15 @@
    function mp3_f(ch){
 //    alert(WtrArray[rIndex]+"--"+document.getElementById('WordTrs').value);
 ch2="a";
+//alert(WtrSt[idCurr]);
+
+
 if (WtrArray[rIndex]!= document.getElementById('WordTrs').value)
 {ch2="z";
 WtrArray[rIndex] = document.getElementById('WordTrs').value;
 } 
+
+
 pth="mpf/mp3f.php";
 $.get(
   pth,
@@ -23,7 +28,7 @@ chfull = data.trim();
 var ch = chfull.split(":");
 if(ch[0]=="z"){saveEdit("mute");}
 
-//alert(ch[0]+"ddd"+ch[1]);
+alert(ch[0]+"ddd"+ch[1]);
 switch (ch[1]){
   case 'all':  
 location.href="/mpf/audio/df.php?fd="+document.getElementById('WordEdit').value+".zip"
@@ -73,3 +78,23 @@ audio.play();
 }  
 
 
+function seekTrans(eWord) {
+     var url = "lib/seekTrans.php?eWord="+eWord;
+//alert(url);
+      request.open("GET", url, true);
+      request.onreadystatechange = seekTransResponse;
+      request.send(null);   
+}
+
+
+ function seekTransResponse() {
+
+    if (request.readyState == 4){
+        
+  var tagList = request.responseText.split("@(@");
+  alert(request.responseText);
+  window.document.WordForm.TextAreaTranslate.value=tagList[1];
+  window.document.WordForm.trnsc.value=tagList[0];
+  document.getElementById("WordTrs").value=tagList[2];
+    }
+  } 

@@ -14,6 +14,7 @@ if ($_SESSION['userName'] == NULL) {
 <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 <script src="js/learnwordscircuit.js" type="text/javascript"></script>
 <script src="js/setfunctLearnCircuit.js" type="text/javascript"></script>
+<script src="js/shared.js" type="text/javascript"></script>
 
 <title><?php echo $_GET["dlearn"]; ?> Повторение слов </title>
 <!-- <link href="css/windows.css" rel="stylesheet" type="text/css" />  -->
@@ -49,7 +50,7 @@ include('lib/menu.inc');
 style="left:40px;top:0px;">
 <input class="bt" type="submit" id="btDelA" onclick="delRestore(-1,'all');" name="" value="Удалить для всех" style="left:180px;top:0px;">
 
-<input type="text" id="WordTrs"  style="position:absolute;text-align:left;left:330px;top:0px;width:200px;height:19px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:15px;font-weight:bold;background-color:BLACK;z-index:2" name="WEdit" value="">
+
 
 <input class="bt" type="submit" id="SaveEditA" onclick="mp3_f('-sp-ru');" name="" value="en-sp-ru" 
 style="left:550px;top:0px;width:60px;">
@@ -124,14 +125,25 @@ wordHistory();" name="" value="К СЛОВУ В ТЕКСТЕ" style="left:4px;to
 <input type="text" id="WordEdit" onfocus="keydownuse=0;" onblur="keydownuse=1;" onchange="seekTrans(this.value)" style="position:absolute;text-align:center;left:0px;top:0px;width:277px;height:19px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:15px;font-weight:bold;z-index:2" name="WEdit" value="">
 
 <input type="text" id="trnsc" onfocus="keydownuse=0;" onblur="keydownuse=1;" style="position:absolute;text-align:left;left:0px;top:22px;width:300px;height:19px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:13px;z-index:2" name="trnsc" value="">
-<textarea  id="trnsl" onfocus="keydownuse=0;" onblur="keydownuse=1;" style="position:absolute;left:0px;top:43px;width:300px;height:300px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:13px;z-index:0;display:none" rows="35" cols="56" ></textarea>
+<input type="text" id="WordTrs"  style="position:absolute;text-align:left;left:0px;top:45px;width:300px;height:19px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:15px;font-weight:bold;z-index:2" name="WordTrs" value="">
+
+<textarea  id="trnsl"   name="TextAreaTranslate" onfocus="keydownuse=0;" onblur="keydownuse=1;" style="position:absolute;left:0px;top:64px;width:300px;height:280px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:13px;z-index:0;display:none" rows="35" cols="56" ></textarea>
 </form>
 <input class="bt" type="submit" id="SaveEdit" onclick="saveEdit();" name="" value="Сохранить изменения" style="left:0px;top:348px;width:302px;">
 
 
+<input class="bt" type="submit" id="SaveEditA" onclick="mp3_f('en')" name="" value="MP3-en" 
+style="left:312px;top:0px;width:40px;">
+<input class="bt" type="submit" id="SaveEditA" onclick="mp3_f('en-ru');" name="" value="en-ru" 
+style="left:352px;top:0px;width:40px;">
+<input class="bt" type="submit" id="SaveEditA" onclick="mp3_f('en-sp-ru');" name="" value="en-sp-ru" 
+style="left:392px;top:0px;width:43px;">
+<input class="bt" type="submit" id="SaveEditA" onclick="mp3_f('all');" name="" value="All" 
+style="left:435px;top:0px;width:32px;">
+
 
 <!-- right block button -->
-
+<div  style="position:absolute;left:px;top:22px;">
 <div  style="position:absolute;left:315px;top:0px;">
 <table class="frame_table" style="left:2px; top:0px; width:145px; height:81px;"><tr><td></td></tr></table>
 <div  id="dv" class="capt" style="left:0px; top:5px; width:80px;font-size:12px; font-family:Tahoma;font-size:12px">повторено:</div>
@@ -192,7 +204,7 @@ wordHistory();" name="" value="К СЛОВУ В ТЕКСТЕ" style="left:4px;to
 
 </div>
 </div>
-
+</div>
 
 
 	</body>

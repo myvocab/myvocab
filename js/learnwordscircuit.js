@@ -1,5 +1,5 @@
 
-    var idCurr=0;
+    var rIndex=0;
     var exemWindowsH;
  //   var HL =0;
     var LastCh=0;
@@ -21,7 +21,7 @@
     var lastA = new Array(NumberStore);
     var lastDate = new Array(NumberStore);
     var UnixLD = new Array(NumberStore);
-    var WtrSt = new Array(NumberStore);
+    var WtrArray = new Array(NumberStore);
     
 //    var beacSt = 1; // 0 - all ??, 1- download all, 2- download 2-th half, 3 - end
 //    var beacNSr = 0;   
@@ -133,7 +133,7 @@ if (events.keyCode == 37 || events.keyCode == 100) {document.getElementById('trn
 
 
 function updatePageTo() {
-  idCurr=1;
+  rIndex=1;
    if (request.readyState == 4){
 //    alert(request.responseText);  
 //document.getElementById('trnsl').value = request.responseText; exit();
@@ -150,13 +150,13 @@ function updatePageTo() {
     lastA=tagList[7].split("{{~");
     lastDate=tagList[8].split("{{~");
     UnixLD=tagList[9].split("{{~");
-    WtrSt=tagList[10].split("{{~");
+    WtrArray=tagList[10].split("{{~");
     
 // alert (lastA[0]+" "+lastDate[0]);  
- //alert(WtrSt);
+ //alert(WtrArray);
 
   if(WESt.length == 1){alert('у вас нет отмеченных слов, как "ИЗУЧАЕМОЕ"');exit();};
- if(WESt[0]=='start') {showWord(idCurr);calcLearn();};
+ if(WESt[0]=='start') {showWord(rIndex);calcLearn();};
 
  //WESt
  
@@ -189,7 +189,7 @@ document.getElementById('WordEdit').value = WESt[id];
 if (document.getElementById('SWord').checked){madesound();}
 document.getElementById('trnsc').value = TrnscSt[id];
 document.getElementById('trnsl').value =  TrnslSt[id];
-document.getElementById('WordTrs').value =  WtrSt[id];
+document.getElementById('WordTrs').value =  WtrArray[id];
 
 
 //document.getElementById('trnsl').value = lastA[0];
@@ -257,7 +257,7 @@ document.getElementById('LastA').value =  "НЕ ЗНАЮ";
 //////if (lastA[id]==0){HL=1;}
 //Math.ceil(19276951/86400));
 //getHours()  getMonth() getMinutes()
-idCurr=id;
+rIndex=id;
 //alert(HL);
 
 }
@@ -340,12 +340,12 @@ function dateNow(){
 
 function mp3_f(ch){
 //    alert(document.getElementById('WordEdit').value);
-//alert (WESt[idCurr]);
+//alert (WESt[rIndex]);
 ch2=0;
-if (WtrSt[idCurr]!= document.getElementById('WordTrs').value)
+if (WtrArray[rIndex]!= document.getElementById('WordTrs').value)
 {
     ch2=1;
-    WtrSt[idCurr] = document.getElementById('WordTrs').value;
+    WtrArray[rIndex] = document.getElementById('WordTrs').value;
 }
 pth="mpf/mp3f.php";
 $.get(

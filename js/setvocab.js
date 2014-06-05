@@ -198,24 +198,6 @@ function check_exit(){
     
   } 
   //End ------------------------------------------
-  //-????? ??? ??????. ???????? ??? ? ???????------
-  function seekTrans(eWord) {
-     var url = "lib/seekTrans.php?eWord="+eWord;
-      request.open("GET", url, true);
-      request.onreadystatechange = seekTransResponse;
-      request.send(null);   
-}
-
- function seekTransResponse() {
-
-    if (request.readyState == 4){
-   
-  var tagList = request.responseText.split("@(@");
-  window.document.WordForm.TextAreaTranslate.value=tagList[1];
-  window.document.WordForm.trnsc.value=tagList[0];
-    }
-  } 
- //End ????? ??? ??????. ???????? ??? ? ???????----------------------------------------
 
  function saveEdit(cha) {
     bookWord = document.getElementById('numberInTable').value ;   
