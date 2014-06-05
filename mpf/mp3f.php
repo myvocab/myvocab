@@ -125,13 +125,13 @@ file_put_contents('audio/'.$fileFinish,file_get_contents('audio/'.$wordEtr.'.mp3
 for ($i = 1; $i <= strlen($wordE); $i++) {
     
 file_put_contents('audio/'.$fileFinish,file_get_contents('audio/'.$fileFinish).file_get_contents('audio/'.$wordE[$i].'.mp3'));
-///////}
+}
 
 
 file_put_contents('audio/'.$fileFinish,file_get_contents('audio/'.$fileFinish).file_get_contents('audio/p1.mp3'));
 file_put_contents('audio/'.$fileFinish,file_get_contents('audio/'.$fileFinish).file_get_contents('audio/p1.mp3'));
  
-}
+////////////}
 
   
 
