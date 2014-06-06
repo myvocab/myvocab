@@ -47,17 +47,14 @@ include('lib/menu.inc');
 <div  style="position:absolute;left:0px;top:0px; display:block">
 <div  id="changeForAll"style="position:absolute;left:0px;top:394px; display:<?php if ($_SESSION['userId']==3){echo  'block';} else {echo  'none';}?>;">  
 <input class="bt" type="submit" id="SaveEditA" onclick="saveEdit('all');" name="" value="Сохранить для всех" 
-style="left:40px;top:0px;">
-<input class="bt" type="submit" id="btDelA" onclick="delRestore(-1,'all');" name="" value="Удалить для всех" style="left:180px;top:0px;">
+style="left:160px;top:0px;">
+<input class="bt" type="submit" id="btDelA" onclick="delRestore(-1,'all');" name="" value="Удалить для всех" style="left:300px;top:0px;">
 
 
 
-<input class="bt" type="submit" id="SaveEditA" onclick="mp3_f('-sp-ru');" name="" value="en-sp-ru" 
-style="left:550px;top:0px;width:60px;">
-<input class="bt" type="submit" id="SaveEditA" onclick="" name="" value="en" 
-style="left:630px;top:0px;width:60px;">
-<input class="bt" type="submit" id="SaveEditA" onclick="madesound();" name="" value="en-ru" 
-style="left:700px;top:0px;width:60px;">
+<input class="bt" type="submit" id="SaveEditA" onclick="mp3_f('-sp-ru');" name="" value="создать en-sp-ru" 
+style="left:475px;top:0px;width:110px;">
+
 
 </div>
 </div>
@@ -125,7 +122,7 @@ wordHistory();" name="" value="К СЛОВУ В ТЕКСТЕ" style="left:4px;to
 <input type="text" id="WordEdit" onfocus="keydownuse=0;" onblur="keydownuse=1;" onchange="seekTrans(this.value)" style="position:absolute;text-align:center;left:0px;top:0px;width:277px;height:19px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:15px;font-weight:bold;z-index:2" name="WEdit" value="">
 
 <input type="text" id="trnsc" onfocus="keydownuse=0;" onblur="keydownuse=1;" style="position:absolute;text-align:left;left:0px;top:22px;width:300px;height:19px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:13px;z-index:2" name="trnsc" value="">
-<input type="text" id="WordTrs"  style="position:absolute;text-align:left;left:0px;top:45px;width:300px;height:19px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:15px;font-weight:bold;z-index:2" name="WordTrs" value="">
+<input type="text" id="WordTrs"  style="position:absolute;text-align:left;left:0px;top:45px;width:300px;height:19px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:15px;font-weight:bold;z-index:2; display:none" name="WordTrs" value="">
 
 <textarea  id="trnsl"   name="TextAreaTranslate" onfocus="keydownuse=0;" onblur="keydownuse=1;" style="position:absolute;left:0px;top:64px;width:300px;height:280px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:13px;z-index:0;display:none" rows="35" cols="56" ></textarea>
 </form>

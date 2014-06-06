@@ -225,7 +225,8 @@ function check_exit(){
  
  
  function saveEditResponse(data) {
-var tagList = data.split("@(@");
+alert(data);
+     var tagList = data.split("@(@");
 
     var cha=tagList[3].trim();
 

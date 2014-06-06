@@ -287,12 +287,18 @@ if (nLev==50){showWord(rIndex+2); calcLev(); document.getElementById('tc').focus
      
  //  bookWord = document.getElementById('numberInTable').value ;   
  tr = window.document.WordForm.trnsl.value;
+// alert(tr);
  eWord = window.document.WordForm.WordEdit.value;
- 
+//  alert(eWord);
  oWord = WESt[rIndex];
+// alert(oWord+rIndex);
  tc = window.document.WordForm.trnsc.value;
- trw=1;
- //alert (oWord+tr+eWord+tc);
+// alert(tc);
+ trw= document.getElementById('WordTrs').value;
+// alert(trw);
+ prvw =  WESt[rIndex];
+// alert(prvw);
+// alert (oWord+tr+eWord+tc+tc+trw+prvw);
  pth="lib/saveEdit.php";
  if (cha =="all"){pth="lib/saveEditA.php";} 
 //alert("tr="+tr+"&eWord="+eWord+"&oWord="+oWord+"&tc="+tc);
@@ -300,7 +306,7 @@ if (nLev==50){showWord(rIndex+2); calcLev(); document.getElementById('tc').focus
    type: "POST",
   url: pth,
     data: "tr="+tr+"&eWord="+eWord+"&oWord="+oWord+"&tc="+tc+"&trWord="+trw+"&prevWord="+prvw+"&cha="+cha,
-      async:false,
+          async:false,
   success:  saveEditResponse, 
  });
 }
@@ -309,13 +315,14 @@ if (nLev==50){showWord(rIndex+2); calcLev(); document.getElementById('tc').focus
  
  function saveEditResponse(data) {
   ;
+//alert(data);
  var tagList = data.split("@(@");
 var cha=tagList[3].trim();
     var flag=tagList[0];
     var dtp=tagList[1];
     var pr=tagList[2];
- alert(cha) ;
-  TrnslSt[rIndex] = window.document.WordForm.trnsl.value;
+ 
+ TrnslSt[rIndex] = window.document.WordForm.trnsl.value;
  TrnscSt[rIndex] = window.document.WordForm.trnsc.value;
  WESt[rIndex] = window.document.WordForm.WordEdit.value;     
   
@@ -352,6 +359,7 @@ var cha=tagList[3].trim();
  if (flag==2){moveUp(bookWord);}
  */
   if(cha!="mute"){alert("Done!")};
+ // alert(cha) ;
  }
  
  

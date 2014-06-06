@@ -2,7 +2,11 @@
 
 function memWord(bw) {
 //alert(bw);
-  if (document.getElementById('DisplayTr').checked){document.getElementById('TextAreaTranslate').style.display='none';};
+  if (document.getElementById('DisplayTr').checked){
+      document.getElementById('TextAreaTranslate').style.display='none';
+      document.getElementById('WordTrs').style.display='none';
+  
+  };
     if (document.getElementById("NumberRow").innerHTML==0 ) {document.getElementById('numberInTable').value=0; exit();}
 //if  ((beacNSr==(NumberStore/2)-1) && (WESt[(NumberStore/2 +1)]=="12121")){document.getElementById("tmp1").value=document.getElementById("tmp1").value+"a";exit();}
 

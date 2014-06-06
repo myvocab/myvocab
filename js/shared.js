@@ -28,7 +28,7 @@ chfull = data.trim();
 var ch = chfull.split(":");
 if(ch[0]=="z"){saveEdit("mute");}
 
-alert(ch[0]+"ddd"+ch[1]);
+//alert(ch[0]+"ddd"+ch[1]);
 switch (ch[1]){
   case 'all':  
 location.href="/mpf/audio/df.php?fd="+document.getElementById('WordEdit').value+".zip"

@@ -113,8 +113,8 @@ exit();
  
  
 if ((events.keyCode == 13 || events.keyCode == 101) && chKey==0) {chKey=1;  document.getElementById('tc1').focus();memWord(rIndex+1);}
-if (events.keyCode == 39 || events.keyCode == 102) { document.getElementById('tc1').focus();document.getElementById('TextAreaTranslate').style.display='block';}
-if (events.keyCode == 37 || events.keyCode == 100) {document.getElementById('tc1').focus();document.getElementById('TextAreaTranslate').style.display='none';}
+if (events.keyCode == 39 || events.keyCode == 102) { document.getElementById('tc1').focus();document.getElementById('TextAreaTranslate').style.display='block';document.getElementById('WordTrs').style.display='block';}
+if (events.keyCode == 37 || events.keyCode == 100) {document.getElementById('tc1').focus();document.getElementById('TextAreaTranslate').style.display='none';document.getElementById('WordTrs').style.display='none';}
 if ((events.keyCode == 38|| events.keyCode ==  104) && chKey==0) {chKey=1; document.getElementById('tc1').focus(); i= parseInt(document.getElementById("numberInTable").value,10)-1; showWord(i);}
 if ((events.keyCode == 40 || events.keyCode ==  98 ) && chKey==0) {chKey=1; document.getElementById('tc1').focus(); i= parseInt(document.getElementById("numberInTable").value,10)+1; showWord(i);}
 }
@@ -154,7 +154,7 @@ if (request.readyState == 4){
     var mvWO=tagList[6].split("{{~");
     var mvWTR=tagList[7].split("{{~");
 
-    alert(mvWTR);
+ //   alert(mvWTR);
  // document.getElementById("dStudy").value = mvDate[0];
   if (parseInt(mvTrnsl[0].charAt(0), 10) == 0){ document.getElementById('PrevPage').disabled = true;
   document.getElementById('PrevIcon').style.display='none';

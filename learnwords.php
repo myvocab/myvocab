@@ -129,7 +129,7 @@ wordHistory();" name="" value="К СЛОВУ В ТЕКСТЕ" style="left:4px;to
 
 <input type="text" id="trnsc" onfocus="keydownuse=0;" onblur="keydownuse=1;" style="position:absolute;text-align:left;left:0px;top:22px;width:300px;height:19px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:13px;z-index:2" name="trnsc" value="">
 
-<input type="text" id="WordTrs"  style="position:absolute;text-align:left;left:0px;top:43px;width:300px;height:20px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:15px;font-weight:bold;z-index:2" name="WEdit" value="">
+<input type="text" id="WordTrs"  style="position:absolute;text-align:left;left:0px;top:43px;width:300px;height:20px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:15px;font-weight:bold;z-index:2;display:none;" name="WEdit" value="">
 
 <textarea name="TextAreaTranslate" id="TextAreaTranslate" onfocus="keydownuse=0;" onblur="keydownuse=1;" style="position:absolute;left:0px;top:63px;width:300px;height:280px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:13px;z-index:0" rows="35" cols="56" ></textarea>
 </form>
