@@ -2,7 +2,11 @@
 function memWordSt(ch)
 {
     keydownuse=1;
-  if (document.getElementById('DisplayTr').checked){document.getElementById('trnsl').style.display='none';};   
+  if (document.getElementById('DisplayTr').checked)
+  {
+   document.getElementById('trnsl').style.display='none';
+   document.getElementById('WordTrs').style.display = 'none';
+  };   
 wordUpd =WESt[rIndex];
 chtmp=ch;
 //document.getElementById('wordsPass').value = rIndex+1; 
