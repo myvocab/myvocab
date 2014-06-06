@@ -108,8 +108,8 @@ memWordSt(-1);
  
  
 //if ((events.keyCode == 13 || events.keyCode == 101) && chKey==0) {chKey=1;  memWordSt(rIndex+1);}
-if (events.keyCode == 39 || events.keyCode == 102) {document.getElementById('trnsl').style.display='block';}
-if (events.keyCode == 37 || events.keyCode == 100) {document.getElementById('trnsl').style.display='none';}
+if (events.keyCode == 39 || events.keyCode == 102) {document.getElementById('trnsl').style.display='block';document.getElementById('WordTrs').style.display='block';}
+if (events.keyCode == 37 || events.keyCode == 100) {document.getElementById('trnsl').style.display='none';document.getElementById('WordTrs').style.display='none';}
 //if ((events.keyCode == 38|| events.keyCode ==  104) && chKey==0) {chKey=1;  i= parseInt(document.getElementById("numberInTable").value,10)-1; showWord(i);}
 //if ((events.keyCode == 40 || events.keyCode ==  98 ) && chKey==0) {chKey=1; document.getElementById('tc1').focus(); i= parseInt(document.getElementById("numberInTable").value,10)+1; showWord(i);}
 }
@@ -301,9 +301,15 @@ document.getElementById("NRE").value = tagNR[2];
  {
    
    if ((document.getElementById('trnsl').style.display == 'none') )
-     {document.getElementById('trnsl').style.display = 'block'}
-     else
-     {document.getElementById('trnsl').style.display = 'none'};
+     {
+     document.getElementById('trnsl').style.display = 'block';
+     document.getElementById('WordTrs').style.display = 'block';
+     }
+   else
+     {
+      document.getElementById('trnsl').style.display = 'none';
+      document.getElementById('WordTrs').style.display = 'none';   
+     };
  }      
       
  
