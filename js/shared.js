@@ -92,7 +92,7 @@ function seekTrans(eWord) {
     if (request.readyState == 4){
         
   var tagList = request.responseText.split("@(@");
-  alert(request.responseText);
+ // alert(request.responseText);
   window.document.WordForm.TextAreaTranslate.value=tagList[1];
   window.document.WordForm.trnsc.value=tagList[0];
   document.getElementById("WordTrs").value=tagList[2];

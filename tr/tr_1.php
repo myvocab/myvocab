@@ -6,7 +6,7 @@ include('../lib/connect_db.php');
 $strSQL =   'UPDATE mv3 LEFT JOIN mt ON mv3.wordO = mt.wordO SET mv3.wordTr = mt.wordTR';
 $res = mysqli_query($link, $strSQL);
 
-$strSQL =   'SELECT id, wordO, wordE, transl, idSort, pr, flag, date50, transc, iterationE, NP, iterationO, NS FROM mvdone'.$userId . ' ORDER BY id LIMIT 2,1';
+$strSQL =  'SELECT id, wordO, wordE, transl, idSort, pr, flag, date50, transc, iterationE, NP, iterationO, NS FROM mvdone'.$userId . ' ORDER BY id LIMIT 2,1';
 $res = mysqli_query($link, $strSQL);
 
 
