@@ -2,11 +2,11 @@
 session_start();
 include('../lib/connect_db.php');
 $userId=$_SESSION['userId'];
-$userId="";
-for ($i = 0; $i <= 1000; $i++) {
+//$userId="";
+for ($i = 0; $i <= 500; $i++) {
 
 ////////$strSQL =   'SELECT  wordO FROM mt  WHERE wordTr="" ORDER BY wordO LIMIT '.$i.',1';
-$strSQL =   'SELECT  wordE FROM mvedit'.$userId.'  WHERE (wordTr="" or wordTr IS NULL)  ORDER BY wordE LIMIT '.$i.',1';
+$strSQL =   'SELECT  wordE FROM mvdone'.$userId.'  WHERE (wordTr="" or wordTr IS NULL)  ORDER BY wordE LIMIT '.$i.',1';
 //echo $strSQL."</BR>";
 $res = mysqli_query($link, $strSQL);
 
@@ -39,7 +39,7 @@ $obj = json_decode($responseData);
 $wordRA =  $obj->{"text"}[0];
 
 ///////////$strSQL = 'UPDATE mt SET mt.wordTr="'.$wordRA.'" WHERE (((mt.wordO))="'.$wordEtmp.'")';
-$strSQL = 'UPDATE mvedit'.$userId.' SET mvedit'.$userId.'.wordTr="'.$wordRA.'" WHERE (((mvedit'.$userId.'.wordE))="'.$wordEtmp.'")';
+$strSQL = 'UPDATE mvdone'.$userId.' SET mvdone'.$userId.'.wordTr="'.$wordRA.'" WHERE (((mvdone'.$userId.'.wordE))="'.$wordEtmp.'")';
 
 
 //UPDATE mvdone3 SET mvdone3.wordTr = "dd" WHERE (((mvdone3.wordE)="dd"));
