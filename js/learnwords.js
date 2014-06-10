@@ -260,7 +260,7 @@ for (var k = NumberWords; k < NumberWords+NumberStore; k++) {
     TrnscSt[aa]= mvTrnsc[k+1];    
     WOSt[aa] = mvWO[k+1];
     WESt[aa] = mvWE[k+1];
-    mvWTR[aa] = mvWTR[k+1];
+    WtrSt[aa] = mvWTR[k+1];
     dateSt[aa] =  mvDate[k+1];
     PrSt[aa] = mvPr[k+1];
     idSSt[aa] =  mvID[k+1];
@@ -396,27 +396,9 @@ function dateNow(){
   document.getElementById("dLevel").value = myDate.getFullYear()+"." + mm + "." + dd;
 } 
   
-function madesound(){
-//alert (document.getElementById('WordEdit').value);
-pth="mpf/msound.php";
-$.get(
-  pth,
-  { 
-//     ch: 0, 
-     wordEA: document.getElementById('WordEdit').value
-   },
-  madesoundResponse
-);  
-}
 
-function madesoundResponse(data){
- //   alert("ff");
- //   alert(data+"ddd");
-document.getElementById('mySoundClip').src='mpf/audio/eng/'+data+'.mp3';
-var audio = document.getElementById("mySoundClip");
-audio.play();  
-}    
-  
+
+
   
   
 function fillTmp1(){document.getElementById("tmp1").value=WOSt;} 

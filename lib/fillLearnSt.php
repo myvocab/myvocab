@@ -16,7 +16,7 @@ $strWHERE = " WHERE (flag>0)";
 $idCurr=1;
 $NimInTable=1;
 
-// Инициализация служебной инфо в первом члене масива 
+// ????????????? ????????? ???? ? ?????? ????? ?????? 
     $pp = 1;   //end prev indication
     $np = 1;   //end next indication
     $mvTrnsl = $pp.$np; //end prev or start  
@@ -26,7 +26,7 @@ $NimInTable=1;
     $mvDate = -1; //Date study words
     $mvPr = "1111"; //flag learn or del
     $mvFlag = -1; 
- // End Инициализация служебной инфо в первом члене масива 
+ // End ????????????? ????????? ???? ? ?????? ????? ?????? 
   $WO=Trim($_GET["WO"]);
 //seek id for wordOcurr 
 if ($_GET["chval"] =="s"){$wl = "mvs". $userId; $wln = "mvs";}
@@ -48,7 +48,7 @@ $idCurr = $row[flag];
 
 
 
-$strSQL =   'SELECT id, wordE, wordO, transl, pr, flag, date50, transc FROM '. $wl .
+$strSQL =   'SELECT id, wordE, wordO, transl, pr, flag, date50, transc, wordTr FROM '. $wl .
 ' WHERE ((flag>'.$idCurr.') and (flag<>-1)) ORDER BY flag LIMIT 0,'.$StW;
 
 
@@ -65,6 +65,7 @@ while ($row = mysqli_fetch_array($res))
     $mvDate = $mvDate."{{~".substr($row['date50'],0,4).".".substr($row['date50'],5,2).".".substr($row['date50'],8,2); 
     $mvPr = $mvPr."{{~".$row['pr'];
     $mvOW = $mvOW."{{~".$row['wordO'];
+    $mvWtr = $mvWtr."{{~".$row['wordTr'];
 }   
 
 //$idStart =31;
@@ -74,7 +75,7 @@ while ($row = mysqli_fetch_array($res))
 $res = mysqli_query($link, 'UPDATE infotmp'. $userId .' SET FieldValue='.$idStart.' WHERE (FieldName="learnIdStartPage")');
 }
 */            
-echo $mvidSort."@(@".$mvW."@(@".$mvTrnsl."@(@".$mvTrnsc."@(@".$mvDate."@(@".$mvPr."@(@".$mvOW;
+echo $mvidSort."@(@".$mvW."@(@".$mvTrnsl."@(@".$mvTrnsc."@(@".$mvDate."@(@".$mvPr."@(@".$mvOW."@(@".$mvWtr;
 //echo $strSQL;
 ?>
 

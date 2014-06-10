@@ -439,7 +439,7 @@ if  (beacNSr==(NumberStore/2 )){
     NPSt[k] = NPSt[k+(NumberStore/2 )];
     PrSt[k] = PrSt[k+(NumberStore/2 )];
     IterationSt[k] = IterationSt[k+(NumberStore/2)];
-    WtrSt[k] =  WtrSt[k+1 -NumberStore/2];
+    WtrSt[k] =  WtrSt[k+(NumberStore/2)];
  }
 // alert (WOSt);
 beacSt = 2;

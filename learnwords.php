@@ -45,7 +45,7 @@ if ($_SESSION['userName'] == NULL) {
 <input  id="PrevPage"  style="display:none;">
 <input  id="NextPage"  style="display:none;">   
 <div  style="position:absolute;left:0px;top:0px; display:block">
-<div  id="changeForAll"style="position:absolute;left:0px;top:384px; display:<?php if ($_SESSION['userId']==3){echo  'block';} else {echo  'none';}?>;">  
+<div  id="changeForAll"style="position:absolute;left:0px;top:404px; display:<?php if ($_SESSION['userId']==3){echo  'block';} else {echo  'none';}?>;">  
 <input class="bt" type="submit" id="SaveEditA" onclick="saveEdit('all');" name="" value="Сохранить для всех" 
 style="left:140px;top:0px;">
 <input class="bt" type="submit" id="btDelA" onclick="delRestore(-1,'all');" name="" value="Удалить для всех" style="left:280px;top:0px;">
@@ -131,18 +131,29 @@ wordHistory();" name="" value="К СЛОВУ В ТЕКСТЕ" style="left:4px;to
 
 <input type="text" id="WordTrs"  style="position:absolute;text-align:left;left:0px;top:43px;width:300px;height:20px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:15px;font-weight:bold;z-index:2;display:none;" name="WEdit" value="">
 
-<textarea name="TextAreaTranslate" id="TextAreaTranslate" onfocus="keydownuse=0;" onblur="keydownuse=1;" style="position:absolute;left:0px;top:63px;width:300px;height:280px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:13px;z-index:0" rows="35" cols="56" ></textarea>
+<textarea name="TextAreaTranslate" id="TextAreaTranslate" onfocus="keydownuse=0;" onblur="keydownuse=1;" style="position:absolute;left:0px;top:63px;width:300px;height:305px;border:1px #C0C0C0 solid;font-family:Courier New;font-size:13px;z-index:0" rows="35" cols="56" ></textarea>
 </form>
-<input class="bt" type="submit" id="SaveEdit" onclick="saveEdit();" name="" value="Сохранить изменения" style="left:0px;top:348px;width:302px;">
+<input class="bt" type="submit" id="SaveEdit" onclick="saveEdit();" name="" value="Сохранить изменения" style="left:0px;top:375px;width:302px;">
 
 </div>
+<div style="position:absolute;left:19px;top:10px; display:blocke;">
+<input class="bt" type="submit" id="SaveEditA" onclick="mp3_f('en')" name="" value="MP3-en" 
+style="left:440px;top:0px;width:62px;">
+<input class="bt" type="submit" id="SaveEditA" onclick="mp3_f('en-ru');" name="" value="en-ru" 
+style="left:502px;top:0px;width:62px;">
+<input class="bt" type="submit" id="SaveEditA" onclick="mp3_f('en-sp-ru');" name="" value="en-sp-ru" 
+style="left:564px;top:0px;width:62px;">
+<input class="bt" type="submit" id="SaveEditA" onclick="mp3_f('all');" name="" value="All" 
+style="left:626px;top:0px;width:62px;">
 
-
+</div>
+<div style="position:absolute;left:0px;top:20px; display:blocke;">
 <table class="main_table" id="tbn">
 
 
 <!--<caption>This is a table caption</caption>-->
-<tbody>      
+<tbody>   
+
 <script language="javascript" type="text/javascript">  
 for (var i = 1; i <= NumberWords; i++) {
 //memWord();document.write('<tr   id="td1" onclick="showWord('+ i +' );"  onmouseover="overm(this);" onmouseout="outm(this);" >');
@@ -174,6 +185,8 @@ document.write('</tr>');
 </tbody>
 </table >
  </div>
+  </div>
+ 
 	</body>
 
  

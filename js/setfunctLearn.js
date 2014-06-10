@@ -221,15 +221,15 @@ if (nLev==50){showWord(rIndex+2); calcLev(); document.getElementById('tc').focus
  tc = window.document.WordForm.trnsc.value;
  trw=document.getElementById('WordTrs').value;
  prvw = document.getElementById("tc"+bookWord).innerHTML;
- alert (prvw);
+ //alert (prvw+"ssss");
  pth="lib/saveEdit.php";
  if (cha =="all"){pth="lib/saveEditA.php";} 
 //alert("tr="+tr+"&eWord="+eWord+"&oWord="+oWord+"&tc="+tc+"&trWord="+trw+"&prevWord="+prvw);
  $.ajax({
    type: "POST",
   url: pth,
-   data: "tr="+tr+"&eWord="+eWord+"&oWord="+oWord+"&tc="+tc+"&trWord="+trw+"&prevWord="+prvw,
-      async:false,
+   data: "tr="+tr+"&eWord="+eWord+"&oWord="+oWord+"&tc="+tc+"&trWord="+trw+"&prevWord="+prvw+"&cha="+cha,
+    async:false,
   success:  saveEditResponse, 
  });
 }
@@ -281,7 +281,7 @@ if (nLev==50){showWord(rIndex+2); calcLev(); document.getElementById('tc').focus
  
  if (flag==2){moveUp(bookWord);}
  */
-   alert("Done!");
+   if(cha!="mute"){alert("Done!")};
  }
  
  
@@ -334,15 +334,17 @@ if (nLev==50){showWord(rIndex+2); calcLev(); document.getElementById('tc').focus
    TrnslArray[f-1] = TrnslArray[fn-1];
    TrnscArray[f-1] = TrnscArray[fn-1];
    WOArray[f-1] = WOArray[fn-1];
+   WtrArray[f-1] = WtrArray[fn-1];
   }
 
   
   
   
   
-  TrnslArray[NumberWords-1]= TrnslSt[beacNSr];    
+    TrnslArray[NumberWords-1]= TrnslSt[beacNSr];    
     TrnscArray[NumberWords-1]= TrnscSt[beacNSr];    
     WOArray[NumberWords-1] = WOSt[beacNSr];
+    WtrArray[NumberWords-1] = WtrSt[beacNSr];
     
         document.getElementById("tc"+NumberWords).innerHTML =" ";
         document.getElementById("tc"+NumberWords).style.color="black";
@@ -420,6 +422,7 @@ for (var k = 0; k < (NumberStore/2 ); k++) {
     dateSt[k] = dateSt[k+(NumberStore/2 )];
     PrSt[k] = PrSt[k+(NumberStore/2 )];
     idSSt[k] = idSSt[k+(NumberStore/2 )];
+    WtrSt[k] = WtrSt[k+(NumberStore/2 )];
  }
  fillTmp1()
  //WESt[(NumberStore/2 +1 )]="12121";
@@ -461,6 +464,7 @@ function fillStResponse(data) {
     var mvPr=tagList[5].split("{{~");
     var mvWO=tagList[6].split("{{~");
     var mvNP=tagList[0].split("{{~");
+    var mvWTR=tagList[7].split("{{~");
    
                                        
  
@@ -473,6 +477,7 @@ function fillStResponse(data) {
     dateSt[k] =  mvDate[k+1 -NumberStore/2];
     idSSt[k] = mvNP[k+1 -NumberStore/2];
     PrSt[k] = mvPr[k+1 -NumberStore/2];
+    WtrSt[k] = mvWTR[k+1 -NumberStore/2];
  //  alert(2);     
  fillTmp1(); 
    

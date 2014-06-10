@@ -314,7 +314,7 @@ if (nLev==50){showWord(rIndex+2); calcLev(); document.getElementById('tc').focus
  
  
  function saveEditResponse(data) {
-  ;
+  
 //alert(data);
  var tagList = data.split("@(@");
 var cha=tagList[3].trim();
