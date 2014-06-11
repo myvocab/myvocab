@@ -24,6 +24,7 @@ document.getElementById('tmp1').value = document.getElementById('tmp1').value+" 
   dateTmp[countTmp1] = document.getElementById("dLevel").value;
    WETmp[countTmp1] = document.getElementById("WordEdit").value;
   WOTmp[countTmp1] = document.getElementById("oriWord").value;
+ WtrTmp[countTmp1] = document.getElementById("WordTrs").value;
   PrTmp[countTmp1] = nLev;
   dLev = document.getElementById("dLevel").value;
   
@@ -31,7 +32,7 @@ document.getElementById('tmp1').value = document.getElementById('tmp1').value+" 
 document.getElementById("WordEdit").value = "";
 window.document.WordForm.trnsc.value = "";
 window.document.WordForm.TextAreaTranslate.value = "";
-
+document.getElementById('WordTrs').value="";
 } 
   
   
@@ -104,7 +105,7 @@ showWord(bookWordL);
 function setLevelInBases(k) {
     cBook = 1;
    
-  var url = "lib/setLevel.php?nLev="+PrTmp[k]+"&dLev="+dateTmp[k]+"&weLev="+WETmp[k]+"&woLev="+WOTmp[k]+"&chLearn=r";
+  var url = "lib/setLevel.php?nLev="+PrTmp[k]+"&dLev="+dateTmp[k]+"&weLev="+WETmp[k]+"&woLev="+WOTmp[k]+"&chLearn=r"+"&wtrLev="+WtrTmp[k];
      
       request.open("GET", url, true);
       request.onreadystatechange = setLevelInBasesResponse;
@@ -250,6 +251,7 @@ function check_exit(){
  
   TrnslArray[bookWord-1] = window.document.WordForm.TextAreaTranslate.value;
   TrnscArray[bookWord-1] = window.document.WordForm.trnsc.value;
+  WtrArray[bookWord-1] = document.getElementById('WordTrs').value;
   document.getElementById("tc"+bookWord).innerHTML = window.document.WordForm.WordEdit.value;
   document.getElementById("date"+bookWord).innerHTML=dtp;
 

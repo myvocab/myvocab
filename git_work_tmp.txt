@@ -10,7 +10,7 @@ git init
 git add README.md
 
 git add --all
-git commit -m "20140603_1"
+git commit -m "20140611_1"
 git push -u origin master
 
 

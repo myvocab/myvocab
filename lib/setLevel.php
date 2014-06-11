@@ -12,6 +12,7 @@ date_default_timezone_set('UTC');
 $nLev=htmlspecialchars($_GET["nLev"]); 
 $dLev=htmlspecialchars($_GET["dLev"]);
 $weLev=htmlspecialchars(Trim($_GET["weLev"]));
+$wtrLev=htmlspecialchars(Trim($_GET["wtrLev"]));
 $woLev=htmlspecialchars(Trim($_GET["woLev"]));
 $cBook=htmlspecialchars(Trim($_GET["cBook"]));
 $chLearn =htmlspecialchars(Trim($_GET["chLearn"]));
@@ -41,9 +42,15 @@ if ($chLearn == "r"){
 if ($nLev != 0)  {
 $result = mysqli_query($link, 'Delete mvdone'. $userId .'.* FROM mvdone'. $userId .' WHERE (wordE="'.$weLev.'")');
    
-$strSQL = "INSERT INTO mvdone". $userId ." ( wordO, wordE, transc, transl, pr, date50, TimeClickTmp, NT, TimeClick) 
+$strSQL = "INSERT INTO mvdone". $userId ." ( wordO, wordE,  transc, transl, pr, date50, TimeClickTmp, NT, TimeClick) 
 SELECT mv". $userId .".wordO, mv". $userId .".wordE, mv". $userId .".transc, mv". $userId .".transl, mv". $userId .".pr, mv". $userId .".date50, '".date('Y-m-d H:i:s')."' AS  ss2, ".$cBook." AS nb, '".date('Y-m-d H:i:s')."' AS  ss 
 FROM mv". $userId ." WHERE (((mv". $userId .".wordO)='" . $woLev ."'))";
+
+$strSQL = "INSERT INTO mvdone". $userId ." ( wordO, wordE, wordTr, transc, transl, pr, date50, TimeClickTmp, NT, TimeClick) SELECT mv". $userId .".wordO, mv". $userId .".wordE, mv". $userId .".wordTr, mv". $userId .".transc, mv". $userId .".transl, mv". $userId .".pr, mv". $userId .".date50, '".date('Y-m-d H:i:s')."' AS  ss2, ".$cBook." AS nb, '".date('Y-m-d H:i:s')."' AS  ss 
+FROM mv". $userId ." WHERE (((mv". $userId .".wordO)='" . $woLev ."'))";
+
+
+
 $result = mysqli_query($link,$strSQL);
 }
 }
